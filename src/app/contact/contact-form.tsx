@@ -19,6 +19,7 @@ type FormState = {
     name?: string[];
     email?: string[];
     message?: string[];
+    phone?: string[];
   };
   success: boolean;
 };
@@ -67,21 +68,21 @@ export function ContactForm() {
                             <form ref={formRef} action={formAction} className="space-y-6">
                                 <div className="space-y-2 group">
                                   <label htmlFor="name" className="text-sm font-medium">Full Name</label>
-                                  <Input id="name" name="name" placeholder="John Doe" required />
+                                  <Input id="name" name="name" placeholder="John Doe" required className="glow-input" />
                                   {state.errors?.name && <p className="text-sm font-medium text-destructive">{state.errors.name[0]}</p>}
                                 </div>
                                 <div className="space-y-2 group">
                                   <label htmlFor="email" className="text-sm font-medium">Email Address</label>
-                                  <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required />
+                                  <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required className="glow-input" />
                                   {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email[0]}</p>}
                                 </div>
                                 <div className="space-y-2 group">
                                   <label htmlFor="phone" className="text-sm font-medium">Phone Number (Optional)</label>
-                                  <Input id="phone" name="phone" placeholder="(123) 456-7890" />
+                                  <Input id="phone" name="phone" placeholder="(123) 456-7890" className="glow-input" />
                                 </div>
                                 <div className="space-y-2 group">
                                   <label htmlFor="message" className="text-sm font-medium">Your Message</label>
-                                  <Textarea id="message" name="message" placeholder="Tell us about your project..." className="min-h-[120px]" required />
+                                  <Textarea id="message" name="message" placeholder="Tell us about your project..." className="min-h-[120px] glow-input" required />
                                   {state.errors?.message && <p className="text-sm font-medium text-destructive">{state.errors.message[0]}</p>}
                                 </div>
                                 <SubmitButton />
@@ -160,3 +161,5 @@ export function ContactForm() {
     </div>
   );
 }
+
+    
