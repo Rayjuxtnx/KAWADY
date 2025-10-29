@@ -20,10 +20,10 @@ export default function ServicesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
-              <Card key={service.title} className="flex flex-col bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <Card key={service.title} className="group flex flex-col bg-card hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <CardHeader className="flex-shrink-0">
                   <div className="flex items-center gap-4">
-                    <div className="bg-accent/10 p-4 rounded-lg">
+                    <div className="bg-accent/10 p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">
                       {service.icon}
                     </div>
                     <div>

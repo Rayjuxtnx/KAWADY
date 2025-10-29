@@ -36,7 +36,7 @@ export default function Home() {
             Your trusted partner in construction consultancy, delivering excellence from concept to completion.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 pulse">
               <Link href="/contact">Request a Quote</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary">
@@ -55,10 +55,10 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.slice(0, 3).map((service: Service) => (
-              <Card key={service.title} className="text-left hover:shadow-lg transition-shadow duration-300 bg-card">
+              <Card key={service.title} className="group text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-card">
                 <CardHeader>
                   <div className="flex items-center gap-4">
-                    <div className="bg-accent/10 p-3 rounded-full">{service.icon}</div>
+                    <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
                     <CardTitle className="text-primary">{service.title}</CardTitle>
                   </div>
                 </CardHeader>
