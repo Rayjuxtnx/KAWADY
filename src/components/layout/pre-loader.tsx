@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Hammer } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export function PreLoader() {
   const [loading, setLoading] = useState(true);
@@ -26,8 +26,8 @@ export function PreLoader() {
       }`}
     >
       <div className="flex items-center gap-4">
-        <Hammer className="h-12 w-12 text-accent hammer-swing" />
-        <h1 className="text-5xl font-bold tracking-wider text-hit">KAWADY</h1>
+        <Sparkles className="h-12 w-12 text-accent welding-spark" />
+        <h1 className="text-5xl font-bold tracking-wider text-flicker">KAWADY</h1>
       </div>
       <p className="mt-4 text-lg text-white/80">Building with Insight</p>
     </div>

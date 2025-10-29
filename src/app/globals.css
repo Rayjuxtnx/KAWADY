@@ -122,30 +122,27 @@
   }
 }
 
-@keyframes hammer-swing {
-  0% { transform: rotate(0deg); }
-  20% { transform: rotate(45deg); }
-  40% { transform: rotate(-10deg); }
-  60% { transform: rotate(15deg); }
-  80% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
+@keyframes welding-spark {
+  0% { transform: scale(1); opacity: 1; color: hsl(var(--accent)); }
+  50% { transform: scale(1.5); opacity: 0.5; color: white; }
+  100% { transform: scale(1); opacity: 1; color: hsl(var(--accent)); }
 }
 
-.hammer-swing {
-  animation: hammer-swing 1.5s ease-in-out infinite;
-  transform-origin: bottom right;
+.welding-spark {
+  animation: welding-spark 0.7s ease-in-out infinite;
 }
 
-@keyframes text-hit {
-  0%, 35%, 100% { transform: scale(1) translateX(0); }
-  40% { transform: scale(0.95, 1.05) translateX(-5px) rotate(-1deg); }
-  45% { transform: scale(1.02, 0.98) translateX(2px); }
-  50% { transform: scale(1) translateX(0); }
+@keyframes text-flicker {
+  0% { opacity: 0.8; text-shadow: 0 0 2px white; }
+  20% { opacity: 1; text-shadow: 0 0 5px white; }
+  40% { opacity: 0.7; }
+  60% { opacity: 1; text-shadow: 0 0 10px hsl(var(--accent)); }
+  80% { opacity: 0.9; text-shadow: 0 0 5px white; }
+  100% { opacity: 1; }
 }
 
-.text-hit {
-  animation: text-hit 1.5s ease-in-out infinite;
-  transform-origin: center;
+.text-flicker {
+  animation: text-flicker 1.5s ease-in-out infinite;
 }
 
 @keyframes blueprint-draw {
