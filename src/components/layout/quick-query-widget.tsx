@@ -11,13 +11,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
-  SheetFooter,
 } from '@/components/ui/sheet';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Hammer } from 'lucide-react';
 
 type Message = {
   role: 'user' | 'bot';
@@ -36,10 +34,16 @@ async function handleAction(state: { messages: Message[] }, formData: FormData):
   const userMessage: Message = { role: 'user', text: prompt };
   const newMessages: Message[] = [...state.messages, userMessage];
 
-  const botResponse = await siteExpert(prompt);
-  const botMessage: Message = { role: 'bot', text: botResponse };
-  
-  return { messages: [...newMessages, botMessage] };
+  // The AI call is now handled directly here, making it a real chat interaction
+  try {
+    const botResponse = await siteExpert(prompt);
+    const botMessage: Message = { role: 'bot', text: botResponse };
+    return { messages: [...newMessages, botMessage] };
+  } catch (error) {
+    console.error("Error calling AI expert:", error);
+    const errorMessage: Message = { role: 'bot', text: "Sorry, I'm having trouble connecting. Please try again later." };
+    return { messages: [...newMessages, errorMessage] };
+  }
 }
 
 export function QuickQueryWidget() {
@@ -50,6 +54,7 @@ export function QuickQueryWidget() {
   const [input, setInput] = useState('');
 
   useEffect(() => {
+    // Scroll to bottom when new messages are added
     if (state.messages.length > 0) {
       setTimeout(() => {
         if (scrollAreaRef.current) {
@@ -63,8 +68,8 @@ export function QuickQueryWidget() {
   }, [state.messages]);
 
   useEffect(() => {
+    // Reset messages when sheet is closed
     if (!isOpen) {
-      // Reset state when sheet closes
       state.messages = [];
     }
   }, [isOpen, state]);
@@ -78,25 +83,25 @@ export function QuickQueryWidget() {
   return (
     <>
       <Button
-        className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 z-50"
+        className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 z-50 pulse"
         onClick={() => setIsOpen(true)}
+        aria-label="Open AI Assistant"
       >
-        <span className="sr-only">Open Quick Query</span>
         <Bot className="h-8 w-8" />
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
       </Button>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] flex flex-col">
-          <SheetHeader>
-            <SheetTitle>Quick Query Assistant</SheetTitle>
+        <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] flex flex-col p-0">
+          <SheetHeader className="p-6 pb-4">
+            <SheetTitle>K-Bot Assistant</SheetTitle>
             <SheetDescription>
-              Ask K-Bot about our construction and metalwork services.
+              Ask me anything about our construction and metalwork services.
             </SheetDescription>
           </SheetHeader>
 
-          <ScrollArea className="flex-grow my-4 pr-4" ref={scrollAreaRef}>
-            <div className="space-y-4">
+          <ScrollArea className="flex-grow my-0 px-6" ref={scrollAreaRef}>
+            <div className="space-y-4 py-4">
               {state.messages.map((message, index) => (
                 <div
                   key={index}
@@ -106,7 +111,7 @@ export function QuickQueryWidget() {
                   )}
                 >
                   {message.role === 'bot' && (
-                    <Avatar className="w-8 h-8">
+                    <Avatar className="w-8 h-8 flex-shrink-0">
                       <AvatarFallback className="bg-accent text-accent-foreground">
                         <Bot size={20}/>
                       </AvatarFallback>
@@ -117,7 +122,7 @@ export function QuickQueryWidget() {
                       'p-3 rounded-lg max-w-sm',
                       message.role === 'user'
                         ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted'
+                        : 'bg-muted text-foreground'
                     )}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.text}</p>
@@ -126,7 +131,7 @@ export function QuickQueryWidget() {
               ))}
               {isPending && (
                 <div className="flex items-start gap-3 justify-start">
-                   <Avatar className="w-8 h-8">
+                   <Avatar className="w-8 h-8 flex-shrink-0">
                       <AvatarFallback className="bg-accent text-accent-foreground">
                         <Bot size={20}/>
                       </AvatarFallback>
@@ -140,21 +145,25 @@ export function QuickQueryWidget() {
             </div>
           </ScrollArea>
           
-          <form ref={formRef} onSubmit={handleSubmit} className="flex items-center gap-2 py-4 border-t">
-              <Input 
-                id="prompt" 
-                name="prompt" 
-                placeholder="Ask about our services..." 
-                required 
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                disabled={isPending}
-              />
-              <Button type="submit" disabled={isPending || !input}>
-                <Send className="h-4 w-4"/>
-                <span className="sr-only">Send</span>
-              </Button>
-          </form>
+          <div className="p-6 pt-2 bg-background border-t">
+            <form ref={formRef} onSubmit={handleSubmit} className="flex items-center gap-2">
+                <Input 
+                  id="prompt" 
+                  name="prompt" 
+                  placeholder="Ask about welding, estimates..." 
+                  required 
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  disabled={isPending}
+                  autoComplete="off"
+                  className="glow-input"
+                />
+                <Button type="submit" disabled={isPending || !input.trim()} size="icon" className="flex-shrink-0">
+                  <Send className="h-4 w-4"/>
+                  <span className="sr-only">Send</span>
+                </Button>
+            </form>
+          </div>
         </SheetContent>
       </Sheet>
     </>
