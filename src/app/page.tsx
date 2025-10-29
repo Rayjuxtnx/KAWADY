@@ -58,7 +58,8 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
             {services.slice(0, 3).map((service: Service) => (
-              <Card key={service.title} className="group text-left bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 hover:[transform:rotateY(-10deg)_rotateX(10deg)]">
+              <Card key={service.title} className="group text-left bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 hover:[transform:rotateY(-10deg)_rotateX(10deg)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-transparent group-hover:border-4 group-hover:border-accent transition-all duration-300 pointer-events-none rounded-lg" style={{ boxShadow: '0 0 20px hsl(var(--accent) / 0), 0 0 30px hsl(var(--accent) / 0)' }}></div>
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
@@ -66,7 +67,8 @@ export default function Home() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{service.description}</p>
+                  <p className="text-muted-foreground opacity-100 group-hover:opacity-0 transition-opacity duration-300">{service.description}</p>
+                  <p className="absolute top-1/2 left-6 right-6 -translate-y-1/2 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
