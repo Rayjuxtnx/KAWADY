@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Flame, Wrench, Gem } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
@@ -11,6 +11,24 @@ import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 const homeHeroImage = PlaceHolderImages.find(p => p.id === 'home-hero');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
+
+const metalServices = [
+  {
+    title: 'Custom Metalworks',
+    description: 'We craft bespoke metal components tailored to your exact specifications. From structural elements to decorative pieces, our work combines form and function.',
+    icon: <Wrench className="w-8 h-8 text-accent" />,
+  },
+  {
+    title: 'Expert Welding',
+    description: 'Our certified welders deliver flawless joins and robust fabrication using advanced techniques for steel, aluminum, and other alloys.',
+    icon: <Flame className="w-8 h-8 text-accent" />,
+  },
+  {
+    title: 'Artistic Iron Fabrication',
+    description: 'Transforming raw iron into functional art. We specialize in custom gates, railings, and ornamental ironwork that adds timeless elegance.',
+    icon: <Gem className="w-8 h-8 text-accent" />,
+  },
+];
 
 export default function Home() {
   return (
@@ -52,7 +70,7 @@ export default function Home() {
       {/* Services Overview Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-7xl text-center">
-          <h2 className="text-3xl font-bold text-primary">Our Core Services</h2>
+          <h2 className="text-3xl font-bold text-primary">Our Core Consultancy Services</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             We provide a comprehensive range of consultancy services to ensure your project's success at every stage.
           </p>
@@ -75,13 +93,41 @@ export default function Home() {
             ))}
           </div>
           <Button asChild variant="link" className="mt-8 text-accent text-base">
-            <Link href="/services">Explore All Services <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link href="/services">Explore All Consultancy Services <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Metalworks Section */}
+      <section className="py-16 md:py-24 bg-card/50">
+        <div className="container max-w-7xl text-center">
+          <h2 className="text-3xl font-bold text-primary">Expert Fabrication & Metalworks</h2>
+          <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
+            From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
+          </p>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {metalServices.map((service) => (
+              <Card key={service.title} className="group text-left bg-card/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/30 backdrop-blur-sm">
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                    <CardTitle className="text-primary">{service.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <Button asChild variant="link" className="mt-8 text-accent text-base">
+            <Link href="/metalworks">Discover Our Metalworks <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-card">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
