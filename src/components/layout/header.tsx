@@ -13,6 +13,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Services' },
+  { href: '/metalworks', label: 'Metalworks' },
   { href: '/projects', label: 'Projects' },
   { href: '/contact', label: 'Contact Us' },
 ];

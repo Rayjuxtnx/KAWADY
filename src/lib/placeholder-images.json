@@ -53,6 +53,18 @@
       "description": "The interior of a large industrial warehouse during the final stages of construction.",
       "imageUrl": "https://images.unsplash.com/photo-1553413077-190dd305871c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbmR1c3RyaWFsJTIwd2FyZWhvdXNlfGVufDB8fHx8MTc2MTY2ODUzNXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "industrial warehouse"
+    },
+    {
+      "id": "metalworks-hero",
+      "description": "A skilled welder working on a metal frame, with sparks flying.",
+      "imageUrl": "https://images.unsplash.com/photo-1632781358323-6525db04ebd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWxkaW5nfGVufDB8fHx8MTcyMjAwNjE2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "welder sparks"
+    },
+    {
+      "id": "metalworks-quality",
+      "description": "A close-up shot of a perfectly executed weld on a steel beam.",
+      "imageUrl": "https://images.unsplash.com/photo-1599484784742-d7b619d85422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWxkfGVufDB8fHx8MTcyMjAwNjI2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steel weld"
     }
   ]
 }
