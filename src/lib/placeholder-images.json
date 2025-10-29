@@ -1,3 +1,58 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "home-hero",
+      "description": "A modern building under construction against a sunset.",
+      "imageUrl": "https://images.unsplash.com/photo-1595392312303-ddfc8d8ca472?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjBza3lzY3JhcGVyfGVufDB8fHx8MTc2MTc0ODc3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "construction skyscraper"
+    },
+    {
+      "id": "about-main",
+      "description": "A team of architects and engineers discussing blueprints in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1631203928521-bde1e727e8b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NjE3Mjk4OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team meeting"
+    },
+    {
+      "id": "about-banner",
+      "description": "A wide-angle shot of a beautifully designed architectural interior.",
+      "imageUrl": "https://images.unsplash.com/photo-1600210492493-0946911123ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjE2MjM1ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern interior"
+    },
+    {
+      "id": "project-1",
+      "description": "A sleek, modern residential tower with glass balconies.",
+      "imageUrl": "https://images.unsplash.com/photo-1515263487990-61b07816b324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcGFydG1lbnR8ZW58MHx8fHwxNzYxNzI1MDc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern apartment"
+    },
+    {
+      "id": "project-2",
+      "description": "An expansive commercial complex with a unique, curved glass facade.",
+      "imageUrl": "https://images.unsplash.com/photo-1582061575118-93cc82eca33b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBidWlsZGluZ3xlbnwwfHx8fDE3NjE3MzA1ODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office building"
+    },
+    {
+      "id": "project-3",
+      "description": "A public library with a striking geometric design and wooden accents.",
+      "imageUrl": "https://images.unsplash.com/photo-1520387294843-fd994fd872e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwbGlicmFyeXxlbnwwfHx8fDE3NjE2OTI3MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern library"
+    },
+    {
+      "id": "project-4",
+      "description": "A sustainable, eco-friendly house integrated with its natural surroundings.",
+      "imageUrl": "https://images.unsplash.com/photo-1690079402913-97e85c33fbd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlY28lMjBob3VzZXxlbnwwfHx8fDE3NjE2Njk5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eco house"
+    },
+    {
+      "id": "project-5",
+      "description": "A newly constructed bridge with elegant cable-stayed design at twilight.",
+      "imageUrl": "https://images.unsplash.com/photo-1709872952794-ccb1a99a78f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBicmlkZ2V8ZW58MHx8fHwxNzYxNjY3MjMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern bridge"
+    },
+    {
+      "id": "project-6",
+      "description": "The interior of a large industrial warehouse during the final stages of construction.",
+      "imageUrl": "https://images.unsplash.com/photo-1553413077-190dd305871c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbmR1c3RyaWFsJTIwd2FyZWhvdXNlfGVufDB8fHx8MTc2MTY2ODUzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial warehouse"
+    }
+  ]
 }

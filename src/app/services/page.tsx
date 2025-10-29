@@ -1,0 +1,46 @@
+import type { Metadata } from 'next';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { services } from '@/lib/services';
+
+export const metadata: Metadata = {
+  title: 'Our Services',
+  description: 'Explore the comprehensive range of construction consultancy services offered by ConstructLead, from project management to feasibility studies.',
+};
+
+export default function ServicesPage() {
+  return (
+    <div className="fade-in">
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container max-w-7xl">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary">Our Expertise</h1>
+            <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
+              We offer a full spectrum of services to guide your project from concept to successful completion. Our expert team is equipped to handle every challenge.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <Card key={service.title} className="flex flex-col bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <CardHeader className="flex-shrink-0">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-accent/10 p-4 rounded-lg">
+                      {service.icon}
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription className="text-muted-foreground">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
