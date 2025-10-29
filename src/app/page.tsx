@@ -161,7 +161,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
             {metalServices.map((service) => (
-              <Card key={service.title} className="group text-left bg-card/80 transition-all duration-700 hover:shadow-xl hover:shadow-accent/30 backdrop-blur-sm hover:[transform:rotateY(360deg)]">
+              <Card key={service.title} className="group text-left bg-card/80 transition-all duration-1000 hover:shadow-xl hover:shadow-accent/30 backdrop-blur-sm hover:[transform:rotateY(360deg)]">
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
