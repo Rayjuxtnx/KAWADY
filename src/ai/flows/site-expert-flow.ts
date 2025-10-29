@@ -11,10 +11,10 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 
-export const SiteExpertInputSchema = z.string();
+const SiteExpertInputSchema = z.string();
 export type SiteExpertInput = z.infer<typeof SiteExpertInputSchema>;
 
-export const SiteExpertOutputSchema = z.string();
+const SiteExpertOutputSchema = z.string();
 export type SiteExpertOutput = z.infer<typeof SiteExpertOutputSchema>;
 
 export async function siteExpert(input: SiteExpertInput): Promise<SiteExpertOutput> {
