@@ -8,8 +8,8 @@ import { QuickQueryWidget } from '@/components/layout/quick-query-widget';
 
 export const metadata: Metadata = {
   title: {
-    default: 'ConstructLead | Building with Insight, Integrity, and Innovation',
-    template: '%s | ConstructLead',
+    default: 'Kawida | Building with Insight, Integrity, and Innovation',
+    template: '%s | Kawida',
   },
   description: 'Expert consultancy for project management, cost estimation, structural design, and more. We build your vision with precision and trust.',
   keywords: ['construction consultancy', 'project management', 'cost estimation', 'structural consultancy', 'site supervision', 'feasibility studies'],

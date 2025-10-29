@@ -4,7 +4,7 @@ import { projects } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: 'Our Projects',
-  description: 'Browse a selection of completed projects by ConstructLead, showcasing our expertise and commitment to quality across various sectors.',
+  description: 'Browse a selection of completed projects by Kawida, showcasing our expertise and commitment to quality across various sectors.',
 };
 
 export default function ProjectsPage() {
