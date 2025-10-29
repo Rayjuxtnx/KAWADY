@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { services } from '@/lib/services';
@@ -20,9 +21,9 @@ export default function ServicesPage() {
               We offer a full spectrum of services to guide your project from concept to successful completion. Our expert team is equipped to handle every challenge.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
             {services.map((service) => (
-              <Card key={service.title} className="group flex flex-col bg-card hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <Card key={service.title} className="group flex flex-col bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 hover:[transform:rotateY(-10deg)_rotateX(10deg)]">
                 <CardHeader className="flex-shrink-0">
                   <div className="flex items-center gap-4">
                     <div className="bg-accent/10 p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">

@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -55,9 +56,9 @@ export default function Home() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             We provide a comprehensive range of consultancy services to ensure your project's success at every stage.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
             {services.slice(0, 3).map((service: Service) => (
-              <Card key={service.title} className="group text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-card">
+              <Card key={service.title} className="group text-left bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 hover:[transform:rotateY(-10deg)_rotateX(10deg)]">
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
