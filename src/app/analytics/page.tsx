@@ -116,7 +116,7 @@ export default function AnalyticsPage() {
             <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
               Visualizing the global distribution and usage of key metals in construction and fabrication.
               <br />
-              <span className="text-xs text-accent">live</span>
+              <span className="inline-block text-xs text-accent uppercase font-bold tracking-wider rounded-full px-2 py-1 pulse">live</span>
             </p>
           </div>
 

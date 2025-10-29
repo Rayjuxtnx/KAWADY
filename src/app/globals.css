@@ -108,15 +108,17 @@
 }
 
 .pulse {
-  animation: pulse 2s infinite;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse {
   0%, 100% {
+    opacity: 1;
     transform: scale(1);
     box-shadow: 0 0 0 0 hsl(var(--accent) / 0.7);
   }
   50% {
+    opacity: 0.8;
     transform: scale(1.05);
     box-shadow: 0 0 0 10px hsl(var(--accent) / 0);
   }
