@@ -26,9 +26,9 @@ const generateInitialPieData = (barData: typeof initialMetalDistributionData) =>
 };
 
 const chartConfig = {
-    Steel: { label: "Steel", color: "hsl(210 15% 60%)" },
-    Aluminum: { label: "Aluminum", color: "hsl(210 20% 85%)" },
-    Copper: { label: "Copper", color: "hsl(30 70% 60%)" },
+    Steel: { label: "Steel", color: "hsl(210 15% 60%)" }, // Grey for Steel
+    Aluminum: { label: "Aluminum", color: "hsl(210 20% 85%)" }, // Light Grey for Aluminum
+    Copper: { label: "Copper", color: "hsl(30 70% 60%)" }, // Orangey-brown for Copper
 };
 
 const PIE_COLORS = [
