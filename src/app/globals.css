@@ -146,6 +146,26 @@
   animation-delay: 1s;
 }
 
+@keyframes circle-loop {
+    0% {
+        stroke-dashoffset: 283;
+        transform: rotate(0deg);
+    }
+    50% {
+        stroke-dashoffset: 0;
+        transform: rotate(180deg);
+    }
+    100% {
+        stroke-dashoffset: -283;
+        transform: rotate(360deg);
+    }
+}
+.animate-circle-loop {
+    stroke-dasharray: 283;
+    animation: circle-loop 4s linear infinite;
+    transform-origin: center;
+}
+
 @keyframes multi-color-text-glow {
   0% {
     color: hsl(var(--foreground));
@@ -154,20 +174,26 @@
       0 0 5px hsl(var(--accent) / 0.1),
       0 0 10px hsl(210, 70%, 55% / 0.1);
   }
-  50% {
+  33% {
     color: hsl(var(--accent));
     text-shadow:
-      0 0 5px hsl(var(--accent) / 0.5),
-      0 0 10px hsl(var(--accent) / 0.3),
-      0 0 20px hsl(210, 70%, 55% / 0.3);
+      0 0 5px hsl(var(--accent) / 0.3),
+      0 0 10px hsl(var(--accent) / 0.2),
+      0 0 20px hsl(210, 70%, 55% / 0.2);
   }
-  100% {
+  66% {
     color: white;
     text-shadow:
-      0 0 10px hsl(var(--accent) / 0.8),
-      0 0 20px hsl(var(--accent) / 0.5),
-      0 0 40px hsl(210, 70%, 55% / 0.5),
-      0 0 60px hsl(210, 70%, 55% / 0.3);
+      0 0 10px hsl(var(--accent) / 0.5),
+      0 0 20px hsl(var(--accent) / 0.3),
+      0 0 40px hsl(210, 70%, 55% / 0.3);
+  }
+  100% {
+    color: hsl(var(--foreground));
+    text-shadow:
+      0 0 2px hsl(var(--accent) / 0.2),
+      0 0 5px hsl(var(--accent) / 0.1),
+      0 0 10px hsl(210, 70%, 55% / 0.1);
   }
 }
 .animate-multi-color-text-glow {

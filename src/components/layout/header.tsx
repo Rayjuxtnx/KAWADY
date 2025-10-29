@@ -25,20 +25,19 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
           <div className="relative w-8 h-8">
-            <svg className="absolute inset-0 w-full h-full animate-rotate" viewBox="0 0 100 100">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
               <circle
+                className="animate-circle-loop"
                 cx="50"
                 cy="50"
                 r="45"
                 stroke="url(#glow-gradient-header)"
                 strokeWidth="8"
                 fill="none"
-                strokeDasharray="283"
-                strokeDashoffset="0"
               />
             </svg>
             <svg width="0" height="0">
