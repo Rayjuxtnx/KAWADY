@@ -60,7 +60,7 @@ export function ContactForm() {
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12">
-                    <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20">
+                    <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <CardHeader>
                             <CardTitle className="text-primary">Send us a Message</CardTitle>
                         </CardHeader>
@@ -91,7 +91,7 @@ export function ContactForm() {
                     </Card>
 
                     <div className="space-y-8">
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20">
+                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                             <CardHeader>
                                 <CardTitle className="text-primary">Contact Information</CardTitle>
                             </CardHeader>
@@ -127,7 +127,7 @@ export function ContactForm() {
                                 </Button>
                             </CardContent>
                         </Card>
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20">
+                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                           <CardHeader>
                               <CardTitle className="text-primary">Our Location</CardTitle>
                           </CardHeader>
@@ -145,7 +145,7 @@ export function ContactForm() {
                               </div>
                           </CardContent>
                         </Card>
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20">
+                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                             <CardHeader>
                                 <CardTitle className="text-primary">Business Hours</CardTitle>
                             </CardHeader>
