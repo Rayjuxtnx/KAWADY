@@ -27,13 +27,16 @@ export function BlueprintBackground() {
           fill="url(#blueprint-pattern)"
         />
         <g className="animate-blueprint-draw">
-          {/* Vertical Lines */}
-          <line x1="10%" y1="0" x2="10%" y2="100%" stroke="hsl(var(--accent))" strokeWidth="2" />
-          <line x1="50%" y1="0" x2="50%" y2="100%" stroke="hsl(var(--accent))" strokeWidth="1" />
-          <line x1="90%" y1="0" x2="90%" y2="100%" stroke="hsl(var(--accent))" strokeWidth="2" />
-          {/* Horizontal Lines */}
-          <line x1="0" y1="25%" x2="100%" y2="25%" stroke="hsl(var(--accent))" strokeWidth="2" />
-          <line x1="0" y1="75%" x2="100%" y2="75%" stroke="hsl(var(--accent))" strokeWidth="1" />
+          {/* Static lines for effect */}
+          <line x1="10%" y1="0" x2="10%" y2="100%" stroke="hsl(var(--accent))" strokeWidth="1" strokeOpacity="0.2" />
+          <line x1="90%" y1="0" x2="90%" y2="100%" stroke="hsl(var(--accent))" strokeWidth="1" strokeOpacity="0.2" />
+          <line x1="0" y1="25%" x2="100%" y2="25%" stroke="hsl(var(--accent))" strokeWidth="1" strokeOpacity="0.2" />
+          <line x1="0" y1="75%" x2="100%" y2="75%" stroke="hsl(var(--accent))" strokeWidth="1" strokeOpacity="0.2" />
+        </g>
+        {/* Animated lines */}
+        <g className="animate-blueprint-scan">
+          <line x1="50%" y1="0" x2="50%" y2="100%" stroke="hsl(var(--accent))" strokeWidth="2" />
+          <line x1="0" y1="50%" x2="100%" y2="50%" stroke="hsl(var(--accent))" strokeWidth="2" />
         </g>
       </svg>
     </div>
