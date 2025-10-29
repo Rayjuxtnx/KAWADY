@@ -84,13 +84,32 @@ export function QuickQueryWidget() {
 
   return (
     <>
-      <Button
-        className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 z-50"
-        onClick={() => setIsOpen(true)}
-        aria-label="Open AI Assistant"
-      >
-        <Bot className="h-8 w-8 animate-simple-rotate" />
-      </Button>
+      <div className="fixed bottom-6 right-6 z-50 h-16 w-16 group">
+        <svg className="absolute inset-0 w-full h-full animate-simple-rotate" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="glow-gradient-widget" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            stroke="url(#glow-gradient-widget)"
+            strokeWidth="5"
+            fill="none"
+          />
+        </svg>
+        <Button
+          className="relative w-full h-full rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open AI Assistant"
+        >
+          <Bot className="h-8 w-8" />
+        </Button>
+      </div>
+
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] flex flex-col p-0">
