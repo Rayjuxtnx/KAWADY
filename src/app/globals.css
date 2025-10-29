@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,10 +13,10 @@
     --popover-foreground: 0 0% 18%;
     --primary: 0 0% 18%; /* Dark Charcoal */
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 5% 65%; /* Steel Blue tone */
-    --secondary-foreground: 0 0% 18%;
-    --muted: 240 5% 85%;
-    --muted-foreground: 0 0% 40%;
+    --secondary: 210 22% 49%; /* Steel Blue */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 210 8.9% 62.9%;
     --accent: 45 100% 50%; /* Construction Yellow */
     --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
@@ -105,8 +106,10 @@
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0.7);
   }
   50% {
     transform: scale(1.05);
+    box-shadow: 0 0 0 10px hsl(var(--accent) / 0);
   }
 }
