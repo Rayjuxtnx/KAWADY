@@ -113,3 +113,17 @@
     box-shadow: 0 0 0 10px hsl(var(--accent) / 0);
   }
 }
+
+@keyframes hammer-swing {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(45deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(15deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.hammer-swing {
+  animation: hammer-swing 1.5s ease-in-out infinite;
+  transform-origin: bottom right;
+}
