@@ -39,7 +39,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 mt-0.5 text-accent flex-shrink-0" />
-                <a href="mailto:contact@kawady.com" className="text-sm text-muted-foreground hover:text-accent transition-colors">contact@kawady.com</a>
+                <a href="mailto:kawadymildsteelconsultants@gmail.com" className="text-sm text-muted-foreground hover:text-accent transition-colors">kawadymildsteelconsultants@gmail.com</a>
               </li>
             </ul>
           </div>
