@@ -96,7 +96,7 @@ export function QuickQueryWidget() {
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] flex flex-col p-0">
           <SheetHeader className="p-6 pb-4">
-            <SheetTitle>K-Bot Assistant</SheetTitle>
+            <SheetTitle>Kawady AI Assistant</SheetTitle>
             <SheetDescription>
               Ask me anything about our construction and metalwork services.
             </SheetDescription>
@@ -140,7 +140,7 @@ export function QuickQueryWidget() {
                     </Avatar>
                   <div className="p-3 rounded-lg bg-muted flex items-center space-x-2">
                     <LoaderCircle className="animate-spin h-4 w-4" />
-                    <span className="text-sm text-muted-foreground">K-Bot is thinking...</span>
+                    <span className="text-sm text-muted-foreground">Kawady AI is thinking...</span>
                   </div>
                 </div>
               )}
