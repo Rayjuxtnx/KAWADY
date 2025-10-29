@@ -51,13 +51,13 @@ export default function AnalyticsPage() {
     const interval = setInterval(() => {
       const newBarData = barData.map(item => ({
         ...item,
-        Steel: Math.max(1000, item.Steel + (Math.random() - 0.5) * 1500),
-        Aluminum: Math.max(800, item.Aluminum + (Math.random() - 0.5) * 1000),
-        Copper: Math.max(500, item.Copper + (Math.random() - 0.5) * 800),
+        Steel: Math.max(1000, item.Steel + (Math.random() - 0.5) * 2500),
+        Aluminum: Math.max(800, item.Aluminum + (Math.random() - 0.5) * 2000),
+        Copper: Math.max(500, item.Copper + (Math.random() - 0.5) * 1500),
       }));
       setBarData(newBarData);
       setPieData(generateInitialPieData(newBarData));
-    }, 3000);
+    }, 5000); // Slower interval: 5 seconds
 
     return () => clearInterval(interval);
   }, [barData]);
