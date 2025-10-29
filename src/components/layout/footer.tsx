@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Hammer, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { BarChartBig, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { BlueprintBackground } from './blueprint-background';
 
 const navLinks = [
@@ -19,14 +19,14 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-border/40 bg-background/95 relative overflow-hidden">
+    <footer className="w-full border-t border-accent/20 bg-background/95 relative overflow-hidden">
       <BlueprintBackground />
-      <div className="container max-w-7xl py-8 px-4 sm:px-6 lg:px-8 relative">
+      <div className="container max-w-7xl py-12 px-4 sm:px-6 lg:px-8 relative">
         <div className="flex flex-col items-center gap-6">
             
           {/* Logo and Slogan */}
           <Link href="/" className="flex items-center gap-2 mb-2">
-            <Hammer className="h-6 w-6 text-primary" />
+            <BarChartBig className="h-6 w-6 text-primary" />
             <span className="text-lg font-bold text-primary">KAWADY</span>
           </Link>
           <p className="max-w-xs text-sm text-muted-foreground text-center">
@@ -39,7 +39,7 @@ export function Footer() {
             <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-accent hover:underline underline-offset-4"
+                className="text-sm text-muted-foreground transition-colors hover:text-accent"
             >
                 {link.label}
             </Link>
