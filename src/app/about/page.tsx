@@ -74,7 +74,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-2xl font-semibold text-primary">Our Mission</h3>
                 <p className="mt-2 text-muted-foreground">
-                  To deliver exceptional construction consultancy services by combining technical expertise with a client-focused approach, ensuring every project we undertake is a benchmark for quality and efficiency.
+                  To empower manufacturers and fabricators to achieve unparalleled strength, efficiency, and value in their mild steel applications through expert metallurgical guidance, process optimization, and failure analysis.
                 </p>
               </div>
             </div>
