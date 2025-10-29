@@ -107,14 +107,14 @@ export function ContactForm() {
                                     <Phone className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary">Phone</h3>
-                                        <p>+254 722 659 260</p>
+                                        <a href="tel:+254722659260" className="hover:text-accent transition-colors">+254 722 659 260</a>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
                                     <Mail className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary">Email</h3>
-                                        <p>kawadymildsteelconsultants@gmail.com</p>
+                                        <a href="mailto:kawadymildsteelconsultants@gmail.com" className="hover:text-accent transition-colors">kawadymildsteelconsultants@gmail.com</a>
                                     </div>
                                 </div>
                                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white" size="lg" asChild>
