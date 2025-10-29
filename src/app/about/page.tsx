@@ -2,6 +2,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { Award, Users, Handshake, Target } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 const aboutBannerImage = PlaceHolderImages.find(p => p.id === 'about-banner');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
@@ -33,8 +34,9 @@ export default function AboutPage() {
       </section>
 
       {/* Company Overview Section */}
-      <section className="py-16 md:py-24 bg-card">
-        <div className="container max-w-7xl">
+      <section className="py-16 md:py-24 bg-card relative overflow-hidden">
+        <BlueprintBackground />
+        <div className="container max-w-7xl relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
               <h2 className="text-3xl font-bold text-primary">Our Story</h2>

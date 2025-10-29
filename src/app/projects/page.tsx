@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ProjectGallery } from './project-gallery';
 import { projects } from '@/lib/data';
+import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 export const metadata: Metadata = {
   title: 'Our Projects',
@@ -12,8 +13,9 @@ export default function ProjectsPage() {
 
   return (
     <div className="fade-in">
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container max-w-7xl">
+      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+        <BlueprintBackground />
+        <div className="container max-w-7xl relative">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">Our Portfolio</h1>
             <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">

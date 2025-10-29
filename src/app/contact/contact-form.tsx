@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import React, { useEffect, useRef } from 'react';
@@ -12,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { SubmitButton } from './submit-button';
+import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 type FormState = {
   message: string;
@@ -48,8 +48,9 @@ export function ContactForm() {
 
   return (
     <div className="fade-in">
-        <section className="py-16 md:py-24 bg-background">
-            <div className="container max-w-7xl">
+        <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+            <BlueprintBackground />
+            <div className="container max-w-7xl relative">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl md:text-5xl font-bold text-primary">Get In Touch</h1>
                     <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">

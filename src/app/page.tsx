@@ -6,6 +6,7 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
+import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 const homeHeroImage = PlaceHolderImages.find(p => p.id === 'home-hero');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
@@ -15,31 +16,32 @@ export default function Home() {
     <div className="fade-in">
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[80vh] w-full">
+        <BlueprintBackground />
         {homeHeroImage && (
             <Image
                 src={homeHeroImage.imageUrl}
                 alt={homeHeroImage.description}
                 fill
-                className="object-cover"
+                className="object-cover opacity-20 dark:opacity-10"
                 priority
                 data-ai-hint={homeHeroImage.imageHint}
             />
         )}
-        <div className="absolute inset-0 bg-primary/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent" />
         <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-primary-foreground">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-md">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
             Building with Insight,
             <br />
             Integrity, and Innovation.
           </h1>
-          <p className="mt-4 max-w-2xl text-lg md:text-xl text-primary-foreground/90 drop-shadow-sm">
+          <p className="mt-4 max-w-2xl text-lg md:text-xl text-muted-foreground drop-shadow-sm">
             Your trusted partner in construction consultancy, delivering excellence from concept to completion.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 pulse">
               <Link href="/contact">Request a Quote</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary">
+            <Button asChild size="lg" variant="outline" className="text-foreground bg-background/50 hover:bg-accent hover:text-accent-foreground">
               <Link href="/services">Our Services</Link>
             </Button>
           </div>
@@ -125,8 +127,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-accent/10">
-        <div className="container max-w-7xl text-center">
+      <section className="py-16 md:py-24 bg-accent/10 relative overflow-hidden">
+        <BlueprintBackground />
+        <div className="container max-w-7xl text-center relative">
           <h2 className="text-3xl font-bold text-primary">Ready to Start Your Next Project?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
             Let's build something great together. Get in touch to discuss your requirements or request a detailed quotation.

@@ -1,17 +1,19 @@
 import type { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { services } from '@/lib/services';
+import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 export const metadata: Metadata = {
   title: 'Our Services',
-  description: 'Explore the comprehensive range of construction consultancy services offered by ConstructLead, from project management to feasibility studies.',
+  description: 'Explore the comprehensive range of construction consultancy services offered by Kawida, from project management to feasibility studies.',
 };
 
 export default function ServicesPage() {
   return (
     <div className="fade-in">
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container max-w-7xl">
+      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+        <BlueprintBackground />
+        <div className="container max-w-7xl relative">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">Our Expertise</h1>
             <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
