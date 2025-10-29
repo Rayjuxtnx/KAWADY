@@ -153,8 +153,9 @@ export default function Home() {
       </section>
 
       {/* Metalworks Section */}
-      <section className="py-16 md:py-24 bg-card/50">
-        <div className="container max-w-7xl text-center">
+      <section className="py-16 md:py-24 bg-card/50 relative overflow-hidden">
+        <BlueprintBackground />
+        <div className="container max-w-7xl text-center relative">
           <h2 className="text-3xl font-bold text-primary">Expert Fabrication & Metalworks</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
