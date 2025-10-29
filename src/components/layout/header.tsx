@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Hammer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -24,7 +25,7 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
           <Hammer className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold text-primary">Kawida</span>
+          <span className="text-lg font-bold">Kawida</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
@@ -42,7 +43,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/contact">Request a Quote</Link>
             </Button>
@@ -73,9 +75,12 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="mt-4 bg-accent text-accent-foreground hover:bg-accent/90" size="lg">
-                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Request a Quote</Link>
-            </Button>
+            <div className="flex items-center gap-4 mt-4">
+              <ThemeToggle />
+              <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90" size="lg">
+                  <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Request a Quote</Link>
+              </Button>
+            </div>
           </nav>
         </div>
       )}
