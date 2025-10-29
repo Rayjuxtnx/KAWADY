@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -25,9 +26,9 @@ const generateInitialPieData = (barData: typeof initialMetalDistributionData) =>
 };
 
 const chartConfig = {
-    Steel: { label: "Steel", color: "hsl(var(--chart-1))" },
-    Aluminum: { label: "Aluminum", color: "hsl(var(--chart-2))" },
-    Copper: { label: "Copper", color: "hsl(var(--chart-3))" },
+    Steel: { label: "Steel", color: "hsl(210 15% 60%)" },
+    Aluminum: { label: "Aluminum", color: "hsl(210 20% 85%)" },
+    Copper: { label: "Copper", color: "hsl(30 70% 60%)" },
 };
 
 const PIE_COLORS = [
