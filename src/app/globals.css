@@ -5,24 +5,24 @@
 
 @layer base {
   :root {
-    --background: 0 0% 96%; /* Concrete Gray */
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 0 0% 18%; /* Dark Charcoal */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 45 100% 50%; /* Construction Yellow */
-    --accent-foreground: 0 0% 18%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 220 20% 11%;
+    --foreground: 220 15% 90%;
+    --card: 220 20% 14%;
+    --card-foreground: 220 15% 90%;
+    --popover: 220 20% 11%;
+    --popover-foreground: 220 15% 90%;
+    --primary: 220 15% 90%;
+    --primary-foreground: 220 20% 11%;
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 220 15% 90%;
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 45 100% 50%; /* Glowing Yellow */
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
     --ring: 45 100% 50%;
     --chart-1: 45 100% 50%;
     --chart-2: 45 90% 45%;
@@ -30,19 +30,19 @@
     --chart-4: 45 70% 35%;
     --chart-5: 45 60% 30%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-background: 220 20% 11%;
+    --sidebar-foreground: 220 15% 90%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 220 20% 20%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
     --background: 220 20% 11%;
     --foreground: 220 15% 90%;
-    --card: 220 20% 11%;
+    --card: 220 20% 14%;
     --card-foreground: 220 15% 90%;
     --popover: 220 20% 11%;
     --popover-foreground: 220 15% 90%;

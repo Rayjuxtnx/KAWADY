@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -15,6 +16,8 @@ import {
 export function ThemeToggle() {
   const { setTheme } = useTheme()
 
+  return null; // Hide the theme toggle
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
