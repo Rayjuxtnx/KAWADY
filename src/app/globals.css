@@ -177,9 +177,9 @@
   33% {
     color: hsl(var(--accent));
     text-shadow:
-      0 0 5px hsl(var(--accent) / 0.3),
-      0 0 10px hsl(var(--accent) / 0.2),
-      0 0 20px hsl(210, 70%, 55% / 0.2);
+      0 0 5px hsl(var(--accent) / 0.2),
+      0 0 10px hsl(var(--accent) / 0.15),
+      0 0 20px hsl(210, 70%, 55% / 0.15);
   }
   66% {
     color: white;
@@ -262,4 +262,17 @@
 
 .group:hover .text-reveal-animate::after {
   transform: translateX(101%);
+}
+
+@keyframes simple-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-simple-rotate {
+  animation: simple-rotate 8s linear infinite;
 }

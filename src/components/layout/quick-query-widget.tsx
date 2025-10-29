@@ -85,12 +85,11 @@ export function QuickQueryWidget() {
   return (
     <>
       <Button
-        className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 z-50 pulse"
+        className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 z-50"
         onClick={() => setIsOpen(true)}
         aria-label="Open AI Assistant"
       >
-        <Bot className="h-8 w-8" />
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+        <Bot className="h-8 w-8 animate-simple-rotate" />
       </Button>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
