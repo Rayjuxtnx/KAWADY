@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import { useFormState } from 'react-dom';
+import React, { useEffect, useRef, useActionState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { submitContactForm } from './actions';
 import { Button } from '@/components/ui/button';
@@ -28,7 +27,7 @@ const initialState: FormState = {
 };
 
 export function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
