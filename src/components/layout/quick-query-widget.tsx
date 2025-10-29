@@ -74,11 +74,13 @@ export function QuickQueryWidget() {
     }
   }, [isOpen, state]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    formAction(new FormData(e.currentTarget));
-    setInput('');
-  }
+  useEffect(() => {
+    if (!isPending) {
+        formRef.current?.reset();
+        setInput('');
+    }
+  }, [isPending]);
+
 
   return (
     <>
@@ -146,7 +148,7 @@ export function QuickQueryWidget() {
           </ScrollArea>
           
           <div className="p-6 pt-2 bg-background border-t">
-            <form ref={formRef} onSubmit={handleSubmit} className="flex items-center gap-2">
+            <form ref={formRef} action={formAction} className="flex items-center gap-2">
                 <Input 
                   id="prompt" 
                   name="prompt" 
