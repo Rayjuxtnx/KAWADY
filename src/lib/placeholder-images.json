@@ -83,6 +83,42 @@
       "description": "Various samples of metal alloys arranged neatly for comparison.",
       "imageUrl": "https://images.unsplash.com/photo-1599147379087-995f8e77ec73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtZXRhbCUyMGFsbG95c3xlbnwwfHx8fDE3NjE3NjMyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "metal alloys"
+    },
+    {
+      "id": "gallery-img-1",
+      "description": "A massive steel frame for a new industrial building being erected.",
+      "imageUrl": "https://images.unsplash.com/photo-1720841471491-cd84d0137ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGVlbCUyMGZyYW1lfGVufDB8fHx8MTc2MTc2MzU2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steel frame"
+    },
+    {
+      "id": "gallery-img-2",
+      "description": "An ornate, custom-made wrought iron gate with intricate scrollwork.",
+      "imageUrl": "https://images.unsplash.com/photo-1692349677773-711059093cd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcm9uJTIwZ2F0ZXxlbnwwfHx8fDE3NjE3NjM1NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "iron gate"
+    },
+    {
+      "id": "gallery-img-3",
+      "description": "A close-up macro shot of a clean, strong weld joining two pieces of mild steel.",
+      "imageUrl": "https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjbGVhbiUyMHdlbGR8ZW58MHx8fHwxNzYxNzYzNTY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clean weld"
+    },
+    {
+      "id": "gallery-img-4",
+      "description": "A modern staircase with steel stringers and glass railings.",
+      "imageUrl": "https://images.unsplash.com/photo-1597151304255-d206a31f029c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdGVlbCUyMHN0YWlyY2FzZXxlbnwwfHx8fDE3NjE3NjM1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steel staircase"
+    },
+    {
+      "id": "gallery-img-5",
+      "description": "Workers in safety gear installing a large steel beam on a construction site.",
+      "imageUrl": "https://images.unsplash.com/photo-1706851133383-3d8bfeccdd97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdGVlbCUyMGluc3RhbGxhdGlvbnxlbnwwfHx8fDE3NjE3NjM1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steel installation"
+    },
+    {
+      "id": "gallery-img-6",
+      "description": "The completed exterior of a building featuring prominent steel and glass architectural elements.",
+      "imageUrl": "https://images.unsplash.com/photo-1651855833979-80d8d469cc33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGVlbCUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2MTc2MzU2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steel building"
     }
   ]
 }
