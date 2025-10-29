@@ -4,7 +4,7 @@ import { Hammer, Twitter, Linkedin, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-[hsl(220_20%_11%)] text-primary-foreground border-t-4 border-accent">
+    <footer className="bg-primary text-primary-foreground border-t-4 border-accent">
       <div className="container max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           
