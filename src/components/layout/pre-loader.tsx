@@ -13,12 +13,14 @@ export function PreLoader() {
     const timer = setTimeout(() => {
       setFadeout(true);
       setTimeout(() => setLoading(false), 500); // Wait for fadeout animation
-    }, 2000); // Show pre-loader for 2 seconds
+    }, 10000); // Show pre-loader for 10 seconds
 
     return () => clearTimeout(timer);
   }, []);
 
   if (!loading) return null;
+
+  const text = "KAWADY";
 
   return (
     <div
@@ -29,8 +31,16 @@ export function PreLoader() {
       <BlueprintBackground />
       <div className="flex items-center gap-4 relative">
         <Sparkles className="h-12 w-12 text-accent welding-spark" />
-        <h1 className="text-5xl font-bold tracking-wider relative overflow-hidden">
-          <span className="text-reveal-animate">KAWADY</span>
+        <h1 className="text-5xl font-bold tracking-wider relative flex">
+          {text.split("").map((char, index) => (
+            <span
+              key={index}
+              className="animate-text-glow"
+              style={{ animationDelay: `${index * 0.2}s, ${index * 0.15 + 5}s` }}
+            >
+              {char}
+            </span>
+          ))}
         </h1>
       </div>
       <p className="mt-4 text-lg text-white/80">Building with Insight</p>
