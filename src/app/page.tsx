@@ -74,23 +74,31 @@ export default function Home() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             We provide a comprehensive range of consultancy services to ensure your project's success at every stage.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
-            {services.slice(0, 3).map((service: Service) => (
-              <Card key={service.title} className="group text-left bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 hover:[transform:rotateY(-10deg)_rotateX(10deg)] relative overflow-hidden">
-                <div className="absolute inset-0 bg-transparent group-hover:border-4 group-hover:border-accent transition-all duration-300 pointer-events-none rounded-lg" style={{ boxShadow: '0 0 20px hsl(var(--accent) / 0), 0 0 30px hsl(var(--accent) / 0)' }}></div>
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.slice(0, 3).map((service: Service) => {
+              const image = PlaceHolderImages.find(p => p.id === service.imageId);
+              return (
+                <Card key={service.title} className="group text-left bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 overflow-hidden">
+                    {image && (
+                        <div className="relative aspect-[3/2] overflow-hidden">
+                            <Image
+                                src={image.imageUrl}
+                                alt={image.description}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                data-ai-hint={image.imageHint}
+                            />
+                        </div>
+                    )}
+                  <CardHeader>
                     <CardTitle className="text-primary">{service.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="relative overflow-hidden">
-                    <p className="text-muted-foreground text-reveal-animate">{service.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{service.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
           <Button asChild variant="link" className="mt-8 text-accent text-base">
             <Link href="/services">Explore All Consultancy Services <ArrowRight className="ml-2 h-4 w-4" /></Link>
