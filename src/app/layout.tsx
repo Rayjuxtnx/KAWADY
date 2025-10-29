@@ -1,4 +1,6 @@
 
+'use client'
+
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
@@ -16,7 +18,7 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: {
     default: 'KAWADY mildsteel consultants Ltd | Building with Insight, Integrity, and Innovation',
     template: '%s | KAWADY mildsteel consultants Ltd',
@@ -30,9 +32,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLBodyElement>) => {
+    const cards = document.querySelectorAll('.group[class*="[transform-style:preserve-3d]"]') as NodeListOf<HTMLDivElement>;
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const width = rect.width;
+        const height = rect.height;
+
+        const rotateX = (y / height - 0.5) * -20; // -10 to 10 deg
+        const rotateY = (x / width - 0.5) * 20;   // -10 to 10 deg
+
+        card.style.setProperty('--x-angle', `${rotateX.toFixed(2)}deg`);
+        card.style.setProperty('--y-angle', `${rotateY.toFixed(2)}deg`);
+    });
+  };
+  
   return (
     <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
-      <body className={cn("font-body antialiased bg-background text-foreground", poppins.variable)}>
+      <head>
+        <title>{String(metadata.title?.default)}</title>
+        <meta name="description" content={metadata.description ?? undefined} />
+        <meta name="keywords" content={metadata.keywords?.join(', ')} />
+      </head>
+      <body 
+        className={cn("font-body antialiased bg-background text-foreground", poppins.variable)}
+        onMouseMove={handleMouseMove}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

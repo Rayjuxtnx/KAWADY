@@ -162,21 +162,24 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
             {metalServices.map((service) => (
-              <Card key={service.title} className="group text-left bg-card/80 transition-all duration-1000 hover:shadow-xl hover:shadow-accent/30 backdrop-blur-sm hover:[transform:rotateY(360deg)]">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                    <CardTitle className="text-primary">{service.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
+              <Card key={service.title} className="group flex flex-col text-left bg-card/80 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d] hover:[transform:rotateY(var(--y-angle))_rotateX(var(--x-angle))]">
+                <div className="[transform:translateZ(40px)]">
+                    <CardHeader>
+                        <div className="flex items-center gap-4">
+                            <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                            <CardTitle className="text-primary">{service.title}</CardTitle>
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground">{service.description}</p>
+                    </CardContent>
+                </div>
               </Card>
             ))}
           </div>
           <Button asChild variant="link" className="mt-8 text-accent text-base">
             <Link href="/metalworks">Discover Our Metalworks <ArrowRight className="ml-2 h-4 w-4" /></Link>
+
           </Button>
         </div>
       </section>
