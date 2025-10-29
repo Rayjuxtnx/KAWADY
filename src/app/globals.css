@@ -128,63 +128,47 @@
   }
 }
 
-@keyframes welding-spark {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-    color: hsl(var(--accent));
-    filter: drop-shadow(0 0 5px hsl(var(--accent)));
-  }
-  10% {
-    transform: scale(1.1);
-    opacity: 1;
-    color: white;
-    filter: drop-shadow(0 0 15px white);
-  }
-  20% {
-    transform: scale(0.9);
-    opacity: 0.8;
-    color: hsl(var(--accent));
-    filter: drop-shadow(0 0 8px hsl(var(--accent)));
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.7;
-    color: hsl(var(--accent));
-    filter: drop-shadow(0 0 5px hsl(var(--accent)));
-  }
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-rotate {
+  animation: rotate 10s linear infinite;
 }
 
-.welding-spark {
-  animation: welding-spark 1s ease-in-out infinite;
+@keyframes circle-draw {
+  from { stroke-dashoffset: 283; } /* Circumference of circle with r=45 is 2*PI*45 = ~283 */
+  to { stroke-dashoffset: 0; }
+}
+.animate-circle-draw {
+  stroke-dasharray: 283;
+  animation: circle-draw 8s ease-out forwards;
+  animation-delay: 1s;
 }
 
-@keyframes text-glow {
+@keyframes multi-color-text-glow {
   0%, 100% {
-    opacity: 0;
-    text-shadow: none;
-    transform: scale(0.8);
+    color: hsl(var(--accent));
+    text-shadow:
+      0 0 5px hsl(var(--accent)),
+      0 0 10px hsl(var(--accent)),
+      0 0 20px hsl(var(--accent)),
+      0 0 40px hsl(210, 70%, 55%),
+      0 0 80px hsl(210, 70%, 55%);
   }
-  20% {
-    opacity: 1;
-    text-shadow: 0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent)), 0 0 20px white;
-    transform: scale(1);
-  }
-  80% {
-    opacity: 1;
-    text-shadow: 0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent)), 0 0 20px white;
-    transform: scale(1);
-  }
-  90% {
-    opacity: 0;
-    text-shadow: none;
-    transform: scale(0.8);
+  50% {
+    color: white;
+    text-shadow:
+      0 0 10px hsl(210, 70%, 55%),
+      0 0 20px hsl(210, 70%, 55%),
+      0 0 40px hsl(210, 70%, 55%),
+      0 0 80px hsl(var(--accent)),
+      0 0 120px hsl(var(--accent));
   }
 }
-
-.animate-text-glow {
-  animation: text-glow 2.5s forwards;
-  opacity: 0;
+.animate-multi-color-text-glow {
+  animation: multi-color-text-glow 5s ease-in-out infinite alternate;
+  animation-delay: 1.5s;
 }
 
 
