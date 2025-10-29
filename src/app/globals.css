@@ -127,3 +127,15 @@
   animation: hammer-swing 1.5s ease-in-out infinite;
   transform-origin: bottom right;
 }
+
+@keyframes text-hit {
+  0%, 35%, 100% { transform: scale(1) translateX(0); }
+  40% { transform: scale(0.95, 1.05) translateX(-5px) rotate(-1deg); }
+  45% { transform: scale(1.02, 0.98) translateX(2px); }
+  50% { transform: scale(1) translateX(0); }
+}
+
+.text-hit {
+  animation: text-hit 1.5s ease-in-out infinite;
+  transform-origin: center;
+}
