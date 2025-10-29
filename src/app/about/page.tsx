@@ -83,7 +83,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-2xl font-semibold text-primary">Our Vision</h3>
                 <p className="mt-2 text-muted-foreground">
-                  To be the most trusted and sought-after construction consultancy firm, recognized for our innovative solutions, unwavering integrity, and positive impact on the built environment.
+                  Our vision is to be the leading provider of expert consultancy services in mild steel solutions, delivering innovative, sustainable, and high-quality outcomes that empower our clients to build stronger, safer, and more efficient infrastructures globally.
                 </p>
               </div>
             </div>
