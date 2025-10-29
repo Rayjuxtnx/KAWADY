@@ -1,4 +1,7 @@
 
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -8,6 +11,9 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import { ChartContainer } from '@/components/ui/chart';
+import { useTheme } from 'next-themes';
 
 const homeHeroImage = PlaceHolderImages.find(p => p.id === 'home-hero');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
@@ -30,7 +36,38 @@ const metalServices = [
   },
 ];
 
+const initialMetalDistributionData = [
+  { continent: 'Africa', Steel: 4000 },
+  { continent: 'Asia', Steel: 9500 },
+  { continent: 'Europe', Steel: 6800 },
+  { continent: 'N. America', Steel: 7200 },
+  { continent: 'S. America', Steel: 3500 },
+  { continent: 'Oceania', Steel: 1500 },
+];
+
+const chartConfig = {
+    Steel: { label: "Steel", color: "hsl(210 15% 60%)" },
+};
+
 export default function Home() {
+  const { theme } = useTheme();
+  const tickColor = theme === 'dark' ? '#A1A1AA' : '#71717A';
+
+  const [barData, setBarData] = useState(initialMetalDistributionData);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBarData(currentData =>
+        currentData.map(item => ({
+          ...item,
+          Steel: Math.max(1000, item.Steel + (Math.random() - 0.5) * 2500),
+        }))
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="fade-in">
       {/* Hero Section */}
@@ -133,9 +170,40 @@ export default function Home() {
           </Button>
         </div>
       </section>
+      
+      {/* Live Analytics Preview Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container max-w-7xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-primary">Live Market Data</h2>
+              <p className="mt-4 text-muted-foreground">
+                We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
+              </p>
+              <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
+                <Link href="/analytics">
+                  <span className="inline-block bg-green-500 rounded-full w-3 h-3 mr-2 pulse"></span>
+                  View Live Analytics
+                </Link>
+              </Button>
+            </div>
+            <div className="h-[300px] w-full">
+              <ChartContainer config={chartConfig} className="h-full w-full">
+                  <ResponsiveContainer>
+                    <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
+                        <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                        <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                        <Bar dataKey="Steel" fill="var(--color-Steel)" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </ChartContainer>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-card/50">
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -200,3 +268,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
