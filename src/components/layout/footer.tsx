@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { BarChartBig, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin } from 'lucide-react';
 import { BlueprintBackground } from './blueprint-background';
 
 const navLinks = [
@@ -26,8 +26,29 @@ export function Footer() {
             
           {/* Logo and Slogan */}
           <Link href="/" className="flex items-center gap-2 mb-2">
-            <BarChartBig className="h-6 w-6 text-primary" />
-            <span className="text-lg font-bold text-primary">KAWADY</span>
+            <div className="relative w-8 h-8">
+              <svg className="absolute inset-0 w-full h-full animate-rotate" viewBox="0 0 100 100">
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  stroke="url(#glow-gradient-footer)"
+                  strokeWidth="8"
+                  fill="none"
+                  strokeDasharray="283"
+                  strokeDashoffset="0"
+                />
+              </svg>
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="glow-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span className="text-xl font-bold animate-multi-color-text-glow" style={{animationDelay: '0s', animationIterationCount: 'infinite'}}>KAWADY</span>
           </Link>
           <p className="max-w-xs text-sm text-muted-foreground text-center">
             Building with Insight, Integrity, and Innovation.

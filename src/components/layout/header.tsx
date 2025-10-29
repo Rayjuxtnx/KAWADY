@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, BarChartBig } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -25,11 +25,32 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
-          <BarChartBig className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold">KAWADY</span>
+          <div className="relative w-8 h-8">
+            <svg className="absolute inset-0 w-full h-full animate-rotate" viewBox="0 0 100 100">
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                stroke="url(#glow-gradient-header)"
+                strokeWidth="8"
+                fill="none"
+                strokeDasharray="283"
+                strokeDashoffset="0"
+              />
+            </svg>
+            <svg width="0" height="0">
+              <defs>
+                <linearGradient id="glow-gradient-header" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span className="text-xl font-bold animate-multi-color-text-glow" style={{animationDelay: '0s', animationIterationCount: 'infinite'}}>KAWADY</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
