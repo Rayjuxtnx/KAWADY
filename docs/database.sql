@@ -1,57 +1,77 @@
--- This file contains the SQL statements to create the necessary tables
--- for the KAWADY mildsteel consultants Ltd. website. You can run this
--- in your Supabase SQL editor to set up your database schema.
+-- KAWADY Mildsteel Consultants Ltd. Database Schema
+--
+-- This SQL file provides the necessary table structures for the project's
+-- content, such as projects, gallery items, and services.
+-- You can run this in your Supabase SQL editor to set up the database.
 
--- Table for storing project portfolio information
+-- =============================================
+-- Projects Table
+-- Stores information about completed projects for the portfolio.
+-- =============================================
 CREATE TABLE projects (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  title VARCHAR(255) NOT NULL,
-  location VARCHAR(255),
+  title TEXT NOT NULL,
+  location TEXT,
   description TEXT,
-  image_url TEXT,
+  image_url TEXT, -- URL to the project image stored in Supabase Storage
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
--- Table for storing gallery images
+-- =============================================
+-- Gallery Items Table
+-- Stores images for the visual gallery.
+-- =============================================
 CREATE TABLE gallery_items (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  title VARCHAR(255) NOT NULL,
-  image_url TEXT NOT NULL,
+  title TEXT NOT NULL,
+  image_url TEXT, -- URL to the gallery image stored in Supabase Storage
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
--- Table for storing company services
+-- =============================================
+-- Services Table
+-- Stores the list of services offered by the company.
+-- =============================================
 CREATE TABLE services (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  title VARCHAR(255) NOT NULL,
+  title TEXT NOT NULL,
   description TEXT,
-  icon_name VARCHAR(100), -- To store the name of the Lucide icon, e.g., "FileText"
-  image_url TEXT,
+  icon_name TEXT, -- The name of the Lucide icon, e.g., "FileText"
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
--- Table for storing contact form submissions
+-- =============================================
+-- Contact Form Submissions Table
+-- Stores messages sent through the contact form.
+-- =============================================
 CREATE TABLE contact_submissions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  phone VARCHAR(50),
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
   message TEXT NOT NULL,
-  submitted_at TIMESTAMTz DEFAULT now()
+  submitted_at TIMESTAMPTZ DEFAULT now()
 );
 
--- Example comments on how to use these tables
--- After creating the tables, you would typically use Supabase Storage for images.
--- The 'image_url' columns would then store the public URL provided by Supabase Storage.
 
--- To enable Row Level Security (RLS) on these tables, which is recommended:
+-- =============================================
+-- Security Policies (Row Level Security - RLS)
+-- =============================================
+-- It's highly recommended to enable Row Level Security (RLS) on these tables
+-- in your Supabase dashboard and define policies.
+--
+-- For example, to make all tables publicly readable, you would run:
+--
 -- ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
+-- CREATE POLICY "Enable public read access" ON projects FOR SELECT USING (true);
+--
 -- ALTER TABLE gallery_items ENABLE ROW LEVEL SECURITY;
+-- CREATE POLICY "Enable public read access" ON gallery_items FOR SELECT USING (true);
+--
 -- ALTER TABLE services ENABLE ROW LEVEL SECURITY;
--- ALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;
-
--- Example of a policy that allows public read access for projects:
--- CREATE POLICY "Allow public read access to projects"
--- ON projects
--- FOR SELECT
--- USING (true);
+-- CREATE POLICY "Enable public read access" ON services FOR SELECT USING (true);
+--
+-- For the contact_submissions table, you would likely want to restrict access
+-- so that only authenticated administrators can read the data. This requires
+-- more advanced policies.
+-- =============================================
