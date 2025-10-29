@@ -1,15 +1,14 @@
-
 'use client';
 
-import type { Metadata } from 'next';
+import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, PieChart, Pie, Cell, Legend, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { useTheme } from 'next-themes';
 
-// Sample data - Replace this with live data from your backend
-const metalDistributionData = [
+// Initial sample data
+const initialMetalDistributionData = [
   { continent: 'Africa', Steel: 4000, Aluminum: 2400, Copper: 1800 },
   { continent: 'Asia', Steel: 9500, Aluminum: 7300, Copper: 6500 },
   { continent: 'Europe', Steel: 6800, Aluminum: 5200, Copper: 4100 },
@@ -18,10 +17,12 @@ const metalDistributionData = [
   { continent: 'Oceania', Steel: 1500, Aluminum: 900, Copper: 600 },
 ];
 
-const totalMetalByContinentData = metalDistributionData.map(item => ({
-    name: item.continent,
-    value: item.Steel + item.Aluminum + item.Copper
-}));
+const generateInitialPieData = (barData: typeof initialMetalDistributionData) => {
+    return barData.map(item => ({
+        name: item.continent,
+        value: item.Steel + item.Aluminum + item.Copper
+    }));
+};
 
 const chartConfig = {
     Steel: { label: "Steel", color: "hsl(var(--chart-1))" },
@@ -41,6 +42,24 @@ const PIE_COLORS = [
 export default function AnalyticsPage() {
   const { theme } = useTheme();
   const tickColor = theme === 'dark' ? '#A1A1AA' : '#71717A'; // zinc-400 or zinc-500
+  
+  const [barData, setBarData] = useState(initialMetalDistributionData);
+  const [pieData, setPieData] = useState(generateInitialPieData(initialMetalDistributionData));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newBarData = barData.map(item => ({
+        ...item,
+        Steel: Math.max(1000, item.Steel + (Math.random() - 0.5) * 1500),
+        Aluminum: Math.max(800, item.Aluminum + (Math.random() - 0.5) * 1000),
+        Copper: Math.max(500, item.Copper + (Math.random() - 0.5) * 800),
+      }));
+      setBarData(newBarData);
+      setPieData(generateInitialPieData(newBarData));
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [barData]);
 
   return (
     <div className="fade-in">
@@ -66,7 +85,7 @@ export default function AnalyticsPage() {
               <CardContent>
                 <ChartContainer config={chartConfig} className="h-[400px] w-full">
                   <ResponsiveContainer>
-                    <BarChart data={metalDistributionData} margin={{ top: 20, right: 20, bottom: 5, left: 10 }}>
+                    <BarChart data={barData} margin={{ top: 20, right: 20, bottom: 5, left: 10 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
                         <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor }} tickLine={{ stroke: tickColor }} />
                         <YAxis stroke={tickColor} tick={{ fill: tickColor }} tickLine={{ stroke: tickColor }} />
@@ -91,7 +110,7 @@ export default function AnalyticsPage() {
                   <ResponsiveContainer>
                     <PieChart>
                       <Pie
-                        data={totalMetalByContinentData}
+                        data={pieData}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
@@ -100,7 +119,7 @@ export default function AnalyticsPage() {
                         dataKey="value"
                         label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                       >
-                        {totalMetalByContinentData.map((entry, index) => (
+                        {pieData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
                         ))}
                       </Pie>
