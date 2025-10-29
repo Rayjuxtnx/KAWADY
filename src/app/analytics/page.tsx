@@ -32,12 +32,12 @@ const chartConfig = {
 };
 
 const PIE_COLORS = [
-    'hsl(var(--chart-1))',
-    'hsl(var(--chart-2))',
-    'hsl(var(--chart-3))',
-    'hsl(var(--chart-4))',
-    'hsl(var(--chart-5))',
-    'hsl(var(--accent))',
+    'hsl(45, 100%, 50%)', // Gold
+    'hsl(210, 70%, 55%)', // Blue
+    'hsl(340, 82%, 60%)', // Pink
+    'hsl(160, 70%, 45%)', // Teal
+    'hsl(260, 70%, 65%)', // Purple
+    'hsl(10, 80%, 55%)',  // Orange
 ];
 
 export default function AnalyticsPage() {
