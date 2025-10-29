@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -25,7 +26,7 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
           <Hammer className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold">Kawida</span>
+          <span className="text-lg font-bold">KAWADY</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">

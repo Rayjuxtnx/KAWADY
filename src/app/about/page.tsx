@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { Award, Users, Handshake, Target } from 'lucide-react';
@@ -9,7 +10,7 @@ const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about Kawida\'s mission, vision, and the experienced team dedicated to your project\'s success.',
+  description: 'Learn about KAWADY mildsteel consultants Ltd\'s mission, vision, and the experienced team dedicated to your project\'s success.',
 };
 
 export default function AboutPage() {
@@ -28,7 +29,7 @@ export default function AboutPage() {
         )}
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative container max-w-7xl h-full flex flex-col items-center justify-center text-center text-primary-foreground">
-          <h1 className="text-4xl md:text-5xl font-bold">About Kawida</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">About KAWADY</h1>
           <p className="mt-2 text-lg text-primary-foreground/90">Our Foundation is Trust</p>
         </div>
       </section>
@@ -41,7 +42,7 @@ export default function AboutPage() {
             <div className="order-2 md:order-1">
               <h2 className="text-3xl font-bold text-primary">Our Story</h2>
               <p className="mt-4 text-muted-foreground">
-                Founded on the principles of integrity and expertise, Kawida has grown into a leading consultancy firm in the construction industry. We are a team of passionate engineers, project managers, and financial analysts dedicated to turning complex construction challenges into successful realities.
+                Founded on the principles of integrity and expertise, KAWADY mildsteel consultants Ltd has grown into a leading consultancy firm in the construction industry. We are a team of passionate engineers, project managers, and financial analysts dedicated to turning complex construction challenges into successful realities.
               </p>
               <p className="mt-4 text-muted-foreground">
                 Our journey began with a simple mission: to provide transparent, reliable, and innovative consultancy that clients can depend on. Today, we've managed a diverse portfolio of projects, from towering skyscrapers to critical public infrastructure, always upholding our core commitment to excellence.
@@ -95,7 +96,7 @@ export default function AboutPage() {
         <div className="container max-w-7xl text-center">
           <h2 className="text-3xl font-bold text-primary">Why Partner with Us?</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
-            Choosing Kawida means choosing a partner committed to the success of your vision.
+            Choosing KAWADY mildsteel consultants Ltd means choosing a partner committed to the success of your vision.
           </p>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
             <div className="p-6 rounded-lg">

@@ -113,7 +113,7 @@ export function ContactForm() {
                                     <Mail className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary">Email</h3>
-                                        <p>contact@kawida.com</p>
+                                        <p>contact@kawady.com</p>
                                     </div>
                                 </div>
                                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white" size="lg" asChild>

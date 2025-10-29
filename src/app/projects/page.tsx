@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { ProjectGallery } from './project-gallery';
 import { projects } from '@/lib/data';
@@ -5,7 +6,7 @@ import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 export const metadata: Metadata = {
   title: 'Our Projects',
-  description: 'Browse a selection of completed projects by Kawida, showcasing our expertise and commitment to quality across various sectors.',
+  description: 'Browse a selection of completed projects by KAWADY mildsteel consultants Ltd, showcasing our expertise and commitment to quality across various sectors.',
 };
 
 export default function ProjectsPage() {

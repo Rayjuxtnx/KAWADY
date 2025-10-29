@@ -85,7 +85,7 @@ export default function Home() {
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary">Why Choose Kawida?</h2>
+              <h2 className="text-3xl font-bold text-primary">Why Choose KAWADY?</h2>
               <p className="mt-4 text-muted-foreground">
                 With decades of combined experience, our team brings unparalleled expertise and a commitment to quality that sets us apart.
               </p>

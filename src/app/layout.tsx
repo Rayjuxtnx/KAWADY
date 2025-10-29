@@ -10,8 +10,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Kawida | Building with Insight, Integrity, and Innovation',
-    template: '%s | Kawida',
+    default: 'KAWADY mildsteel consultants Ltd | Building with Insight, Integrity, and Innovation',
+    template: '%s | KAWADY mildsteel consultants Ltd',
   },
   description: 'Expert consultancy for project management, cost estimation, structural design, and more. We build your vision with precision and trust.',
   keywords: ['construction consultancy', 'project management', 'cost estimation', 'structural consultancy', 'site supervision', 'feasibility studies'],

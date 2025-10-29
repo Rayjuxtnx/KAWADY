@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Hammer, Mail, Phone, MapPin, Twitter, Linkedin, Facebook } from 'lucide-react';
 
@@ -9,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <Hammer className="h-8 w-8 text-accent" />
-              <span className="text-xl font-bold">Kawida</span>
+              <span className="text-xl font-bold">KAWADY</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Building with Insight, Integrity, and Innovation.
@@ -37,7 +38,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 mt-0.5 text-accent flex-shrink-0" />
-                <a href="mailto:contact@kawida.com" className="text-sm text-muted-foreground hover:text-accent transition-colors">contact@kawida.com</a>
+                <a href="mailto:contact@kawady.com" className="text-sm text-muted-foreground hover:text-accent transition-colors">contact@kawady.com</a>
               </li>
             </ul>
           </div>
@@ -51,7 +52,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-border/20 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Kawida. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} KAWADY mildsteel consultants Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>
