@@ -88,14 +88,12 @@ export function QuickQueryWidget() {
         <div className="h-16 w-16 group relative">
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
               <defs>
-                <linearGradient id="glow-gradient-widget" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
-                  <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+                <linearGradient id="color-shift-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" className="gradient-stop-1" />
+                  <stop offset="100%" className="gradient-stop-2" />
                 </linearGradient>
               </defs>
-            <circle className="scanner-ring" cx="50" cy="50" r="45" />
-            <circle className="scanner-ring" cx="50" cy="50" r="35" style={{ animationDelay: '-0.5s' }}/>
-            <circle className="scanner-ring" cx="50" cy="50" r="25" style={{ animationDelay: '-1s' }}/>
+            <circle className="color-scanner-ring" cx="50" cy="50" r="45" />
           </svg>
           <Button
             className="relative w-full h-full rounded-full bg-accent/20 text-accent-foreground shadow-lg hover:bg-accent/30 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-sm"

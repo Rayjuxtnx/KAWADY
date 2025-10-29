@@ -170,34 +170,34 @@
   0% {
     color: hsl(var(--foreground));
     text-shadow:
-      0 0 1px hsl(var(--accent) / 0.1),
-      0 0 2px hsl(var(--accent) / 0.1),
-      0 0 5px hsl(210, 70%, 55% / 0.1);
+      0 0 2px hsl(var(--accent) / 0.2),
+      0 0 5px hsl(var(--accent) / 0.1),
+      0 0 10px hsl(210, 70%, 55% / 0.1);
   }
   33% {
     color: hsl(var(--accent));
     text-shadow:
-      0 0 2px hsl(var(--accent) / 0.2),
-      0 0 5px hsl(var(--accent) / 0.15),
-      0 0 10px hsl(210, 70%, 55% / 0.15);
+      0 0 5px hsl(var(--accent) / 0.4),
+      0 0 10px hsl(var(--accent) / 0.3),
+      0 0 15px hsl(210, 70%, 55% / 0.2);
   }
   66% {
     color: white;
     text-shadow:
-      0 0 5px hsl(var(--accent) / 0.15),
-      0 0 10px hsl(var(--accent) / 0.2),
-      0 0 15px hsl(210, 70%, 55% / 0.2);
+      0 0 10px hsl(var(--accent) / 0.3),
+      0 0 15px hsl(var(--accent) / 0.4),
+      0 0 20px hsl(210, 70%, 55% / 0.3);
   }
   100% {
     color: hsl(var(--foreground));
     text-shadow:
-      0 0 1px hsl(var(--accent) / 0.1),
-      0 0 2px hsl(var(--accent) / 0.1),
-      0 0 5px hsl(210, 70%, 55% / 0.1);
+      0 0 2px hsl(var(--accent) / 0.2),
+      0 0 5px hsl(var(--accent) / 0.1),
+      0 0 10px hsl(210, 70%, 55% / 0.1);
   }
 }
 .animate-multi-color-text-glow {
-  animation: multi-color-text-glow 5s ease-in-out infinite alternate;
+  animation: multi-color-text-glow 10s ease-in-out infinite alternate;
   animation-delay: 1.5s;
 }
 
@@ -277,29 +277,45 @@
   animation: simple-rotate 8s linear infinite;
 }
 
-@keyframes scanner-pulse {
+@keyframes color-scanner-pulse {
   0% {
     stroke-dasharray: 0 283;
-    stroke-opacity: 0.5;
     transform: rotate(0deg);
   }
   50% {
     stroke-dasharray: 283 0;
-    stroke-opacity: 1;
     transform: rotate(180deg);
   }
   100% {
     stroke-dasharray: 0 283;
-    stroke-opacity: 0.5;
     transform: rotate(360deg);
   }
 }
 
-.scanner-ring {
-  stroke: url(#glow-gradient-widget);
+@keyframes gradient-shift {
+  0% { stop-color: #ff0000; } /* red */
+  16% { stop-color: #000000; } /* black */
+  33% { stop-color: #0000ff; } /* blue */
+  50% { stop-color: #ffff00; } /* yellow */
+  66% { stop-color: #D4AF37; } /* gold */
+  83% { stop-color: #ffc0cb; } /* pink */
+  100% { stop-color: #ff0000; } /* red */
+}
+
+.color-scanner-ring {
+  stroke: url(#color-shift-gradient);
   stroke-width: 3;
   fill: none;
   stroke-linecap: round;
   transform-origin: center;
-  animation: scanner-pulse 3s linear infinite;
+  animation: color-scanner-pulse 8s linear infinite;
+}
+
+.gradient-stop-1 {
+  animation: gradient-shift 25s linear infinite;
+}
+
+.gradient-stop-2 {
+  animation: gradient-shift 25s linear infinite;
+  animation-delay: -5s; /* Offset the second color */
 }
