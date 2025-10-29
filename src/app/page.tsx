@@ -67,8 +67,9 @@ export default function Home() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground opacity-100 group-hover:opacity-0 transition-opacity duration-300">{service.description}</p>
-                  <p className="absolute top-1/2 left-6 right-6 -translate-y-1/2 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">{service.description}</p>
+                  <div className="relative overflow-hidden">
+                    <p className="text-muted-foreground text-reveal-animate">{service.description}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
