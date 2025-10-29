@@ -1,10 +1,5 @@
 import React from 'react';
-import { ProjectManagementIcon } from '@/components/icons/ProjectManagementIcon';
-import { CostEstimationIcon } from '@/components/icons/CostEstimationIcon';
-import { StructuralConsultancyIcon } from '@/components/icons/StructuralConsultancyIcon';
-import { SiteSupervisionIcon } from '@/components/icons/SiteSupervisionIcon';
-import { FeasibilityStudiesIcon } from '@/components/icons/FeasibilityStudiesIcon';
-import { BuildingIcon } from '@/components/icons/BuildingIcon';
+import { FileText, SearchCheck, Replace, TestTube, CheckCheck, School, ShieldCheck, Warehouse } from 'lucide-react';
 
 export type Service = {
   title: string;
@@ -14,33 +9,43 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    title: 'Project Management',
-    description: 'Expert oversight from initiation to completion, ensuring your project is delivered on time, within budget, and to the highest quality standards.',
-    icon: <ProjectManagementIcon className="w-8 h-8 text-accent" />,
+    title: 'WPS Development & Qualification',
+    description: 'We design, write, and qualify custom Welding Procedure Specifications (WPS) for your projects, ensuring strong, compliant, and defect-free welds.',
+    icon: <FileText className="w-8 h-8 text-accent" />,
   },
   {
-    title: 'Cost Estimation',
-    description: 'Accurate and detailed cost assessments to provide you with a realistic budget, helping you make informed financial decisions.',
-    icon: <CostEstimationIcon className="w-8 h-8 text-accent" />,
+    title: 'Root Cause Failure Analysis',
+    description: 'We conduct forensic metallurgical investigations to identify the exact cause of component failure and provide definitive solutions.',
+    icon: <SearchCheck className="w-8 h-8 text-accent" />,
   },
   {
-    title: 'Structural Consultancy',
-    description: 'Innovative and efficient structural design solutions that ensure the safety, stability, and longevity of your building projects.',
-    icon: <StructuralConsultancyIcon className="w-8 h-8 text-accent" />,
+    title: 'Material Selection & Substitution',
+    description: 'We guide you in selecting the most cost-effective and appropriate grade of mild steel, or help you safely substitute materials.',
+    icon: <Replace className="w-8 h-8 text-accent" />,
   },
   {
-    title: 'Site Supervision',
-    description: 'Diligent on-site monitoring to guarantee that construction aligns with design specifications, quality benchmarks, and safety regulations.',
-    icon: <SiteSupervisionIcon className="w-8 h-8 text-accent" />,
+    title: 'Fabrication Process Optimization',
+    description: 'We analyze your workflows to identify bottlenecks, reduce waste, and lower production costs.',
+    icon: <TestTube className="w-8 h-8 text-accent" />,
   },
   {
-    title: 'Feasibility Studies',
-    description: 'Comprehensive analysis of project viability, covering technical, economic, and legal aspects to mitigate risks before investment.',
-    icon: <FeasibilityStudiesIcon className="w-8 h-8 text-accent" />,
+    title: 'On-Site Weld & Fabrication Audits',
+    description: 'Our experts visit your facility to audit fabrication quality, verify compliance, and provide real-time corrective actions.',
+    icon: <CheckCheck className="w-8 h-8 text-accent" />,
   },
   {
-    title: 'Architectural Design',
-    description: 'Creative and functional architectural planning that balances aesthetic appeal with practical usability for your space.',
-    icon: <BuildingIcon className="w-8 h-8 text-accent" />,
+    title: 'Technical Staff Training',
+    description: 'We offer customized training modules for your engineers and welders on mild steel properties and best practices.',
+    icon: <School className="w-8 h-8 text-accent" />,
+  },
+  {
+    title: 'Corrosion Prevention Strategy',
+    description: 'We recommend durable and economical corrosion protection systems for your steel to significantly extend its service life.',
+    icon: <ShieldCheck className="w-8 h-8 text-accent" />,
+  },
+  {
+    title: 'Supplier Quality & Material Verification',
+    description: 'We independently audit your material suppliers and conduct inspection tests to verify mild steel quality.',
+    icon: <Warehouse className="w-8 h-8 text-accent" />,
   },
 ];
