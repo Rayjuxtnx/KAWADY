@@ -11,7 +11,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell } from 'recharts';
 import { ChartContainer } from '@/components/ui/chart';
 import { useTheme } from 'next-themes';
 
@@ -45,8 +45,17 @@ const initialMetalDistributionData = [
   { continent: 'Oceania', Steel: 1500 },
 ];
 
+const PIE_COLORS = [
+    'hsl(45, 100%, 50%)', // Gold
+    'hsl(210, 70%, 55%)', // Blue
+    'hsl(340, 82%, 60%)', // Pink
+    'hsl(160, 70%, 45%)', // Teal
+    'hsl(260, 70%, 65%)', // Purple
+    'hsl(10, 80%, 55%)',  // Orange
+];
+
 const chartConfig = {
-    Steel: { label: "Steel", color: "hsl(210 15% 60%)" },
+    Steel: { label: "Steel" }, // Simplified as we use Cell for colors
 };
 
 export default function Home() {
@@ -193,7 +202,11 @@ export default function Home() {
                     <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
                         <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
                         <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                        <Bar dataKey="Steel" fill="var(--color-Steel)" radius={[4, 4, 0, 0]} />
+                        <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
+                            {barData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                            ))}
+                        </Bar>
                     </BarChart>
                   </ResponsiveContainer>
                 </ChartContainer>
@@ -268,5 +281,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
