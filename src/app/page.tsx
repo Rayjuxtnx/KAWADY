@@ -11,8 +11,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell } from 'recharts';
-import { ChartContainer } from '@/components/ui/chart';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip as RechartsTooltip } from 'recharts';
+import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { useTheme } from 'next-themes';
 
 const homeHeroImage = PlaceHolderImages.find(p => p.id === 'home-hero');
@@ -202,6 +202,7 @@ export default function Home() {
                     <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
                         <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
                         <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                        <RechartsTooltip cursor={{fill: 'hsl(var(--muted))'}} content={<ChartTooltipContent hideLabel />} />
                         <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
                             {barData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
