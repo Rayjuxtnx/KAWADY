@@ -40,12 +40,12 @@ export default function AboutPage() {
         <div className="container max-w-7xl relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <h2 className="text-3xl font-bold text-primary">Our Story</h2>
+              <h2 className="text-3xl font-bold text-primary">Your Technical Partner in Steel</h2>
               <p className="mt-4 text-muted-foreground">
-                Founded on the principles of integrity and expertise, KAWADY mildsteel consultants Ltd has grown into a leading consultancy firm in the construction industry. We are a team of passionate engineers, project managers, and financial analysts dedicated to turning complex construction challenges into successful realities.
+                KAWADY Mildsteel Consultancy Company LTD acts as your specialized technical partner. We empower manufacturers and fabricators to overcome challenges across a project's entire lifecycle, ensuring safety, efficiency, and cost-effectiveness.
               </p>
               <p className="mt-4 text-muted-foreground">
-                Our journey began with a simple mission: to provide transparent, reliable, and innovative consultancy that clients can depend on. Today, we've managed a diverse portfolio of projects, from towering skyscrapers to critical public infrastructure, always upholding our core commitment to excellence.
+                Our role involves specifying the ideal mild steel grades, optimizing welding procedures, and troubleshooting critical issues like cracking. A core service is our expert failure analysis, where we diagnose root causes to prevent future problems. At KAWADY, we provide the definitive guidance to de-risk your projects, guarantee compliance, and ensure the structural integrity and reliability of your steel components.
               </p>
             </div>
             <div className="order-1 md:order-2 rounded-lg overflow-hidden shadow-lg">
