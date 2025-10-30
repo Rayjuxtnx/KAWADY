@@ -2,121 +2,121 @@
   "placeholderImages": [
     {
       "id": "home-hero",
-      "description": "A modern building under construction against a sunset.",
+      "description": "A modern steel skyscraper under construction with a crane, symbolizing large-scale building projects.",
       "imageUrl": "https://images.unsplash.com/photo-1595392312303-ddfc8d8ca472?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjBza3lzY3JhcGVyfGVufDB8fHx8MTc2MTc0ODc3MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "construction skyscraper"
     },
     {
       "id": "about-main",
-      "description": "A team of architects and engineers discussing blueprints in a modern office.",
+      "description": "A diverse team of engineers and architects collaborating over project blueprints in a modern office.",
       "imageUrl": "https://images.unsplash.com/photo-1631203928521-bde1e727e8b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NjE3Mjk4OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "team meeting"
     },
     {
       "id": "about-banner",
-      "description": "A wide-angle shot of a beautifully designed architectural interior.",
+      "description": "An expansive and modern architectural interior with clean lines and natural light, representing design excellence.",
       "imageUrl": "https://images.unsplash.com/photo-1600210492493-0946911123ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjE2MjM1ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern interior"
     },
     {
       "id": "project-1",
-      "description": "A sleek, modern residential tower with glass balconies.",
+      "description": "A sleek, modern residential tower with glass balconies, showcasing excellence in urban construction.",
       "imageUrl": "https://images.unsplash.com/photo-1515263487990-61b07816b324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcGFydG1lbnR8ZW58MHx8fHwxNzYxNzI1MDc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern apartment"
     },
     {
       "id": "project-2",
-      "description": "An expansive commercial complex with a unique, curved glass facade.",
+      "description": "An expansive commercial office building with a unique, curved glass facade, representing corporate architecture.",
       "imageUrl": "https://images.unsplash.com/photo-1582061575118-93cc82eca33b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBidWlsZGluZ3xlbnwwfHx8fDE3NjE3MzA1ODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office building"
     },
     {
       "id": "project-3",
-      "description": "A public library with a striking geometric design and wooden accents.",
+      "description": "A modern public library with a striking geometric design, highlighting community and institutional projects.",
       "imageUrl": "https://images.unsplash.com/photo-1520387294843-fd994fd872e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwbGlicmFyeXxlbnwwfHx8fDE3NjE2OTI3MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern library"
     },
     {
       "id": "project-4",
-      "description": "A sustainable, eco-friendly house integrated with its natural surroundings.",
+      "description": "A sustainable, eco-friendly house integrated with nature, showcasing green building practices.",
       "imageUrl": "https://images.unsplash.com/photo-1690079402913-97e85c33fbd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlY28lMjBob3VzZXxlbnwwfHx8fDE3NjE2Njk5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "eco house"
     },
     {
       "id": "project-5",
-      "description": "A newly constructed bridge with elegant cable-stayed design at twilight.",
+      "description": "A newly constructed cable-stayed bridge at twilight, representing major infrastructure projects.",
       "imageUrl": "https://images.unsplash.com/photo-1709872952794-ccb1a99a78f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBicmlkZ2V8ZW58MHx8fHwxNzYxNjY3MjMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern bridge"
     },
     {
       "id": "project-6",
-      "description": "The interior of a large industrial warehouse during the final stages of construction.",
+      "description": "The vast interior of an industrial warehouse, showcasing logistics and distribution center construction.",
       "imageUrl": "https://images.unsplash.com/photo-1553413077-190dd305871c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbmR1c3RyaWFsJTIwd2FyZWhvdXNlfGVufDB8fHx8MTc2MTY2ODUzNXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "industrial warehouse"
     },
     {
       "id": "metalworks-hero",
-      "description": "A skilled welder working on a metal frame, with sparks flying.",
+      "description": "A skilled welder in protective gear creating sparks while working on a steel frame, symbolizing expert fabrication.",
       "imageUrl": "https://images.unsplash.com/photo-1564424224827-cd2d42e3fe1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHwxfHx3ZWxkaW5nJTIwc3BhcmtzfGVufDB8fHx8MTcyMjEwOTAyNnww&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "welder sparks"
     },
     {
       "id": "metalworks-quality",
-      "description": "A close-up shot of a perfectly executed weld on a steel beam.",
+      "description": "A macro close-up of a perfectly executed weld on a thick steel beam, highlighting quality craftsmanship.",
       "imageUrl": "https://images.unsplash.com/photo-1617042375876-a13e36732a04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHw1fHxzdGVlbCUyMHdlbGR8ZW58MHx8fHwxNzIyMTA5MDYyfDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "steel weld"
     },
     {
       "id": "service-wps",
-      "description": "A technical document with engineering diagrams and specifications.",
+      "description": "A highly detailed technical document with engineering diagrams, representing WPS development.",
       "imageUrl": "https://images.unsplash.com/photo-1628582453226-a0027de09af1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZWNobmljYWwlMjBkb2N1bWVudHxlbnwwfHx8fDE3NjE3NjMyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "technical document"
     },
     {
       "id": "service-failure-analysis",
-      "description": "A magnifying glass inspecting a fractured metal component.",
+      "description": "A magnifying glass inspecting a critical fracture on a metal component for root cause failure analysis.",
       "imageUrl": "https://images.unsplash.com/photo-1648848613367-47d18d10bf88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnJhY3R1cmVkJTIwbWV0YWx8ZW58MHx8fHwxNzYxNzYzMjUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fractured metal"
     },
     {
       "id": "service-material-selection",
-      "description": "Various samples of metal alloys arranged neatly for comparison.",
+      "description": "Various samples of different metal alloys and steel grades arranged for material selection and advisory.",
       "imageUrl": "https://images.unsplash.com/photo-1599147379087-995f8e77ec73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtZXRhbCUyMGFsbG95c3xlbnwwfHx8fDE3NjE3NjMyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "metal alloys"
     },
     {
       "id": "gallery-img-1",
-      "description": "A massive steel frame for a new industrial building being erected.",
+      "description": "A massive structural steel frame for a new industrial building being erected against a clear sky.",
       "imageUrl": "https://images.unsplash.com/photo-1720841471491-cd84d0137ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGVlbCUyMGZyYW1lfGVufDB8fHx8MTc2MTc2MzU2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "steel frame"
     },
     {
       "id": "gallery-img-2",
-      "description": "An ornate, custom-made wrought iron gate with intricate scrollwork.",
+      "description": "An ornate, custom-fabricated wrought iron gate with intricate scrollwork, showing artistic metalwork.",
       "imageUrl": "https://images.unsplash.com/photo-1692349677773-711059093cd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcm9uJTIwZ2F0ZXxlbnwwfHx8fDE3NjE3NjM1NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "iron gate"
     },
     {
       "id": "gallery-img-3",
-      "description": "A close-up macro shot of a clean, strong weld joining two pieces of mild steel.",
+      "description": "A macro photograph of a clean, strong T-joint weld on mild steel, demonstrating precision welding.",
       "imageUrl": "https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjbGVhbiUyMHdlbGR8ZW58MHx8fHwxNzYxNzYzNTY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "clean weld"
     },
     {
       "id": "gallery-img-4",
-      "description": "A modern staircase with steel stringers and glass railings.",
+      "description": "A modern interior staircase with sleek steel stringers and glass railings, an example of architectural metalwork.",
       "imageUrl": "https://images.unsplash.com/photo-1597151304255-d206a31f029c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdGVlbCUyMHN0YWlyY2FzZXxlbnwwfHx8fDE3NjE3NjM1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "steel staircase"
     },
     {
       "id": "gallery-img-5",
-      "description": "Workers in safety gear installing a large steel beam on a construction site.",
+      "description": "Construction workers in safety gear conducting an on-site installation of a large steel beam.",
       "imageUrl": "https://images.unsplash.com/photo-1706851133383-3d8bfeccdd97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdGVlbCUyMGluc3RhbGxhdGlvbnxlbnwwfHx8fDE3NjE3NjM1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "steel installation"
     },
     {
       "id": "gallery-img-6",
-      "description": "The completed exterior of a building featuring prominent steel and glass architectural elements.",
+      "description": "The completed exterior facade of a modern building featuring prominent steel and glass architectural elements.",
       "imageUrl": "https://images.unsplash.com/photo-1651855833979-80d8d469cc33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGVlbCUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2MTc2MzU2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "steel building"
     }

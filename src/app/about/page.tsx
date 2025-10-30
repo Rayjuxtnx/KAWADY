@@ -9,8 +9,8 @@ const aboutBannerImage = PlaceHolderImages.find(p => p.id === 'about-banner');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Learn about KAWADY mildsteel consultants Ltd\'s mission, vision, and the experienced team dedicated to your project\'s success.',
+  title: 'About KAWADY - Mild Steel & Fabrication Experts',
+  description: 'Learn about KAWADY Mildsteel Consultants Ltd, our mission, and our experienced team. We are your dedicated technical partner for ensuring safety, efficiency, and structural integrity in all your steel projects.',
 };
 
 export default function AboutPage() {

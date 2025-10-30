@@ -5,8 +5,8 @@ import { services } from '@/lib/services';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 export const metadata: Metadata = {
-  title: 'Our Services',
-  description: 'Explore the comprehensive range of construction consultancy services offered by Kawida, from project management to feasibility studies.',
+  title: 'Our Consultancy Services - WPS, Failure Analysis, Audits',
+  description: 'Explore our full range of mild steel consultancy services: WPS Development, Root Cause Failure Analysis, Material Selection, Fabrication Audits, and Staff Training.',
 };
 
 export default function ServicesPage() {

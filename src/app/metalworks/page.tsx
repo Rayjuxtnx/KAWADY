@@ -7,8 +7,8 @@ import { BlueprintBackground } from '@/components/layout/blueprint-background';
 import { Flame, Wrench, ShieldCheck, Gem } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Metalworks & Fabrication',
-  description: 'Specialized services in custom metalworks, expert welding, and iron fabrication. Precision engineering for durable and aesthetic results.',
+  title: 'Custom Metalworks & Expert Fabrication Services',
+  description: 'Specialized services in custom metalworks, expert welding, and artistic iron fabrication. Precision engineering for durable and aesthetic results in every project.',
 };
 
 const metalworksHeroImage = PlaceHolderImages.find(p => p.id === 'metalworks-hero');

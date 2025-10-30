@@ -7,8 +7,8 @@ import { galleryImages } from '@/lib/gallery-data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export const metadata: Metadata = {
-  title: 'Gallery',
-  description: 'A showcase of our finest metalwork, fabrication, and completed consultancy projects. See the quality and craftsmanship of KAWADY mildsteel consultants Ltd.',
+  title: 'Gallery - Custom Metalwork & Steel Fabrication',
+  description: 'A showcase of our finest metalwork, precision welding, and structural steel projects. See the quality craftsmanship of KAWADY Mildsteel Consultants Ltd.',
 };
 
 export default function GalleryPage() {

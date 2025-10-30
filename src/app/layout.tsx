@@ -21,11 +21,33 @@ const poppins = Poppins({
 
 const metadata: Metadata = {
   title: {
-    default: 'KAWADY mildsteel consultants Ltd | Building with Insight, Integrity, and Innovation',
-    template: '%s | KAWADY mildsteel consultants Ltd',
+    default: 'KAWADY Mildsteel Consultants Ltd | Expert Welding & Fabrication',
+    template: '%s | KAWADY Mildsteel Consultants Ltd',
   },
-  description: 'Expert consultancy for project management, cost estimation, structural design, and more. We build your vision with precision and trust.',
-  keywords: ['construction consultancy', 'project management', 'cost estimation', 'structural consultancy', 'site supervision', 'feasibility studies'],
+  description: 'Top-tier mild steel consultancy in Kenya. We specialize in WPS development, structural integrity analysis, root cause failure analysis, on-site fabrication audits, and expert metalworks. Your trusted partner for quality, safety, and efficiency in steel construction.',
+  keywords: [
+    'mild steel consultancy Kenya',
+    'welding procedure specification',
+    'WPS development',
+    'fabrication process optimization',
+    'structural steel design',
+    'metalworks Nairobi',
+    'on-site welding audit',
+    'root cause failure analysis',
+    'material selection advisory',
+    'cost estimation steel projects',
+    'site supervision construction',
+    'feasibility studies engineering',
+    'custom metal fabrication',
+    'artistic ironwork',
+    'corrosion prevention steel',
+    'technical staff training welding',
+    'supplier quality verification',
+    'mild steel expert',
+    'structural integrity analysis',
+    'construction consultancy',
+    'project management'
+  ],
 };
 
 export default function RootLayout({

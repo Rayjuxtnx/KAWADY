@@ -5,8 +5,8 @@ import { projects } from '@/lib/data';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
 
 export const metadata: Metadata = {
-  title: 'Our Projects',
-  description: 'Browse a selection of completed projects by KAWADY mildsteel consultants Ltd, showcasing our expertise and commitment to quality across various sectors.',
+  title: 'Project Portfolio - Steel Construction & Fabrication',
+  description: 'Browse our portfolio of completed projects. See how KAWADY Mildsteel Consultants Ltd delivers excellence in structural steel, commercial builds, and infrastructure.',
 };
 
 export default function ProjectsPage() {
