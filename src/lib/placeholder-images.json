@@ -119,6 +119,24 @@
       "description": "The completed exterior facade of a modern building featuring prominent steel and glass architectural elements.",
       "imageUrl": "https://images.unsplash.com/photo-1651855833979-80d8d469cc33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGVlbCUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2MTc2MzU2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "steel building"
+    },
+    {
+      "id": "vision-hero",
+      "description": "A stunning, wide-angle shot of a futuristic city skyline at night with glowing lights and flying vehicles.",
+      "imageUrl": "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHw1fHxmdXR1cmlzdGljJTIwY2l0eXxlbnwwfHx8fDE3MjIyMjQwNjR8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "futuristic city"
+    },
+    {
+      "id": "vision-project-1",
+      "description": "An eco-futuristic skyscraper seamlessly integrated with vertical gardens and nature, under a clear blue sky.",
+      "imageUrl": "https://images.unsplash.com/photo-1678812632298-967a57a82928?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHwxfHxlY28lMjBmdXR1cmlzdGljJTIwYnVpbGRpbmd8ZW58MHx8fHwxNzIyMjI0MTAzfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "eco building"
+    },
+    {
+      "id": "vision-project-2",
+      "description": "An aerial view of a smart city's infrastructure, showcasing interconnected transport networks and green public spaces.",
+      "imageUrl": "https://images.unsplash.com/photo-1571505059873-3543b5674066?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHw0fHxzbWFydCUyMGNpdHklMjBpbmZyYXN0cnVjdHVyZXxlbnwwfHx8fDE3MjIyMjQxMzV8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "smart city"
     }
   ]
 }

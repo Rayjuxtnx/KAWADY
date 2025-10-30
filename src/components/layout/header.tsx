@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -119,6 +120,7 @@ export function Header() {
           <NavLink href="/">Home</NavLink>
           <DropdownNav title="Company">
              <DropdownMenuItem asChild><Link href="/about">About Us</Link></DropdownMenuItem>
+             <DropdownMenuItem asChild><Link href="/vision">Our Vision</Link></DropdownMenuItem>
              <DropdownMenuItem asChild><Link href="/contact">Contact Us</Link></DropdownMenuItem>
           </DropdownNav>
            <DropdownNav title="What We Do">
@@ -161,6 +163,7 @@ export function Header() {
                 <AccordionTrigger className="py-2 text-lg font-medium text-foreground/80 hover:no-underline hover:text-foreground">Company</AccordionTrigger>
                 <AccordionContent className="pl-4">
                   <MobileNavLink href="/about" onNavigate={() => setIsMenuOpen(false)}>About Us</MobileNavLink>
+                  <MobileNavLink href="/vision" onNavigate={() => setIsMenuOpen(false)}>Our Vision</MobileNavLink>
                   <MobileNavLink href="/contact" onNavigate={() => setIsMenuOpen(false)}>Contact Us</MobileNavLink>
                 </AccordionContent>
               </AccordionItem>
