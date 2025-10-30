@@ -68,17 +68,17 @@ export function ContactForm() {
                             <form ref={formRef} action={formAction} className="space-y-4">
                                 <div className="space-y-1 group">
                                   <label htmlFor="name" className="text-xs font-medium">Full Name</label>
-                                  <Input id="name" name="name" placeholder="John Doe" required className="glow-input text-sm" />
+                                  <Input id="name" name="name" placeholder="Your Name" required className="glow-input text-sm" autoComplete="name" />
                                   {state.errors?.name && <p className="text-xs font-medium text-destructive">{state.errors.name[0]}</p>}
                                 </div>
                                 <div className="space-y-1 group">
                                   <label htmlFor="email" className="text-xs font-medium">Email Address</label>
-                                  <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required className="glow-input text-sm" />
+                                  <Input id="email" name="email" type="email" placeholder="youremail@example.com" required className="glow-input text-sm" autoComplete="email" />
                                   {state.errors?.email && <p className="text-xs font-medium text-destructive">{state.errors.email[0]}</p>}
                                 </div>
                                 <div className="space-y-1 group">
                                   <label htmlFor="phone" className="text-xs font-medium">Phone Number (Optional)</label>
-                                  <Input id="phone" name="phone" placeholder="+254 722 659 260" className="glow-input text-sm" />
+                                  <Input id="phone" name="phone" placeholder="+254 722 659 260" className="glow-input text-sm" autoComplete="tel" />
                                 </div>
                                 <div className="space-y-1 group">
                                   <label htmlFor="message" className="text-xs font-medium">Your Message</label>
