@@ -107,7 +107,8 @@
 
 
 @layer components {
-  .group:focus-within .glow-input {
+  .group:focus-within .glow-input,
+  .group .glow-input:focus {
     @apply ring-2 ring-accent;
     box-shadow: 0 0 15px hsl(var(--accent) / 0.5), 0 0 5px hsl(var(--accent) / 0.8);
   }
@@ -117,6 +118,10 @@
   }
   .gallery-card {
     transform: rotateY(var(--y-angle)) rotateX(var(--x-angle));
+  }
+  .why-choose-us-list {
+    transform-style: preserve-3d;
+    transform: rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0));
   }
 }
 

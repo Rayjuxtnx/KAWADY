@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -154,26 +155,30 @@ export default function Home() {
             {services.slice(0, 3).map((service: Service) => {
               const image = PlaceHolderImages.find(p => p.id === service.imageId);
               return (
-                <Card key={service.title} className="group text-left bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 overflow-hidden">
-                    {image && (
-                        <div className="relative aspect-[3/2] overflow-hidden">
-                            <Image
-                                src={image.imageUrl}
-                                alt={image.description}
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                data-ai-hint={image.imageHint}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            />
+                <div key={service.title} className="group text-left" style={{ perspective: '1000px' }}>
+                    <Card className="bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 overflow-hidden [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
+                        <div className="[transform:translateZ(40px)]">
+                            {image && (
+                                <div className="relative aspect-[3/2] overflow-hidden">
+                                    <Image
+                                        src={image.imageUrl}
+                                        alt={image.description}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                        data-ai-hint={image.imageHint}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
+                                </div>
+                            )}
+                        <CardHeader>
+                            <CardTitle className="text-base">{service.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground text-xs md:text-sm">{service.description}</p>
+                        </CardContent>
                         </div>
-                    )}
-                  <CardHeader>
-                    <CardTitle className="text-base">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-xs md:text-sm">{service.description}</p>
-                  </CardContent>
-                </Card>
+                    </Card>
+                </div>
               )
             })}
           </div>
@@ -323,43 +328,43 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary">Why Choose KAWADY?</h2>
-              <p className="mt-4 text-muted-foreground">
-                With decades of combined experience, our team brings unparalleled expertise and a commitment to quality that sets us apart.
-              </p>
-              <ul className="mt-8 space-y-4">
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-primary">Expert Team</h3>
-                    <p className="text-muted-foreground text-sm">Our certified professionals are leaders in their respective fields.</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-primary">Client-Centric Approach</h3>
-                    <p className="text-muted-foreground text-sm">We tailor our services to your unique project needs and goals.</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-primary">Proven Track Record</h3>
-                    <p className="text-muted-foreground text-sm">A history of successful projects and satisfied clients speaks for itself.</p>
-                  </div>
-                </li>
-              </ul>
+            <div className="group" style={{ perspective: '1000px' }}>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary [transform:translateZ(40px)]">Why Choose KAWADY?</h2>
+                <p className="mt-4 text-muted-foreground [transform:translateZ(40px)]">
+                    With decades of combined experience, our team brings unparalleled expertise and a commitment to quality that sets us apart.
+                </p>
+                <ul className="mt-8 space-y-4 why-choose-us-list">
+                    <li className="flex items-start gap-4">
+                    <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <div>
+                        <h3 className="font-semibold text-primary">Expert Team</h3>
+                        <p className="text-muted-foreground text-sm">Our certified professionals are leaders in their respective fields.</p>
+                    </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                    <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <div>
+                        <h3 className="font-semibold text-primary">Client-Centric Approach</h3>
+                        <p className="text-muted-foreground text-sm">We tailor our services to your unique project needs and goals.</p>
+                    </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                    <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <div>
+                        <h3 className="font-semibold text-primary">Proven Track Record</h3>
+                        <p className="text-muted-foreground text-sm">A history of successful projects and satisfied clients speaks for itself.</p>
+                    </div>
+                    </li>
+                </ul>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-lg">
+            <div className="rounded-lg overflow-hidden shadow-lg group" style={{ perspective: '1000px' }}>
               {aboutMainImage && (
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-[4/3] [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
                   <Image
                       src={aboutMainImage.imageUrl}
                       alt={aboutMainImage.description}
                       fill
-                      className="object-cover"
+                      className="object-cover [transform:translateZ(-20px)]"
                       data-ai-hint={aboutMainImage.imageHint}
                       sizes="(max-width: 768px) 100vw, 50vw"
                   />
