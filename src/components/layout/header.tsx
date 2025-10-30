@@ -14,7 +14,6 @@ const navLinks = [
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Services' },
   { href: '/metalworks', label: 'Metalworks' },
-  { href: '/projects', label: 'Projects' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/analytics', label: 'Analytics' },
   { href: '/contact', label: 'Contact Us' },
