@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: 'Specialized services in custom metalworks, expert welding, and artistic iron fabrication. Precision engineering for durable and aesthetic results in every project.',
 };
 
-const metalworksHeroImage = PlaceHolderImages.find(p => p.id === 'metalworks-hero');
 const qualityImage = PlaceHolderImages.find(p => p.id === 'metalworks-quality');
 
 const metalServices = [
@@ -36,21 +35,48 @@ export default function MetalworksPage() {
   return (
     <div className="fade-in">
       {/* Hero Section */}
-      <section className="relative h-[50vh] w-full">
-        {metalworksHeroImage && (
-            <Image
-                src={metalworksHeroImage.imageUrl}
-                alt={metalworksHeroImage.description}
-                fill
-                className="object-cover"
-                data-ai-hint={metalworksHeroImage.imageHint}
-                sizes="100vw"
-            />
-        )}
-        <div className="absolute inset-0 bg-primary/70" />
+      <section className="relative h-[40vh] w-full flex items-center justify-center overflow-hidden">
+        <BlueprintBackground />
         <div className="relative container max-w-7xl h-full flex flex-col items-center justify-center text-center text-primary-foreground p-4">
-          <h1 className="text-4xl md:text-5xl font-bold">Expert Metalworks & Fabrication</h1>
-          <p className="mt-2 text-lg text-primary-foreground/90">Precision, Strength, and Artistry in Every Piece</p>
+          <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 opacity-10">
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                      <circle
+                          cx="50"
+                          cy="50"
+                          r="45"
+                          stroke="url(#glow-gradient-metalworks)"
+                          strokeWidth="5"
+                          fill="none"
+                          className="color-scanner-ring"
+                      />
+                      <text
+                          x="50"
+                          y="55"
+                          textAnchor="middle"
+                          fill="url(#color-shift-gradient)"
+                          fontSize="20"
+                          fontWeight="bold"
+                          style={{ filter: 'blur(1.5px)' }}
+                          className="animate-multi-color-text-glow"
+                      >
+                          KAWADY
+                      </text>
+                  </svg>
+              </div>
+          </div>
+          <svg width="0" height="0">
+              <defs>
+                <linearGradient id="glow-gradient-metalworks" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+                </linearGradient>
+              </defs>
+          </svg>
+          <div className="relative">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary">Expert Metalworks & Fabrication</h1>
+            <p className="mt-2 text-lg text-muted-foreground">Precision, Strength, and Artistry in Every Piece</p>
+          </div>
         </div>
       </section>
 
@@ -128,5 +154,3 @@ export default function MetalworksPage() {
     </div>
   );
 }
-
-    
