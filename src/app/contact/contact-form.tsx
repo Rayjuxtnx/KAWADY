@@ -49,7 +49,7 @@ export function ContactForm() {
 
   return (
     <div className="fade-in">
-        <section className="py-12 md:py-20 bg-background relative overflow-hidden">
+        <section className="py-12 md:py-20 bg-transparent relative overflow-hidden">
             <BlueprintBackground />
             <div className="container max-w-7xl relative px-4 flex flex-col items-center">
                 <div className="text-center mb-10 md:mb-12">
@@ -60,11 +60,11 @@ export function ContactForm() {
                 </div>
 
                 <div className="w-full grid lg:grid-cols-2 gap-8 md:gap-12">
-                    <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                        <CardHeader className="p-4">
+                    <Card className="shadow-lg bg-card/50 backdrop-blur-lg border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <CardHeader className="p-4 sm:p-6">
                             <CardTitle className="text-xl">Send us a Message</CardTitle>
                         </CardHeader>
-                        <CardContent className="p-4">
+                        <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
                             <form ref={formRef} action={formAction} className="space-y-4">
                                 <div className="space-y-1 group">
                                   <label htmlFor="name" className="text-xs font-medium">Full Name</label>
@@ -91,11 +91,11 @@ export function ContactForm() {
                     </Card>
 
                     <div className="space-y-4 flex flex-col">
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                            <CardHeader className="p-4">
+                        <Card className="bg-card/50 backdrop-blur-lg border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            <CardHeader className="p-4 sm:p-6">
                                 <CardTitle className="text-lg">Contact Information</CardTitle>
                             </CardHeader>
-                            <CardContent className="p-4 space-y-3 text-muted-foreground">
+                            <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0 space-y-3 text-muted-foreground">
                                 <div className="flex items-start gap-3">
                                     <MapPin className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
                                     <div>
@@ -127,8 +127,8 @@ export function ContactForm() {
                                  </Button>
                             </CardContent>
                         </Card>
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex-grow flex flex-col">
-                          <CardHeader className="p-4">
+                        <Card className="bg-card/50 backdrop-blur-lg border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex-grow flex flex-col">
+                          <CardHeader className="p-4 sm:p-6">
                               <CardTitle className="text-lg">Our Location</CardTitle>
                           </CardHeader>
                           <CardContent className="p-0 flex-grow">
@@ -145,11 +145,11 @@ export function ContactForm() {
                               </div>
                           </CardContent>
                         </Card>
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                            <CardHeader className="p-4">
+                        <Card className="bg-card/50 backdrop-blur-lg border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            <CardHeader className="p-4 sm:p-6">
                                 <CardTitle className="text-lg">Business Hours</CardTitle>
                             </CardHeader>
-                            <CardContent className="p-4 text-muted-foreground text-xs">
+                            <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0 text-muted-foreground text-xs">
                                 <p><span className="font-semibold text-primary">Monday - Friday:</span> 9:00 AM - 5:00 PM</p>
                                 <p><span className="font-semibold text-primary">Saturday - Sunday:</span> Closed</p>
                             </CardContent>
@@ -161,3 +161,5 @@ export function ContactForm() {
     </div>
   );
 }
+
+    
