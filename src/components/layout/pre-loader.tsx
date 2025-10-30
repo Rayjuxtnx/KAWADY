@@ -12,7 +12,7 @@ export function PreLoader() {
     const timer = setTimeout(() => {
       setFadeout(true);
       setTimeout(() => setLoading(false), 500); // Wait for fadeout animation
-    }, 10000); // Show pre-loader for 10 seconds
+    }, 2500); // Show pre-loader for 2.5 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -26,8 +26,8 @@ export function PreLoader() {
       }`}
     >
       <BlueprintBackground />
-      <div className="flex flex-col items-center justify-center gap-8 relative">
-        <div className="relative w-32 h-32">
+      <div className="flex flex-col items-center justify-center gap-6 md:gap-8 relative">
+        <div className="relative w-24 h-24 md:w-32 md:h-32">
           <svg className="absolute inset-0 w-full h-full animate-rotate" viewBox="0 0 100 100">
             <circle 
               className="animate-circle-draw"
@@ -49,11 +49,11 @@ export function PreLoader() {
           </svg>
         </div>
         
-        <h1 className="text-5xl font-bold tracking-wider relative animate-multi-color-text-glow">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-wider relative animate-multi-color-text-glow">
           KAWADY
         </h1>
       </div>
-      <p className="absolute bottom-10 mt-4 text-lg text-white/80">Building with Insight</p>
+      <p className="absolute bottom-10 mt-4 text-base md:text-lg text-white/80">Building with Insight</p>
     </div>
   );
 }

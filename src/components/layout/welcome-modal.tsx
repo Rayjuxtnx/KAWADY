@@ -25,7 +25,7 @@ export function WelcomeModal() {
       const showTimer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem('welcomeModalShown', 'true');
-      }, 10500); // Slightly after the 10s preloader
+      }, 3000); // Show after 3s to match new preloader time
 
       return () => clearTimeout(showTimer);
     }
