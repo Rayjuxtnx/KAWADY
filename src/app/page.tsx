@@ -134,6 +134,7 @@ export default function Home() {
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                                 data-ai-hint={image.imageHint}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                         </div>
                     )}
@@ -234,7 +235,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-card/50">
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="order-2 md:order-1">
               <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
               <p className="mt-4 text-muted-foreground">
                 We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
@@ -246,7 +247,7 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-            <div className="h-[300px] w-full">
+            <div className="h-[300px] w-full order-1 md:order-2">
               <ChartContainer config={chartConfig} className="h-full w-full">
                   <ResponsiveContainer>
                     <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
@@ -308,6 +309,7 @@ export default function Home() {
                       fill
                       className="object-cover"
                       data-ai-hint={aboutMainImage.imageHint}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               )}
