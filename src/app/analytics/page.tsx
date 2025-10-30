@@ -124,18 +124,6 @@ export default function AnalyticsPage() {
                           fill="none"
                           className="color-scanner-ring"
                       />
-                      <text
-                          x="50"
-                          y="55"
-                          textAnchor="middle"
-                          fill="url(#color-shift-gradient)"
-                          fontSize="20"
-                          fontWeight="bold"
-                          style={{ filter: 'blur(1.5px)' }}
-                          className="animate-multi-color-text-glow"
-                      >
-                          KAWADY
-                      </text>
                   </svg>
               </div>
             </div>

@@ -50,7 +50,9 @@ export function PreLoader() {
         </div>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider relative animate-multi-color-text-glow text-center">
-          KAWADY
+          {'KAWADY'.split('').map((letter, i) => (
+            <span key={i}>{letter}</span>
+          ))}
         </h1>
         <p className="text-sm text-center text-white/80">Building with Insight</p>
       </div>

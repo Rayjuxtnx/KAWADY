@@ -48,7 +48,11 @@ export function Header() {
               </defs>
             </svg>
           </div>
-          <span className="text-xl font-bold animate-multi-color-text-glow" style={{animationDelay: '0s', animationIterationCount: 'infinite'}}>KAWADY</span>
+          <span className="text-xl font-bold animate-multi-color-text-glow">
+            {'KAWADY'.split('').map((letter, i) => (
+              <span key={i}>{letter}</span>
+            ))}
+          </span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">

@@ -32,18 +32,6 @@ export default function AboutPage() {
                           fill="none"
                           className="color-scanner-ring"
                       />
-                      <text
-                          x="50"
-                          y="55"
-                          textAnchor="middle"
-                          fill="url(#color-shift-gradient)"
-                          fontSize="20"
-                          fontWeight="bold"
-                          style={{ filter: 'blur(1.5px)' }}
-                          className="animate-multi-color-text-glow"
-                      >
-                          KAWADY
-                      </text>
                   </svg>
               </div>
           </div>
@@ -53,10 +41,16 @@ export default function AboutPage() {
                   <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
                   <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
                 </linearGradient>
+                <linearGradient id="color-shift-gradient-about-text" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" className="gradient-stop-1" />
+                    <stop offset="100%" className="gradient-stop-2" />
+                </linearGradient>
               </defs>
           </svg>
-          <h1 className="text-3xl md:text-5xl font-bold text-primary">About KAWADY</h1>
-          <p className="mt-2 text-md md:text-lg text-muted-foreground">Our Foundation is Trust</p>
+          <div className='flex flex-col items-center justify-center relative'>
+            <h1 className="text-3xl md:text-5xl font-bold text-primary">About KAWADY</h1>
+            <p className="mt-2 text-md md:text-lg text-muted-foreground">Our Foundation is Trust</p>
+          </div>
         </div>
       </section>
 

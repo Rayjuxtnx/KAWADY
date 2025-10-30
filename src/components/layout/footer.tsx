@@ -47,7 +47,11 @@ export function Footer() {
                   </defs>
                 </svg>
               </div>
-              <span className="text-xl font-bold animate-multi-color-text-glow" style={{animationDelay: '0s', animationIterationCount: 'infinite'}}>KAWADY</span>
+              <span className="text-xl font-bold animate-multi-color-text-glow">
+                {'KAWADY'.split('').map((letter, i) => (
+                  <span key={i}>{letter}</span>
+                ))}
+              </span>
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground text-center">
               Building with Insight, Integrity, and Innovation.
