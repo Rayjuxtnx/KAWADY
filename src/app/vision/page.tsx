@@ -142,30 +142,6 @@ export default function VisionPage() {
           </div>
         </div>
       </section>
-      
-      {/* Founder's Message Section */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-primary">A Message From Our Founder</h2>
-          <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
-            Our lead engineer shares his thoughts on the journey ahead and the innovations that will drive us forward.
-          </p>
-          <div className="mt-8 aspect-video w-full rounded-lg overflow-hidden shadow-2xl shadow-accent/20 border border-accent/30">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&modestbranding=1&rel=0"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <Button asChild size="lg" className="mt-8">
-            <a href="/contact">Partner With Us</a>
-          </Button>
-        </div>
-      </section>
-
     </div>
   );
 }
