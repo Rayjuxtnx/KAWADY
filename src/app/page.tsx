@@ -10,6 +10,7 @@ import { CheckCircle2, ArrowRight, Flame, Wrench, Gem } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
+import { galleryImages } from '@/lib/gallery-data';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip as RechartsTooltip } from 'recharts';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
@@ -183,9 +184,49 @@ export default function Home() {
           </Button>
         </div>
       </section>
+
+      {/* Gallery Highlights Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container max-w-7xl text-center">
+          <h2 className="text-3xl font-bold text-primary">Gallery Highlights</h2>
+          <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
+            A glimpse into the quality and craftsmanship that define our work.
+          </p>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {galleryImages.slice(0, 4).map((galleryItem) => {
+              const image = PlaceHolderImages.find(p => p.id === galleryItem.imageId);
+              return (
+                <div key={galleryItem.id} className="break-inside-avoid">
+                  <Card className="overflow-hidden group hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 transition-all duration-300">
+                    <div className="relative aspect-[3/4]">
+                      {image && (
+                        <Image
+                          src={image.imageUrl}
+                          alt={image.description}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          data-ai-hint={image.imageHint}
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/>
+                      <div className="absolute bottom-0 left-0 p-4">
+                        <h3 className="text-lg font-semibold text-white drop-shadow-md">{galleryItem.title}</h3>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              );
+            })}
+          </div>
+          <Button asChild variant="link" className="mt-8 text-accent text-base">
+            <Link href="/gallery">View Full Gallery <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          </Button>
+        </div>
+      </section>
       
       {/* Live Analytics Preview Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-card/50">
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -221,7 +262,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-card/50">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -286,3 +327,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
