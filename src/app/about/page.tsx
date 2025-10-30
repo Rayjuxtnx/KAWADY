@@ -30,6 +30,17 @@ export default function AboutPage() {
                         strokeWidth="5"
                         fill="none"
                     />
+                    <text
+                        x="50"
+                        y="55"
+                        textAnchor="middle"
+                        fill="hsl(var(--accent))"
+                        fontSize="20"
+                        fontWeight="bold"
+                        style={{ filter: 'blur(1.5px)' }}
+                    >
+                        KAWADY
+                    </text>
                 </svg>
             </div>
         </div>
