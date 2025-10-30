@@ -111,17 +111,54 @@ export default function AnalyticsPage() {
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <BlueprintBackground />
         <div className="container max-w-7xl relative">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary">Live Analytics Dashboard</h1>
-            <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
-              Visualizing the global distribution and usage of key metals in construction and fabrication.
-              <br />
-              <span className="relative flex h-3 w-3 mx-auto mt-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                  <span className="ml-4 text-xs text-green-400 uppercase font-bold tracking-wider">live</span>
-              </span>
-            </p>
+          <div className="text-center mb-12 relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 opacity-10">
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                      <circle
+                          cx="50"
+                          cy="50"
+                          r="45"
+                          stroke="url(#glow-gradient-analytics)"
+                          strokeWidth="5"
+                          fill="none"
+                          className="color-scanner-ring"
+                      />
+                      <text
+                          x="50"
+                          y="55"
+                          textAnchor="middle"
+                          fill="url(#color-shift-gradient)"
+                          fontSize="20"
+                          fontWeight="bold"
+                          style={{ filter: 'blur(1.5px)' }}
+                          className="animate-multi-color-text-glow"
+                      >
+                          KAWADY
+                      </text>
+                  </svg>
+              </div>
+            </div>
+            <svg width="0" height="0">
+              <defs>
+                <linearGradient id="glow-gradient-analytics" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div className="relative">
+              <h1 className="text-4xl md:text-5xl font-bold text-primary">Live Analytics Dashboard</h1>
+              <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
+                Visualizing the global distribution and usage of key metals in construction and fabrication.
+                <br />
+                <span className="relative flex h-3 w-3 mx-auto mt-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    <span className="ml-4 text-xs text-green-400 uppercase font-bold tracking-wider">live</span>
+                </span>
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
