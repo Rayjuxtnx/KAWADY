@@ -51,7 +51,7 @@ export function ContactForm() {
     <div className="fade-in">
         <section className="py-12 md:py-20 bg-background relative overflow-hidden">
             <BlueprintBackground />
-            <div className="container max-w-7xl relative px-4">
+            <div className="container max-w-7xl relative px-4 flex flex-col items-center">
                 <div className="text-center mb-10 md:mb-12">
                     <h1 className="text-3xl sm:text-4xl font-bold text-primary">Get In Touch</h1>
                     <p className="mt-3 max-w-2xl mx-auto text-muted-foreground text-sm">
@@ -59,7 +59,7 @@ export function ContactForm() {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+                <div className="w-full grid lg:grid-cols-2 gap-8 md:gap-12">
                     <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                         <CardHeader className="p-4">
                             <CardTitle className="text-xl">Send us a Message</CardTitle>
@@ -124,7 +124,7 @@ export function ContactForm() {
                                         </svg>
                                         Chat on WhatsApp
                                     </a>
-                                </Button>
+                                 </Button>
                             </CardContent>
                         </Card>
                         <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
