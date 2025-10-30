@@ -77,8 +77,8 @@ export default function TrendsPage() {
                 <div className="container max-w-7xl relative">
                     <div className="text-center mb-12 relative">
                         <div className="relative">
-                        <h1 className="text-4xl md:text-5xl font-bold text-primary">Market &amp; Trend Insights</h1>
-                        <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
+                        <h1 className="text-3xl md:text-5xl font-bold text-primary">Market &amp; Trend Insights</h1>
+                        <p className="mt-3 md:mt-4 max-w-3xl mx-auto text-muted-foreground text-sm md:text-base">
                             Your expert source for navigating construction costs, regional demand, and material price fluctuations.
                         </p>
                         </div>
@@ -87,15 +87,15 @@ export default function TrendsPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                         <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20">
                         <CardHeader>
-                            <CardTitle>Construction Cost Index</CardTitle>
-                            <CardDescription>2020-Present</CardDescription>
+                            <CardTitle className="text-lg md:text-xl">Construction Cost Index</CardTitle>
+                            <CardDescription className="text-xs md:text-sm">2020-Present</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <ChartContainer config={lineChartConfig} className="h-[300px] w-full">
-                                <LineChart data={costData} margin={{ top: 5, right: 20, bottom: 5, left: -20 }}>
+                                <LineChart data={costData} margin={{ top: 5, right: 10, bottom: 5, left: -10 }}>
                                     <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
-                                    <XAxis dataKey="year" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} />
-                                    <YAxis domain={['dataMin - 5', 'dataMax + 5']} stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} />
+                                    <XAxis dataKey="year" stroke={tickColor} tick={{ fill: tickColor, fontSize: 11 }} />
+                                    <YAxis domain={['dataMin - 5', 'dataMax + 5']} stroke={tickColor} tick={{ fill: tickColor, fontSize: 11 }} />
                                     <RechartsTooltip content={<ChartTooltipContent />} />
                                     <Legend />
                                     <Line type="monotone" dataKey="index" stroke="var(--color-cost)" strokeWidth={2} dot={false} />
@@ -105,15 +105,15 @@ export default function TrendsPage() {
                         </Card>
                         <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20">
                         <CardHeader>
-                            <CardTitle>Regional Demand Fluctuation</CardTitle>
-                            <CardDescription>Project inquiries by major city</CardDescription>
+                            <CardTitle className="text-lg md:text-xl">Regional Demand Fluctuation</CardTitle>
+                            <CardDescription className="text-xs md:text-sm">Project inquiries by major city</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <ChartContainer config={lineChartConfig} className="h-[300px] w-full">
-                                <LineChart data={demandData} margin={{ top: 5, right: 20, bottom: 5, left: -20 }}>
+                                <LineChart data={demandData} margin={{ top: 5, right: 10, bottom: 5, left: -10 }}>
                                     <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
-                                    <XAxis dataKey="month" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} />
-                                    <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} />
+                                    <XAxis dataKey="month" stroke={tickColor} tick={{ fill: tickColor, fontSize: 11 }} />
+                                    <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 11 }} />
                                     <RechartsTooltip content={<ChartTooltipContent />} />
                                     <Legend />
                                     <Line type="monotone" dataKey="Nairobi" stroke="var(--color-demandNairobi)" strokeWidth={2} />
@@ -127,15 +127,15 @@ export default function TrendsPage() {
                     <div className="grid grid-cols-1 gap-8">
                         <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20">
                         <CardHeader>
-                            <CardTitle>Material Price Index</CardTitle>
-                            <CardDescription>Fluctuations in key raw material costs (per Ton)</CardDescription>
+                            <CardTitle className="text-lg md:text-xl">Material Price Index</CardTitle>
+                            <CardDescription className="text-xs md:text-sm">Fluctuations in key raw material costs (per Ton)</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <ChartContainer config={lineChartConfig} className="h-[300px] w-full">
-                                <LineChart data={materialPriceData} margin={{ top: 5, right: 20, bottom: 5, left: -20 }}>
+                                <LineChart data={materialPriceData} margin={{ top: 5, right: 10, bottom: 5, left: -10 }}>
                                     <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
-                                    <XAxis dataKey="month" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} />
-                                    <YAxis domain={['dataMin - 10', 'dataMax + 10']} stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} />
+                                    <XAxis dataKey="month" stroke={tickColor} tick={{ fill: tickColor, fontSize: 11 }} />
+                                    <YAxis domain={['dataMin - 10', 'dataMax + 10']} stroke={tickColor} tick={{ fill: tickColor, fontSize: 11 }} />
                                     <RechartsTooltip content={<ChartTooltipContent />} />
                                     <Legend />
                                     <Line type="monotone" dataKey="steel" name="Steel" stroke="var(--color-steel)" strokeWidth={2} />
