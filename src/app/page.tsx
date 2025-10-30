@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -6,15 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, ArrowRight, Flame, Wrench, Gem } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Flame, Wrench, Gem, Leaf, Zap } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
 import { galleryImages } from '@/lib/gallery-data';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
-import { BarChart, Bar, XAxis, YAxis, Cell } from 'recharts';
-import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
-import { useTheme } from 'next-themes';
+import { RecyclingIcon } from '@/components/icons/RecyclingIcon';
+
 
 const homeHeroImage = PlaceHolderImages.find(p => p.id === 'home-hero');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
@@ -37,47 +35,77 @@ const metalServices = [
   },
 ];
 
-const initialMetalDistributionData = [
-  { name: 'Africa', value: 4000 },
-  { name: 'Asia', value: 9500 },
-  { name: 'Europe', value: 6800 },
-  { name: 'N. America', value: 7200 },
-  { name: 'S. America', value: 3500 },
-  { name: 'Oceania', value: 1500 },
-];
-
-const PIE_COLORS = [
-    'hsl(45, 100%, 50%)', // Gold
-    'hsl(210, 70%, 55%)', // Blue
-    'hsl(340, 82%, 60%)', // Pink
-    'hsl(160, 70%, 45%)', // Teal
-    'hsl(260, 70%, 65%)', // Purple
-    'hsl(10, 80%, 55%)',  // Orange
-];
-
-const chartConfig = {
-    value: { label: "Tons" },
-};
-
-export default function Home() {
-  const { theme } = useTheme();
-  const tickColor = theme === 'dark' ? '#A1A1AA' : '#71717A';
-
-  const [barData, setBarData] = React.useState(initialMetalDistributionData);
+const Counter = ({ end, duration = 2, isPercentage = false }: { end: number; duration?: number; isPercentage?: boolean }) => {
+  const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      setBarData(currentData =>
-        currentData.map(item => ({
-          ...item,
-          value: Math.max(1000, (item.value || 0) + (Math.random() - 0.5) * 2500),
-        }))
-      );
-    }, 5000);
+    let start = 0;
+    const finalEnd = isNaN(end) ? 0 : end;
+    const range = finalEnd - start;
+    let current = start;
+    const increment = finalEnd > start ? 1 : -1;
+    const stepTime = Math.abs(Math.floor(duration * 1000 / range));
 
-    return () => clearInterval(interval);
-  }, []);
+    const timer = setInterval(() => {
+      current += increment;
+      // Approximate the count up to the end
+      if ((increment > 0 && current >= finalEnd) || (increment < 0 && current <= finalEnd)) {
+        current = finalEnd;
+        clearInterval(timer);
+      }
+      setCount(current);
+    }, stepTime > 0 ? stepTime : 1);
 
+    return () => clearInterval(timer);
+  }, [end, duration, isPercentage]);
+  
+  // Update with small random amounts after initial animation
+  React.useEffect(() => {
+    if (count === end) {
+      const interval = setInterval(() => {
+        setCount(prevCount => {
+            const newCount = prevCount + (Math.random() * (isPercentage ? 0.01 : 0.1));
+            return parseFloat(newCount.toFixed(isPercentage ? 2 : 1));
+        });
+      }, 3000 + Math.random() * 2000); // every 3-5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [count, end, isPercentage]);
+
+  return (
+    <span className="font-bold text-4xl md:text-5xl text-primary tabular-nums">
+      {count.toLocaleString(undefined, { maximumFractionDigits: isPercentage ? 2 : 1, minimumFractionDigits: isPercentage ? 2 : 0})}
+      {isPercentage && <span className="text-2xl md:text-3xl ml-1">%</span>}
+    </span>
+  );
+};
+
+
+const sustainabilityMetrics = [
+  {
+    title: 'Tons of CO₂ Saved',
+    icon: <Leaf className="w-10 h-10 text-green-400" />,
+    value: 1250,
+    isPercentage: false,
+    description: "Equivalent to planting over 20,000 trees annually."
+  },
+  {
+    title: 'Energy Efficiency Improvement',
+    icon: <Zap className="w-10 h-10 text-yellow-400" />,
+    value: 35.75,
+    isPercentage: true,
+    description: "Achieved through optimized processes and material selection."
+  },
+  {
+    title: 'Recycled & Smart Materials Used',
+    icon: <RecyclingIcon className="w-10 h-10 text-blue-400" />,
+    value: 82.5,
+    isPercentage: true,
+    description: "Reducing waste and enhancing structural performance."
+  },
+];
+
+export default function Home() {
   return (
     <div className="fade-in">
       {/* Hero Section */}
@@ -158,7 +186,7 @@ export default function Home() {
       {/* Metalworks Section */}
       <section className="py-16 md:py-24 bg-card/50 relative overflow-hidden">
         <div className="container max-w-7xl text-center relative">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary">Expert Fabrication & Metalworks</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary">Expert Fabrication &amp; Metalworks</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
           </p>
@@ -235,36 +263,59 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Live Analytics Preview Section */}
-      <section className="py-16 md:py-24 bg-card/50">
-        <div className="container max-w-2xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
-            <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
-                We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
-            </p>
-            <div className="mt-12">
-              <ChartContainer config={chartConfig} className="h-[200px] md:h-[250px] w-full">
-                  <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
-                      <XAxis dataKey="name" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                      <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
-                      <ChartTooltipContent cursor={{fill: 'hsl(var(--muted))'}} hideLabel />
-                      <Bar dataKey="value" radius={[4, 4, 0, 0]}>
-                          {barData.map((entry, index) => (
-                              <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                          ))}
-                      </Bar>
-                  </BarChart>
-              </ChartContainer>
+      {/* Sustainability Section */}
+      <section className="py-16 md:py-24 bg-card/50 relative overflow-hidden">
+        <BlueprintBackground />
+        <div className="container max-w-7xl relative">
+          <div className="text-center mb-12 relative">
+            <div className="relative">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary">Sustainability &amp; Efficiency</h2>
+              <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
+                Measuring our commitment to a greener, stronger future.
+                 <br />
+                <span className="relative flex h-3 w-3 mx-auto mt-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    <span className="ml-4 text-xs text-green-400 uppercase font-bold tracking-wider">live</span>
+                </span>
+              </p>
             </div>
-            <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {sustainabilityMetrics.map((metric) => (
+                <div key={metric.title} className="group" style={{ perspective: '1000px' }}>
+                    <Card 
+                        className="flex flex-col h-full bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20 [transform-style:preserve-3d] border-t-2 border-green-500/50"
+                        style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}
+                    >
+                        <div className="[transform:translateZ(40px)] p-4 md:p-6 flex flex-col flex-grow text-center items-center">
+                            <CardHeader className="p-0 flex-shrink-0 mb-4 items-center">
+                                <div className="p-4 rounded-full bg-background mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    {metric.icon}
+                                </div>
+                                <CardTitle className="text-lg md:text-xl text-primary">{metric.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0 flex-grow flex flex-col justify-center items-center">
+                                <Counter end={metric.value} isPercentage={metric.isPercentage} />
+                                <p className="mt-4 text-muted-foreground text-xs">{metric.description}</p>
+                            </CardContent>
+                        </div>
+                    </Card>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/analytics">
                   <span className="relative flex h-3 w-3 mr-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                   </span>
-                  View Live Analytics
+                  View Full Analytics
                 </Link>
             </Button>
+          </div>
         </div>
       </section>
 

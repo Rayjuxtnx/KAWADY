@@ -128,10 +128,7 @@ export function Header() {
            <DropdownNav title="Our Work">
              <DropdownMenuItem asChild><Link href="/gallery">Gallery</Link></DropdownMenuItem>
            </DropdownNav>
-          <DropdownNav title="Analytics">
-             <DropdownMenuItem asChild><Link href="/analytics">Live Market</Link></DropdownMenuItem>
-             <DropdownMenuItem asChild><Link href="/analytics/sustainability">Sustainability</Link></DropdownMenuItem>
-          </DropdownNav>
+          <NavLink href="/analytics">Analytics</NavLink>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -179,13 +176,7 @@ export function Header() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="analytics" className="border-b-0">
-                <AccordionTrigger className="py-2 text-lg font-medium text-foreground/80 hover:no-underline hover:text-foreground">Analytics</AccordionTrigger>
-                <AccordionContent className="pl-4">
-                  <MobileNavLink href="/analytics" onNavigate={() => setIsMenuOpen(false)}>Live Market</MobileNavLink>
-                  <MobileNavLink href="/analytics/sustainability" onNavigate={() => setIsMenuOpen(false)}>Sustainability</MobileNavLink>
-                </AccordionContent>
-              </AccordionItem>
+              <MobileNavLink href="/analytics" onNavigate={() => setIsMenuOpen(false)}>Analytics</MobileNavLink>
             </Accordion>
             
             <div className="flex items-center gap-4 mt-8">
