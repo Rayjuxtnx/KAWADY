@@ -11,6 +11,7 @@ import { QuickQueryWidget } from '@/components/layout/quick-query-widget';
 import { PreLoader } from '@/components/layout/pre-loader';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
+import { WelcomeModal } from '@/components/layout/welcome-modal';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -68,6 +69,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <PreLoader />
+          <WelcomeModal />
           <div className="flex min-h-screen flex-col">
             <Header />
             <main className="flex-grow">{children}</main>
