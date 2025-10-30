@@ -38,12 +38,12 @@ const metalServices = [
 ];
 
 const initialMetalDistributionData = [
-  { continent: 'Africa', Steel: 4000 },
-  { continent: 'Asia', Steel: 9500 },
-  { continent: 'Europe', Steel: 6800 },
-  { continent: 'N. America', Steel: 7200 },
-  { continent: 'S. America', Steel: 3500 },
-  { continent: 'Oceania', Steel: 1500 },
+  { name: 'Africa', value: 4000 },
+  { name: 'Asia', value: 9500 },
+  { name: 'Europe', value: 6800 },
+  { name: 'N. America', value: 7200 },
+  { name: 'S. America', value: 3500 },
+  { name: 'Oceania', value: 1500 },
 ];
 
 const PIE_COLORS = [
@@ -56,7 +56,7 @@ const PIE_COLORS = [
 ];
 
 const chartConfig = {
-    Steel: { label: "Steel" },
+    value: { label: "Tons" },
 };
 
 export default function Home() {
@@ -70,7 +70,7 @@ export default function Home() {
       setBarData(currentData =>
         currentData.map(item => ({
           ...item,
-          Steel: Math.max(1000, item.Steel + (Math.random() - 0.5) * 2500),
+          value: Math.max(1000, (item.value || 0) + (Math.random() - 0.5) * 2500),
         }))
       );
     }, 5000);
@@ -245,10 +245,10 @@ export default function Home() {
             <div className="mt-12">
               <ChartContainer config={chartConfig} className="h-[200px] md:h-[250px] w-full">
                   <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
-                      <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                      <XAxis dataKey="name" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
                       <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
                       <ChartTooltipContent cursor={{fill: 'hsl(var(--muted))'}} hideLabel />
-                      <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
+                      <Bar dataKey="value" radius={[4, 4, 0, 0]}>
                           {barData.map((entry, index) => (
                               <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
                           ))}
