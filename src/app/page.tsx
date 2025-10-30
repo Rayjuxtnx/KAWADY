@@ -96,12 +96,12 @@ export default function Home() {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent" />
         <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-left p-4 md:p-6">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
             Building with Insight,
             <br />
             Integrity, and Innovation.
           </h1>
-          <p className="mt-4 max-w-lg text-md md:text-lg text-muted-foreground drop-shadow-sm">
+          <p className="mt-4 max-w-lg text-sm md:text-lg text-muted-foreground drop-shadow-sm">
             Your trusted partner in construction consultancy, delivering excellence from concept to completion.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -140,10 +140,10 @@ export default function Home() {
                         </div>
                     )}
                   <CardHeader>
-                    <CardTitle>{service.title}</CardTitle>
+                    <CardTitle className="text-base md:text-xl">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm">{service.description}</p>
+                    <p className="text-muted-foreground text-xs md:text-sm">{service.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -162,7 +162,7 @@ export default function Home() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
             {metalServices.map((service) => (
               <div key={service.title} className="group" style={{ perspective: '1000px' }}>
                 <Card className="flex flex-col h-full text-left bg-card/80 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
@@ -170,11 +170,11 @@ export default function Home() {
                       <CardHeader className="p-0 mb-4">
                           <div className="flex items-center gap-4">
                               <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                              <CardTitle>{service.title}</CardTitle>
+                              <CardTitle className="text-base md:text-xl">{service.title}</CardTitle>
                           </div>
                       </CardHeader>
                       <CardContent className="p-0">
-                          <p className="text-muted-foreground text-sm">{service.description}</p>
+                          <p className="text-muted-foreground text-xs md:text-sm">{service.description}</p>
                       </CardContent>
                   </div>
                 </Card>
@@ -242,17 +242,19 @@ export default function Home() {
             <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
                 We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
             </p>
-            <div className="mt-12 w-full h-[250px] md:h-[300px]">
-                <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
-                    <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                    <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
-                    <ChartTooltipContent cursor={{fill: 'hsl(var(--muted))'}} hideLabel />
-                    <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
-                        {barData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                        ))}
-                    </Bar>
-                </BarChart>
+            <div className="mt-12">
+              <ChartContainer config={chartConfig} className="h-[250px] md:h-[300px] w-full">
+                  <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
+                      <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                      <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
+                      <ChartTooltipContent cursor={{fill: 'hsl(var(--muted))'}} hideLabel />
+                      <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
+                          {barData.map((entry, index) => (
+                              <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                          ))}
+                      </Bar>
+                  </BarChart>
+              </ChartContainer>
             </div>
             <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/analytics">
