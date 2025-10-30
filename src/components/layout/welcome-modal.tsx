@@ -22,14 +22,24 @@ export function WelcomeModal() {
     const hasBeenShown = sessionStorage.getItem('welcomeModalShown');
     if (!hasBeenShown) {
       // Delay showing the modal to let the preloader finish
-      const timer = setTimeout(() => {
+      const showTimer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem('welcomeModalShown', 'true');
       }, 10500); // Slightly after the 10s preloader
 
-      return () => clearTimeout(timer);
+      return () => clearTimeout(showTimer);
     }
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      const autoCloseTimer = setTimeout(() => {
+        setIsOpen(false);
+      }, 5000); // Auto-close after 5 seconds
+
+      return () => clearTimeout(autoCloseTimer);
+    }
+  }, [isOpen]);
 
   if (!isOpen) {
     return null;
