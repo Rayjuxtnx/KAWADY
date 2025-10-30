@@ -100,7 +100,7 @@ export function ContactForm() {
                                     <MapPin className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary text-sm">Office Address</h3>
-                                        <p className="text-xs">123 Construction Ave, Nairobi, Kenya</p>
+                                        <p className="text-xs">P.O Box 30800-00100, Nairobi</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
