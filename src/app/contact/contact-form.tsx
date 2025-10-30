@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from 'react';
@@ -91,7 +90,7 @@ export function ContactForm() {
                     </Card>
 
                     <div className="space-y-4 flex flex-col">
-                        <Card className="bg-card/50 backdrop-blur-lg border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <Card className="bg-card/30 backdrop-blur-xl border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                             <CardHeader className="p-4 sm:p-6">
                                 <CardTitle className="text-lg">Contact Information</CardTitle>
                             </CardHeader>
