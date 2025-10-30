@@ -186,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Highlights Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24">
         <div className="container max-w-7xl text-center">
           <h2 className="text-3xl font-bold text-primary">Gallery Highlights</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
@@ -327,5 +327,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
