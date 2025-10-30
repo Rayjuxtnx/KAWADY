@@ -12,7 +12,7 @@ import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
 import { galleryImages } from '@/lib/gallery-data';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip as RechartsTooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip as RechartsTooltip } from 'recharts';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { useTheme } from 'next-themes';
 
@@ -241,22 +241,18 @@ export default function Home() {
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="md:order-2">
-              <div className="h-[300px] w-full">
-                <ChartContainer config={chartConfig} className="h-full w-full">
-                    <ResponsiveContainer>
-                      <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
-                          <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                          <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
-                          <RechartsTooltip cursor={{fill: 'hsl(var(--muted))'}} content={<ChartTooltipContent hideLabel />} />
-                          <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
-                              {barData.map((entry, index) => (
-                                  <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                              ))}
-                          </Bar>
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </ChartContainer>
-              </div>
+              <ChartContainer config={chartConfig} className="h-[300px] w-full">
+                  <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
+                      <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                      <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
+                      <RechartsTooltip cursor={{fill: 'hsl(var(--muted))'}} content={<ChartTooltipContent hideLabel />} />
+                      <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
+                          {barData.map((entry, index) => (
+                              <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                          ))}
+                      </Bar>
+                  </BarChart>
+                </ChartContainer>
             </div>
             <div className="md:order-1">
               <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
@@ -341,5 +337,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

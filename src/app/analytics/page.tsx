@@ -129,18 +129,16 @@ export default function AnalyticsPage() {
               </CardHeader>
               <CardContent>
                 <ChartContainer config={chartConfig} className="h-[400px] w-full">
-                  <ResponsiveContainer>
-                    <BarChart data={barData} margin={{ top: 20, right: 20, bottom: 5, left: 0 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
-                        <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} />
-                        <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} width={40} />
-                        <RechartsTooltip cursor={{fill: 'hsla(var(--muted))'}} content={<ChartTooltipContent />} />
-                        <Legend />
-                        <Bar dataKey="Steel" fill="var(--color-Steel)" radius={[4, 4, 0, 0]} />
-                        <Bar dataKey="Aluminum" fill="var(--color-Aluminum)" radius={[4, 4, 0, 0]} />
-                        <Bar dataKey="Copper" fill="var(--color-Copper)" radius={[4, 4, 0, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
+                  <BarChart data={barData} margin={{ top: 20, right: 20, bottom: 5, left: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
+                      <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} />
+                      <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} width={40} />
+                      <RechartsTooltip cursor={{fill: 'hsla(var(--muted))'}} content={<ChartTooltipContent />} />
+                      <Legend />
+                      <Bar dataKey="Steel" fill="var(--color-Steel)" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Aluminum" fill="var(--color-Aluminum)" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Copper" fill="var(--color-Copper)" radius={[4, 4, 0, 0]} />
+                  </BarChart>
                 </ChartContainer>
               </CardContent>
             </Card>
@@ -152,27 +150,25 @@ export default function AnalyticsPage() {
               </CardHeader>
               <CardContent>
                 <ChartContainer config={{}} className="h-[400px] w-full">
-                  <ResponsiveContainer>
-                    <PieChart>
-                      <Pie
-                        activeIndex={activeIndex}
-                        activeShape={renderActiveShape}
-                        data={pieData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={100}
-                        fill="#8884d8"
-                        dataKey="value"
-                        onMouseEnter={onPieEnter}
-                      >
-                        {pieData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                        ))}
-                      </Pie>
-                      <Legend iconType="circle" />
-                    </PieChart>
-                  </ResponsiveContainer>
+                  <PieChart>
+                    <Pie
+                      activeIndex={activeIndex}
+                      activeShape={renderActiveShape}
+                      data={pieData}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={60}
+                      outerRadius={100}
+                      fill="#8884d8"
+                      dataKey="value"
+                      onMouseEnter={onPieEnter}
+                    >
+                      {pieData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Legend iconType="circle" />
+                  </PieChart>
                 </ChartContainer>
               </CardContent>
             </Card>
@@ -183,5 +179,3 @@ export default function AnalyticsPage() {
     </div>
   );
 }
-
-    
