@@ -1,7 +1,8 @@
+
 {
-  "name": "KAWADY Mildsteel Consultants",
+  "name": "KAWADY Mildsteel Consultants Ltd",
   "short_name": "KAWADY",
-  "description": "Expert Welding & Fabrication Consultancy",
+  "description": "Expert welding, fabrication, and mild steel consultancy services.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#111827",
