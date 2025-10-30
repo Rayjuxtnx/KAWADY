@@ -128,7 +128,10 @@ export function Header() {
            <DropdownNav title="Our Work">
              <DropdownMenuItem asChild><Link href="/gallery">Gallery</Link></DropdownMenuItem>
            </DropdownNav>
-          <NavLink href="/analytics">Analytics</NavLink>
+           <DropdownNav title="Analytics">
+             <DropdownMenuItem asChild><Link href="/analytics">Live Usage</Link></DropdownMenuItem>
+             <DropdownMenuItem asChild><Link href="/analytics/trends">Market Trends</Link></DropdownMenuItem>
+           </DropdownNav>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -175,8 +178,15 @@ export function Header() {
                   <MobileNavLink href="/gallery" onNavigate={() => setIsMenuOpen(false)}>Gallery</MobileNavLink>
                 </AccordionContent>
               </AccordionItem>
+              
+              <AccordionItem value="analytics" className="border-b-0">
+                <AccordionTrigger className="py-2 text-lg font-medium text-foreground/80 hover:no-underline hover:text-foreground">Analytics</AccordionTrigger>
+                <AccordionContent className="pl-4">
+                  <MobileNavLink href="/analytics" onNavigate={() => setIsMenuOpen(false)}>Live Usage</MobileNavLink>
+                  <MobileNavLink href="/analytics/trends" onNavigate={() => setIsMenuOpen(false)}>Market Trends</MobileNavLink>
+                </AccordionContent>
+              </AccordionItem>
 
-              <MobileNavLink href="/analytics" onNavigate={() => setIsMenuOpen(false)}>Analytics</MobileNavLink>
             </Accordion>
             
             <div className="flex items-center gap-4 mt-8">
