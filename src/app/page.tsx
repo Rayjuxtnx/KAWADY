@@ -237,7 +237,7 @@ export default function Home() {
       
       {/* Live Analytics Preview Section */}
       <section className="py-16 md:py-24 bg-card/50">
-        <div className="container max-w-4xl text-center">
+        <div className="container max-w-2xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
             <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
                 We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
@@ -335,7 +335,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
