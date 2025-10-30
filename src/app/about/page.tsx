@@ -137,22 +137,24 @@ export default function AboutPage() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground text-sm md:text-base">
             Choosing KAWADY mildsteel consultants Ltd means choosing a partner committed to the success of your vision.
           </p>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-            <Card className="bg-card/50 backdrop-blur-lg border-accent/20 p-4 md:p-6 rounded-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              <Award className="h-10 w-10 text-accent mb-4" />
-              <h3 className="text-base md:text-lg font-semibold text-primary">Unmatched Experience</h3>
-              <p className="mt-2 text-xs md:text-sm text-muted-foreground">Our team's extensive experience across diverse project types ensures knowledgeable and effective project leadership.</p>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur-lg border-accent/20 p-4 md:p-6 rounded-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              <Users className="h-10 w-10 text-accent mb-4" />
-              <h3 className="text-base md:text-lg font-semibold text-primary">Client-Centric Focus</h3>
-              <p className="mt-2 text-xs md:text-sm text-muted-foreground">We prioritize your goals, maintaining open communication and tailoring our strategies to fit your specific needs.</p>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur-lg border-accent/20 p-4 md:p-6 rounded-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              <Handshake className="h-10 w-10 text-accent mb-4" />
-              <h3 className="text-base md:text-lg font-semibold text-primary">Commitment to Quality</h3>
-              <p className="mt-2 text-xs md:text-sm text-muted-foreground">We uphold the highest standards of quality and safety, from the initial blueprint to the final handover.</p>
-            </Card>
+          <div className="glowing-border-container mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+              <Card className="glowing-border-card bg-card/50 backdrop-blur-lg p-4 md:p-6 rounded-lg transition-all duration-300">
+                <Award className="h-10 w-10 text-accent mb-4" />
+                <h3 className="text-base md:text-lg font-semibold text-primary">Unmatched Experience</h3>
+                <p className="mt-2 text-xs md:text-sm text-muted-foreground">Our team's extensive experience across diverse project types ensures knowledgeable and effective project leadership.</p>
+              </Card>
+              <Card className="glowing-border-card bg-card/50 backdrop-blur-lg p-4 md:p-6 rounded-lg transition-all duration-300">
+                <Users className="h-10 w-10 text-accent mb-4" />
+                <h3 className="text-base md:text-lg font-semibold text-primary">Client-Centric Focus</h3>
+                <p className="mt-2 text-xs md:text-sm text-muted-foreground">We prioritize your goals, maintaining open communication and tailoring our strategies to fit your specific needs.</p>
+              </Card>
+              <Card className="glowing-border-card bg-card/50 backdrop-blur-lg p-4 md:p-6 rounded-lg transition-all duration-300">
+                <Handshake className="h-10 w-10 text-accent mb-4" />
+                <h3 className="text-base md:text-lg font-semibold text-primary">Commitment to Quality</h3>
+                <p className="mt-2 text-xs md:text-sm text-muted-foreground">We uphold the highest standards of quality and safety, from the initial blueprint to the final handover.</p>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

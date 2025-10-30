@@ -388,3 +388,40 @@
   animation: weld-glow-2 25s cubic-bezier(0.3, 0, 0.7, 1) infinite;
   animation-delay: -12.5s;
 }
+
+@keyframes glowing-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.glowing-border-container {
+  position: relative;
+  border-radius: 0.5rem; /* Match card border radius */
+}
+
+.glowing-border-container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    250px circle at var(--x) var(--y),
+    hsl(var(--accent) / 0.5),
+    transparent 80%
+  );
+  animation: glowing-border 8s linear infinite;
+  will-change: background-position;
+}
+
+.glowing-border-card {
+  position: relative;
+  z-index: 1;
+  border: 1px solid hsl(var(--border) / 0.5);
+}
