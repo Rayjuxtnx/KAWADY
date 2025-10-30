@@ -162,7 +162,7 @@ export default function Home() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {metalServices.map((service) => (
               <div key={service.title} className="group" style={{ perspective: '1000px' }}>
                 <Card className="flex flex-col h-full text-left bg-card/80 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
@@ -183,7 +183,6 @@ export default function Home() {
           </div>
           <Button asChild variant="link" className="mt-8 text-accent text-base">
             <Link href="/metalworks">Discover Our Metalworks <ArrowRight className="ml-2 h-4 w-4" /></Link>
-
           </Button>
         </div>
       </section>
@@ -238,22 +237,13 @@ export default function Home() {
       
       {/* Live Analytics Preview Section */}
       <section className="py-16 md:py-24 bg-card/50">
-        <div className="container max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
-              <p className="mt-4 max-w-xl mx-auto lg:mx-0 text-muted-foreground">
+        <div className="container max-w-7xl text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
+            <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
                 We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
-              </p>
-              <Button asChild size="lg" className="mt-6 bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link href="/analytics">
-                  <span className="inline-block bg-green-500 rounded-full w-3 h-3 mr-2 pulse"></span>
-                  View Live Analytics
-                </Link>
-              </Button>
-            </div>
-            <div className="w-full max-w-xl mx-auto">
-              <ChartContainer config={chartConfig} className="h-[300px] w-full">
+            </p>
+            <div className="mt-8 w-full max-w-2xl mx-auto">
+              <ChartContainer config={chartConfig} className="w-full" style={{ height: '300px' }}>
                 <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
                     <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
                     <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
@@ -266,7 +256,12 @@ export default function Home() {
                 </BarChart>
               </ChartContainer>
             </div>
-          </div>
+            <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
+                <Link href="/analytics">
+                  <span className="inline-block bg-green-500 rounded-full w-3 h-3 mr-2 pulse"></span>
+                  View Live Analytics
+                </Link>
+            </Button>
         </div>
       </section>
 
