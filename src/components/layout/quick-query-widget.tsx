@@ -84,18 +84,21 @@ export function QuickQueryWidget() {
 
   return (
     <>
-      <Button
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] h-16 w-16 rounded-full shadow-lg flex items-center justify-center animate-bg-gradient-shift"
-        onClick={() => setIsOpen(true)}
-        aria-label="Open AI Assistant"
-      >
-        <Bot className="h-8 w-8 text-white drop-shadow-lg" />
-      </Button>
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-center gap-2">
+        <Button
+          className="h-16 w-16 rounded-full shadow-lg flex items-center justify-center animate-bg-gradient-shift"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open AI Assistant"
+        >
+          <Bot className="h-8 w-8 text-white drop-shadow-lg" />
+        </Button>
+        <p className="text-xs text-center text-muted-foreground bg-background/50 px-2 py-1 rounded-full shadow-lg">I am Kawady AI</p>
+      </div>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent 
             side="bottom" 
-            className="sm:max-w-xl mx-auto h-[85vh] md:h-[70vh] flex flex-col p-0 bg-card/80 backdrop-blur-xl border-accent/30 rounded-t-2xl sm:bottom-4"
+            className="sm:max-w-xl mx-auto h-[85vh] md:h-[70vh] flex flex-col p-0 bg-card/80 backdrop-blur-xl border-accent/30 rounded-t-2xl sm:bottom-4 sm:rounded-2xl"
         >
           <SheetHeader className="p-4 md:p-6 pb-4 border-b border-border/50">
             <SheetTitle>Kawady AI Assistant</SheetTitle>
