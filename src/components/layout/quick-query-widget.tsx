@@ -94,7 +94,7 @@ export function QuickQueryWidget() {
             <Bot className="h-8 w-8 drop-shadow-lg" />
           </Button>
         </div>
-        <p className="text-xs text-muted-foreground font-medium">Do you have a question?</p>
+        <p className="text-xs text-muted-foreground font-medium">Ask Kawady AI</p>
       </div>
 
 
