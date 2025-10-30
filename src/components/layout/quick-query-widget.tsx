@@ -92,7 +92,7 @@ export function QuickQueryWidget() {
         >
           <Bot className="h-8 w-8 text-white drop-shadow-lg" />
         </Button>
-        <p className="text-xs text-center text-muted-foreground bg-background/50 px-2 py-1 rounded-full shadow-lg">I am Kawady AI</p>
+        {!isOpen && <p className="text-xs text-center text-muted-foreground bg-background/50 px-2 py-1 rounded-full shadow-lg">I am Kawady AI</p>}
       </div>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
