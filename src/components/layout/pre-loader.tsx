@@ -26,7 +26,7 @@ export function PreLoader() {
       }`}
     >
       <BlueprintBackground />
-      <div className="flex flex-col items-center justify-center gap-6 md:gap-8 relative">
+      <div className="flex flex-col items-center justify-center gap-4 p-4 relative">
         <div className="relative w-24 h-24 md:w-32 md:h-32">
           <svg className="absolute inset-0 w-full h-full animate-rotate" viewBox="0 0 100 100">
             <circle 
@@ -49,11 +49,11 @@ export function PreLoader() {
           </svg>
         </div>
         
-        <h1 className="text-4xl md:text-5xl font-bold tracking-wider relative animate-multi-color-text-glow">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-wider relative animate-multi-color-text-glow text-center">
           KAWADY
         </h1>
       </div>
-      <p className="absolute bottom-10 mt-4 text-base md:text-lg text-white/80">Building with Insight</p>
+      <p className="absolute bottom-10 mt-4 text-base md:text-lg text-white/80 text-center px-4">Building with Insight</p>
     </div>
   );
 }

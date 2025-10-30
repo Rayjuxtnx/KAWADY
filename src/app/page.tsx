@@ -238,7 +238,25 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-card/50">
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="order-2 md:order-1">
+            <div className="md:order-2">
+              <div className="h-[300px] w-full">
+                <ChartContainer config={chartConfig} className="h-full w-full">
+                    <ResponsiveContainer>
+                      <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
+                          <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                          <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
+                          <RechartsTooltip cursor={{fill: 'hsl(var(--muted))'}} content={<ChartTooltipContent hideLabel />} />
+                          <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
+                              {barData.map((entry, index) => (
+                                  <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                              ))}
+                          </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </ChartContainer>
+              </div>
+            </div>
+            <div className="md:order-1">
               <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
               <p className="mt-4 text-muted-foreground">
                 We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
@@ -249,22 +267,6 @@ export default function Home() {
                   View Live Analytics
                 </Link>
               </Button>
-            </div>
-            <div className="h-[300px] w-full order-1 md:order-2">
-              <ChartContainer config={chartConfig} className="h-full w-full">
-                  <ResponsiveContainer>
-                    <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
-                        <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                        <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
-                        <RechartsTooltip cursor={{fill: 'hsl(var(--muted))'}} content={<ChartTooltipContent hideLabel />} />
-                        <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
-                            {barData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                            ))}
-                        </Bar>
-                    </BarChart>
-                  </ResponsiveContainer>
-                </ChartContainer>
             </div>
           </div>
         </div>

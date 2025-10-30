@@ -84,7 +84,7 @@ export function QuickQueryWidget() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-center gap-2">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-center gap-2">
         <div className="h-16 w-16 group relative">
           <Button
             className="relative w-full h-full rounded-full text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 animate-bg-gradient-shift"
