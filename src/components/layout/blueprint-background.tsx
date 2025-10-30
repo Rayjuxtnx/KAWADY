@@ -22,12 +22,8 @@ export function BlueprintBackground() {
             />
           </pattern>
            <linearGradient id="color-shift-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ff0000" className="gradient-stop-1" />
-              <stop offset="20%" stopColor="#0000ff" className="gradient-stop-2" />
-              <stop offset="40%" stopColor="#ffff00" className="gradient-stop-1" />
-              <stop offset="60%" stopColor="#D4AF37" className="gradient-stop-2" />
-              <stop offset="80%" stopColor="#ffc0cb" className="gradient-stop-1" />
-              <stop offset="100%" stopColor="#ff0000" className="gradient-stop-2" />
+              <stop offset="0%" className="gradient-stop-1" />
+              <stop offset="100%" className="gradient-stop-2" />
           </linearGradient>
         </defs>
         <rect

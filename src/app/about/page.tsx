@@ -21,7 +21,7 @@ export default function AboutPage() {
         <BlueprintBackground />
         <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative w-48 h-48 md:w-64 md:h-64 opacity-10">
-                <svg className="absolute inset-0 w-full h-full animate-simple-rotate" viewBox="0 0 100 100">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
                     <circle
                         cx="50"
                         cy="50"
@@ -29,15 +29,17 @@ export default function AboutPage() {
                         stroke="url(#glow-gradient-about)"
                         strokeWidth="5"
                         fill="none"
+                        className="color-scanner-ring"
                     />
                     <text
                         x="50"
                         y="55"
                         textAnchor="middle"
-                        fill="hsl(var(--accent))"
+                        fill="url(#color-shift-gradient)"
                         fontSize="20"
                         fontWeight="bold"
                         style={{ filter: 'blur(1.5px)' }}
+                        className="animate-multi-color-text-glow"
                     >
                         KAWADY
                     </text>

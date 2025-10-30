@@ -192,30 +192,29 @@
 
 @keyframes multi-color-text-glow {
   0% {
-    color: hsl(var(--foreground));
-    text-shadow:
-      0 0 2px hsl(var(--accent) / 0.1),
-      0 0 5px hsl(var(--accent) / 0.05),
-      0 0 10px hsl(210, 70%, 55% / 0.05);
-  }
-  50% {
-    color: hsl(var(--accent));
+    fill: hsl(var(--accent));
     text-shadow:
       0 0 8px hsl(var(--accent) / 0.3),
       0 0 12px hsl(var(--accent) / 0.2),
       0 0 18px hsl(210, 70%, 55% / 0.2);
   }
-  100% {
-    color: hsl(var(--foreground));
+  50% {
+    fill: hsl(210, 70%, 55%);
     text-shadow:
-      0 0 2px hsl(var(--accent) / 0.1),
-      0 0 5px hsl(var(--accent) / 0.05),
-      0 0 10px hsl(210, 70%, 55% / 0.05);
+      0 0 8px hsl(210, 70%, 55% / 0.3),
+      0 0 12px hsl(210, 70%, 55% / 0.2),
+      0 0 18px hsl(var(--accent) / 0.2);
+  }
+  100% {
+    fill: hsl(var(--accent));
+    text-shadow:
+      0 0 8px hsl(var(--accent) / 0.3),
+      0 0 12px hsl(var(--accent) / 0.2),
+      0 0 18px hsl(210, 70%, 55% / 0.2);
   }
 }
 .animate-multi-color-text-glow {
-  animation: multi-color-text-glow 10s ease-in-out infinite alternate;
-  animation-delay: 1.5s;
+  animation: multi-color-text-glow 6s ease-in-out infinite alternate;
 }
 
 
@@ -296,17 +295,23 @@
 
 @keyframes color-scanner-pulse {
   0% {
-    stroke-dasharray: 0 283;
+    stroke-dashoffset: 283;
     transform: rotate(0deg);
   }
   50% {
-    stroke-dasharray: 283 0;
+    stroke-dashoffset: 0;
     transform: rotate(180deg);
   }
   100% {
-    stroke-dasharray: 0 283;
+    stroke-dashoffset: 283;
     transform: rotate(360deg);
   }
+}
+
+.color-scanner-ring {
+  stroke-dasharray: 283; /* Circumference of circle with r=45 */
+  transform-origin: center;
+  animation: color-scanner-pulse 6s linear infinite;
 }
 
 @keyframes bg-gradient-shift {
@@ -319,15 +324,6 @@
   100% {
     background-position: 0% 50%;
   }
-}
-
-.color-scanner-ring {
-  stroke: url(#color-shift-gradient);
-  stroke-width: 3;
-  fill: none;
-  stroke-linecap: round;
-  transform-origin: center;
-  animation: color-scanner-pulse 8s linear infinite;
 }
 
 @keyframes gradient-shift {
