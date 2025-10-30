@@ -44,13 +44,13 @@
     },
     {
       "id": "project-5",
-      "description": "A newly constructed cable-stayed bridge at twilight, representing major infrastructure projects.",
+      "description": "A landmark cable-stayed bridge improving regional connectivity and serving as an iconic piece of public infrastructure.",
       "imageUrl": "https://images.unsplash.com/photo-1709872952794-ccb1a99a78f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBicmlkZ2V8ZW58MHx8fHwxNzYxNjY3MjMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern bridge"
     },
     {
       "id": "project-6",
-      "description": "The vast interior of an industrial warehouse, showcasing logistics and distribution center construction.",
+      "description": "A massive logistics and distribution warehouse optimized for high-volume automated operations.",
       "imageUrl": "https://images.unsplash.com/photo-1553413077-190dd305871c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbmR1c3RyaWFsJTIwd2FyZWhvdXNlfGVufDB8fHx8MTc2MTY2ODUzNXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "industrial warehouse"
     },
@@ -80,9 +80,9 @@
     },
     {
       "id": "service-material-selection",
-      "description": "Various samples of different metal alloys and steel grades arranged for material selection and advisory.",
-      "imageUrl": "https://images.unsplash.com/photo-1599147379087-995f8e77ec73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtZXRhbCUyMGFsbG95c3xlbnwwfHx8fDE3NjE3NjMyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "metal alloys"
+      "description": "A close-up of a textured steel rod, highlighting material quality.",
+      "imageUrl": "https://images.unsplash.com/photo-1761479867761-7a8b11f54449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNXx8YSUyMHN0ZWVsJTIwcm9kfGVufDB8fHx8MTc2MTc5NTc3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steel rod"
     },
     {
       "id": "gallery-img-1",
