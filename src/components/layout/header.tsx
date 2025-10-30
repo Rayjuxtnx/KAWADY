@@ -124,6 +124,7 @@ export function Header() {
            <DropdownNav title="What We Do">
              <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
              <DropdownMenuItem asChild><Link href="/metalworks">Metalworks</Link></DropdownMenuItem>
+             <DropdownMenuItem asChild><Link href="/how-we-work">How We Work</Link></DropdownMenuItem>
            </DropdownNav>
            <DropdownNav title="Our Work">
              <DropdownMenuItem asChild><Link href="/gallery">Gallery</Link></DropdownMenuItem>
@@ -169,6 +170,7 @@ export function Header() {
                 <AccordionContent className="pl-4">
                   <MobileNavLink href="/services" onNavigate={() => setIsMenuOpen(false)}>Services</MobileNavLink>
                   <MobileNavLink href="/metalworks" onNavigate={() => setIsMenuOpen(false)}>Metalworks</MobileNavLink>
+                  <MobileNavLink href="/how-we-work" onNavigate={() => setIsMenuOpen(false)}>How We Work</MobileNavLink>
                 </AccordionContent>
               </AccordionItem>
               
