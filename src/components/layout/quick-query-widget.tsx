@@ -93,11 +93,14 @@ export function QuickQueryWidget() {
       </Button>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] md:h-[70vh] flex flex-col p-0">
-          <SheetHeader className="p-4 md:p-6 pb-4">
+        <SheetContent 
+            side="bottom" 
+            className="sm:max-w-xl mx-auto h-[85vh] md:h-[70vh] flex flex-col p-0 bg-card/80 backdrop-blur-xl border-accent/30 rounded-t-2xl sm:bottom-4"
+        >
+          <SheetHeader className="p-4 md:p-6 pb-4 border-b border-border/50">
             <SheetTitle>Kawady AI Assistant</SheetTitle>
             <SheetDescription>
-              Ask me anything about our construction and metalwork services.
+              Ask me anything about our services.
             </SheetDescription>
           </SheetHeader>
 
@@ -146,7 +149,7 @@ export function QuickQueryWidget() {
             </div>
           </ScrollArea>
           
-          <div className="p-4 md:p-6 pt-2 bg-background border-t">
+          <div className="p-4 md:p-6 pt-2 bg-transparent border-t border-border/50">
             <form ref={formRef} action={formAction} className="flex items-center gap-2">
                 <Input 
                   id="prompt" 
