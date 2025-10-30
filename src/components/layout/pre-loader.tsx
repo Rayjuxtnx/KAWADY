@@ -49,13 +49,11 @@ export function PreLoader() {
           </svg>
         </div>
         
-        <h1 className="text-4xl md:text-5xl font-bold tracking-wider relative animate-multi-color-text-glow text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider relative animate-multi-color-text-glow text-center">
           KAWADY
         </h1>
+        <p className="text-sm sm:text-base md:text-lg text-white/80 text-center">Building with Insight</p>
       </div>
-      <p className="absolute bottom-10 text-base md:text-lg text-white/80 text-center px-4">Building with Insight</p>
     </div>
   );
 }
-
-    
