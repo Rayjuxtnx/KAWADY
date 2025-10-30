@@ -52,14 +52,14 @@ export function ContactForm() {
         <section className="py-16 md:py-24 bg-background relative overflow-hidden">
             <BlueprintBackground />
             <div className="container max-w-7xl relative">
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary">Get In Touch</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
+                <div className="text-center mb-12 px-4">
+                    <h1 className="text-3xl md:text-5xl font-bold text-primary">Get In Touch</h1>
+                    <p className="mt-4 max-w-3xl mx-auto text-muted-foreground text-sm md:text-base">
                     Have a project in mind or need expert advice? We're here to help. Reach out to us through the form below or contact us directly.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-12 px-4">
                     <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <CardHeader>
                             <CardTitle>Send us a Message</CardTitle>

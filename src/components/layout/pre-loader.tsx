@@ -52,8 +52,10 @@ export function PreLoader() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider relative animate-multi-color-text-glow text-center">
           KAWADY
         </h1>
-        <p className="text-sm sm:text-base md:text-lg text-white/80 text-center">Building with Insight</p>
+        <p className="text-sm text-center text-white/80">Building with Insight</p>
       </div>
     </div>
   );
 }
+
+    

@@ -96,12 +96,12 @@ export default function Home() {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent" />
         <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-left p-4 md:p-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
             Building with Insight,
             <br />
             Integrity, and Innovation.
           </h1>
-          <p className="mt-4 max-w-lg text-lg md:text-xl text-muted-foreground drop-shadow-sm">
+          <p className="mt-4 max-w-lg text-md md:text-lg text-muted-foreground drop-shadow-sm">
             Your trusted partner in construction consultancy, delivering excellence from concept to completion.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -140,10 +140,10 @@ export default function Home() {
                         </div>
                     )}
                   <CardHeader>
-                    <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
+                    <CardTitle>{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
+                    <p className="text-muted-foreground text-sm">{service.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -157,7 +157,6 @@ export default function Home() {
 
       {/* Metalworks Section */}
       <section className="py-16 md:py-24 bg-card/50 relative overflow-hidden">
-        <BlueprintBackground />
         <div className="container max-w-7xl text-center relative">
           <h2 className="text-3xl md:text-4xl font-bold text-primary">Expert Fabrication & Metalworks</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
@@ -171,11 +170,11 @@ export default function Home() {
                       <CardHeader className="p-0 mb-4">
                           <div className="flex items-center gap-4">
                               <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                              <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
+                              <CardTitle>{service.title}</CardTitle>
                           </div>
                       </CardHeader>
                       <CardContent className="p-0">
-                          <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
+                          <p className="text-muted-foreground text-sm">{service.description}</p>
                       </CardContent>
                   </div>
                 </Card>
@@ -238,35 +237,33 @@ export default function Home() {
       
       {/* Live Analytics Preview Section */}
       <section className="py-16 md:py-24 bg-card/50">
-          <div className="container max-w-4xl text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
-              <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
-                  We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
-              </p>
-              <div className="mt-12 w-full">
-                  <ChartContainer config={chartConfig} className="w-full h-[250px] md:h-[300px]">
-                      <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
-                          <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                          <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
-                          <ChartTooltipContent cursor={{fill: 'hsl(var(--muted))'}} hideLabel />
-                          <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
-                              {barData.map((entry, index) => (
-                                  <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                              ))}
-                          </Bar>
-                      </BarChart>
-                  </ChartContainer>
-              </div>
-              <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
-                  <Link href="/analytics">
-                    <span className="relative flex h-3 w-3 mr-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    View Live Analytics
-                  </Link>
-              </Button>
-          </div>
+        <div className="container max-w-4xl text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
+            <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
+                We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
+            </p>
+            <div className="mt-12 w-full h-[250px] md:h-[300px]">
+                <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
+                    <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                    <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
+                    <ChartTooltipContent cursor={{fill: 'hsl(var(--muted))'}} hideLabel />
+                    <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
+                        {barData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                        ))}
+                    </Bar>
+                </BarChart>
+            </div>
+            <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
+                <Link href="/analytics">
+                  <span className="relative flex h-3 w-3 mr-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  View Live Analytics
+                </Link>
+            </Button>
+        </div>
       </section>
 
       {/* Why Choose Us Section */}
@@ -283,21 +280,21 @@ export default function Home() {
                   <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-primary">Expert Team</h3>
-                    <p className="text-muted-foreground">Our certified professionals are leaders in their respective fields.</p>
+                    <p className="text-muted-foreground text-sm">Our certified professionals are leaders in their respective fields.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-primary">Client-Centric Approach</h3>
-                    <p className="text-muted-foreground">We tailor our services to your unique project needs and goals.</p>
+                    <p className="text-muted-foreground text-sm">We tailor our services to your unique project needs and goals.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-primary">Proven Track Record</h3>
-                    <p className="text-muted-foreground">A history of successful projects and satisfied clients speaks for itself.</p>
+                    <p className="text-muted-foreground text-sm">A history of successful projects and satisfied clients speaks for itself.</p>
                   </div>
                 </li>
               </ul>
@@ -336,3 +333,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
