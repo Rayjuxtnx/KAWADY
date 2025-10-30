@@ -18,7 +18,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-accent/20 bg-background/95 relative overflow-hidden">
+    <footer className="w-full border-t border-accent/20 relative overflow-hidden">
       <BlueprintBackground />
       <div className="container max-w-7xl py-8 md:py-12 px-4 sm:px-6 lg:px-8 relative">
         <div className="flex flex-col items-center gap-4 md:gap-6">
