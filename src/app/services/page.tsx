@@ -21,28 +21,29 @@ export default function ServicesPage() {
               We offer a full spectrum of services to guide your project from concept to successful completion. Our expert team is equipped to handle every challenge.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
-              <Card key={service.title} className="group flex flex-col bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d] hover:[transform:rotateY(var(--y-angle))_rotateX(var(--x-angle))] relative overflow-hidden">
-                <div className="absolute inset-0 bg-transparent group-hover:border-4 group-hover:border-accent transition-all duration-300 pointer-events-none rounded-lg" style={{ boxShadow: '0 0 20px hsl(var(--accent) / 0), 0 0 30px hsl(var(--accent) / 0)' }}></div>
-                <div className="[transform:translateZ(40px)] w-full">
-                  <CardHeader className="flex-shrink-0">
-                    <div className="flex items-center gap-4">
-                      <div className="bg-accent/10 p-3 md:p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
+              <div key={service.title} className="group" style={{ perspective: '1000px' }}>
+                <Card className="flex flex-col h-full bg-card transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
+                  <div className="[transform:translateZ(40px)] p-4 md:p-6 flex flex-col flex-grow">
+                    <CardHeader className="p-0 flex-shrink-0 mb-4">
+                      <div className="flex items-center gap-4">
+                        <div className="bg-accent/10 p-3 md:p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                          {service.icon}
+                        </div>
+                        <div>
+                          <CardTitle>{service.title}</CardTitle>
+                        </div>
                       </div>
-                      <div>
-                        <CardTitle>{service.title}</CardTitle>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow relative">
-                      <div className="relative overflow-hidden">
-                          <p className="text-muted-foreground text-reveal-animate">{service.description}</p>
-                      </div>
-                  </CardContent>
-                </div>
-              </Card>
+                    </CardHeader>
+                    <CardContent className="p-0 flex-grow">
+                        <div className="relative overflow-hidden">
+                            <p className="text-muted-foreground text-reveal-animate">{service.description}</p>
+                        </div>
+                    </CardContent>
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -50,3 +51,5 @@ export default function ServicesPage() {
     </div>
   );
 }
+
+    

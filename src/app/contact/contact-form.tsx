@@ -99,22 +99,22 @@ export function ContactForm() {
                                 <div className="flex items-start gap-4">
                                     <MapPin className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                                     <div>
-                                        <h3 className="font-semibold text-primary">Office Address</h3>
-                                        <p>123 Construction Ave, Metropolis, USA 12345</p>
+                                        <h3 className="font-semibold text-primary text-base">Office Address</h3>
+                                        <p className="text-sm">123 Construction Ave, Metropolis, USA 12345</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
                                     <Phone className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                                     <div>
-                                        <h3 className="font-semibold text-primary">Phone</h3>
-                                        <a href="tel:+254722659260" className="hover:text-accent transition-colors">+254 722 659 260</a>
+                                        <h3 className="font-semibold text-primary text-base">Phone</h3>
+                                        <a href="tel:+254722659260" className="hover:text-accent transition-colors text-sm">+254 722 659 260</a>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
                                     <Mail className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                                     <div>
-                                        <h3 className="font-semibold text-primary">Email</h3>
-                                        <a href="mailto:kawadymildsteelconsultants@gmail.com" className="hover:text-accent transition-colors">kawadymildsteelconsultants@gmail.com</a>
+                                        <h3 className="font-semibold text-primary text-base">Email</h3>
+                                        <a href="mailto:kawadymildsteelconsultants@gmail.com" className="hover:text-accent transition-colors text-sm">kawadymildsteelconsultants@gmail.com</a>
                                     </div>
                                 </div>
                                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white" size="lg" asChild>
@@ -149,7 +149,7 @@ export function ContactForm() {
                             <CardHeader>
                                 <CardTitle>Business Hours</CardTitle>
                             </CardHeader>
-                            <CardContent className="text-muted-foreground">
+                            <CardContent className="text-muted-foreground text-sm">
                                 <p><span className="font-semibold text-primary">Monday - Friday:</span> 9:00 AM - 5:00 PM</p>
                                 <p><span className="font-semibold text-primary">Saturday - Sunday:</span> Closed</p>
                             </CardContent>
@@ -161,3 +161,5 @@ export function ContactForm() {
     </div>
   );
 }
+
+    

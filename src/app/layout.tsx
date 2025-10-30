@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLBodyElement>) => {
-    const cards = document.querySelectorAll('.group[class*="[transform-style:preserve-3d]"]') as NodeListOf<HTMLDivElement>;
+    const cards = document.querySelectorAll('.group[style*="perspective:1000px"]') as NodeListOf<HTMLDivElement>;
     cards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -68,8 +68,11 @@ export default function RootLayout({
         const rotateX = (y / height - 0.5) * -20; // -10 to 10 deg
         const rotateY = (x / width - 0.5) * 20;   // -10 to 10 deg
 
-        card.style.setProperty('--x-angle', `${rotateX.toFixed(2)}deg`);
-        card.style.setProperty('--y-angle', `${rotateY.toFixed(2)}deg`);
+        const cardInner = card.querySelector(':scope > [style*="[transform-style:preserve-3d]"]') as HTMLElement || card.firstElementChild as HTMLElement;
+        if (cardInner) {
+          cardInner.style.setProperty('--x-angle', `${rotateX.toFixed(2)}deg`);
+          cardInner.style.setProperty('--y-angle', `${rotateY.toFixed(2)}deg`);
+        }
     });
   };
   
@@ -104,3 +107,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+    

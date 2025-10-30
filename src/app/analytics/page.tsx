@@ -55,7 +55,7 @@ const renderActiveShape = (props: any) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} className="text-lg font-bold">
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} className="text-base font-bold">
         {payload.name}
       </text>
       <Sector
@@ -70,8 +70,8 @@ const renderActiveShape = (props: any) => {
       />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="hsl(var(--primary))">{`Total ${value.toLocaleString()}`}</text>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="hsl(var(--muted-foreground))">
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="hsl(var(--primary))" className="text-sm">{`Total ${value.toLocaleString()}`}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="hsl(var(--muted-foreground))" className="text-xs">
         {`(Share ${(percent * 100).toFixed(2)}%)`}
       </text>
     </g>
@@ -130,10 +130,10 @@ export default function AnalyticsPage() {
               <CardContent>
                 <ChartContainer config={chartConfig} className="h-[400px] w-full">
                   <ResponsiveContainer>
-                    <BarChart data={barData} margin={{ top: 20, right: 20, bottom: 5, left: 10 }}>
+                    <BarChart data={barData} margin={{ top: 20, right: 20, bottom: 5, left: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
-                        <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor }} tickLine={{ stroke: tickColor }} />
-                        <YAxis stroke={tickColor} tick={{ fill: tickColor }} tickLine={{ stroke: tickColor }} />
+                        <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} />
+                        <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} width={40} />
                         <RechartsTooltip cursor={{fill: 'hsla(var(--muted))'}} content={<ChartTooltipContent />} />
                         <Legend />
                         <Bar dataKey="Steel" fill="var(--color-Steel)" radius={[4, 4, 0, 0]} />
@@ -160,8 +160,8 @@ export default function AnalyticsPage() {
                         data={pieData}
                         cx="50%"
                         cy="50%"
-                        innerRadius={100}
-                        outerRadius={150}
+                        innerRadius={80}
+                        outerRadius={120}
                         fill="#8884d8"
                         dataKey="value"
                         onMouseEnter={onPieEnter}
@@ -183,3 +183,5 @@ export default function AnalyticsPage() {
     </div>
   );
 }
+
+    

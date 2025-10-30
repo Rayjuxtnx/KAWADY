@@ -47,7 +47,7 @@ export default function MetalworksPage() {
             />
         )}
         <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative container max-w-7xl h-full flex flex-col items-center justify-center text-center text-primary-foreground">
+        <div className="relative container max-w-7xl h-full flex flex-col items-center justify-center text-center text-primary-foreground p-4">
           <h1 className="text-4xl md:text-5xl font-bold">Expert Metalworks & Fabrication</h1>
           <p className="mt-2 text-lg text-primary-foreground/90">Precision, Strength, and Artistry in Every Piece</p>
         </div>
@@ -63,26 +63,28 @@ export default function MetalworksPage() {
               From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 [perspective:1000px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {metalServices.map((service) => (
-              <Card key={service.title} className="group flex flex-col bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d] hover:[transform:rotateY(var(--y-angle))_rotateX(var(--x-angle))] relative overflow-hidden">
-                <div className="absolute inset-0 bg-transparent group-hover:border-4 group-hover:border-accent transition-all duration-300 pointer-events-none rounded-lg" />
-                 <div className="[transform:translateZ(40px)] w-full">
-                    <CardHeader>
-                    <div className="flex items-center gap-4">
-                        <div className="bg-accent/10 p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
-                        </div>
-                        <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
-                    </div>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <div className="relative overflow-hidden">
-                            <p className="text-muted-foreground text-reveal-animate">{service.description}</p>
-                        </div>
-                    </CardContent>
-                </div>
-              </Card>
+              <div key={service.title} className="group" style={{ perspective: '1000px' }}>
+                <Card className="flex flex-col h-full bg-card transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
+                  <div className="absolute inset-0 bg-transparent group-hover:border-4 group-hover:border-accent transition-all duration-300 pointer-events-none rounded-lg" />
+                  <div className="[transform:translateZ(40px)] p-4 md:p-6 flex flex-col flex-grow">
+                      <CardHeader className="p-0 mb-4">
+                      <div className="flex items-center gap-4">
+                          <div className="bg-accent/10 p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                          {service.icon}
+                          </div>
+                          <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
+                      </div>
+                      </CardHeader>
+                      <CardContent className="p-0 flex-grow">
+                          <div className="relative overflow-hidden">
+                              <p className="text-muted-foreground text-reveal-animate">{service.description}</p>
+                          </div>
+                      </CardContent>
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -91,7 +93,7 @@ export default function MetalworksPage() {
       {/* Quality Commitment Section */}
       <section className="py-16 md:py-24 bg-card">
         <div className="container max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-primary">Uncompromising Quality</h2>
               <p className="mt-4 text-muted-foreground">
@@ -124,3 +126,5 @@ export default function MetalworksPage() {
     </div>
   );
 }
+
+    

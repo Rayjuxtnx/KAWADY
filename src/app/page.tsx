@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -63,9 +63,9 @@ export default function Home() {
   const { theme } = useTheme();
   const tickColor = theme === 'dark' ? '#A1A1AA' : '#71717A';
 
-  const [barData, setBarData] = useState(initialMetalDistributionData);
+  const [barData, setBarData] = React.useState(initialMetalDistributionData);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const interval = setInterval(() => {
       setBarData(currentData =>
         currentData.map(item => ({
@@ -94,8 +94,8 @@ export default function Home() {
             />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent" />
-        <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-primary-foreground">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
+        <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-primary-foreground p-4 md:p-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
             Building with Insight,
             <br />
             Integrity, and Innovation.
@@ -165,14 +165,14 @@ export default function Home() {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
             {metalServices.map((service) => (
               <Card key={service.title} className="group flex flex-col text-left bg-card/80 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d] hover:[transform:rotateY(var(--y-angle))_rotateX(var(--x-angle))]">
-                <div className="[transform:translateZ(40px)]">
-                    <CardHeader>
+                 <div className="[transform:translateZ(40px)] p-4 md:p-6">
+                    <CardHeader className="p-0 mb-4">
                         <div className="flex items-center gap-4">
                             <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
                             <CardTitle>{service.title}</CardTitle>
                         </div>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-0">
                         <p className="text-muted-foreground">{service.description}</p>
                     </CardContent>
                 </div>
@@ -194,24 +194,27 @@ export default function Home() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             A glimpse into the quality and craftsmanship that define our work.
           </p>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 [perspective:1000px]">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 [transform-style:preserve-3d]">
             {galleryImages.slice(0, 4).map((galleryItem) => {
               const image = PlaceHolderImages.find(p => p.id === galleryItem.imageId);
               return (
-                <div key={galleryItem.id} className="group gallery-card-container break-inside-avoid">
-                  <Card className="gallery-card overflow-hidden transition-all duration-500 bg-card">
+                <div key={galleryItem.id} className="group" style={{ perspective: '1000px' }}>
+                  <Card 
+                    className="overflow-hidden transition-transform duration-500 bg-card [transform-style:preserve-3d]"
+                    style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}
+                  >
                     <div className="relative aspect-[3/4]">
                       {image && (
                         <Image
                           src={image.imageUrl}
                           alt={image.description}
                           fill
-                          className="object-cover transition-all duration-500 group-hover:blur-sm"
+                          className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-110"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                           data-ai-hint={image.imageHint}
                         />
                       )}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-4 text-center">
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-4 text-center">
                         <h3 className="text-lg font-semibold text-white drop-shadow-md">{galleryItem.title}</h3>
                         {image && <p className="mt-2 text-sm text-white/80">{image.description}</p>}
                       </div>
@@ -234,7 +237,7 @@ export default function Home() {
       {/* Live Analytics Preview Section */}
       <section className="py-16 md:py-24 bg-card/50">
         <div className="container max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="order-2 md:order-1">
               <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
               <p className="mt-4 text-muted-foreground">
@@ -252,7 +255,7 @@ export default function Home() {
                   <ResponsiveContainer>
                     <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
                         <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                        <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                        <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
                         <RechartsTooltip cursor={{fill: 'hsl(var(--muted))'}} content={<ChartTooltipContent hideLabel />} />
                         <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
                             {barData.map((entry, index) => (
@@ -270,7 +273,7 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-primary">Why Choose KAWADY?</h2>
               <p className="mt-4 text-muted-foreground">
