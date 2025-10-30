@@ -186,31 +186,36 @@ export default function Home() {
       </section>
 
       {/* Gallery Highlights Section */}
-      <section className="py-16 md:py-24">
-        <div className="container max-w-7xl text-center">
+      <section className="py-16 md:py-24 relative">
+        <BlueprintBackground />
+        <div className="container max-w-7xl text-center relative">
           <h2 className="text-3xl font-bold text-primary">Gallery Highlights</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             A glimpse into the quality and craftsmanship that define our work.
           </p>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 [perspective:1000px]">
             {galleryImages.slice(0, 4).map((galleryItem) => {
               const image = PlaceHolderImages.find(p => p.id === galleryItem.imageId);
               return (
-                <div key={galleryItem.id} className="break-inside-avoid">
-                  <Card className="overflow-hidden group hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 transition-all duration-300">
+                <div key={galleryItem.id} className="group gallery-card-container break-inside-avoid">
+                  <Card className="gallery-card overflow-hidden transition-all duration-500 bg-card">
                     <div className="relative aspect-[3/4]">
                       {image && (
                         <Image
                           src={image.imageUrl}
                           alt={image.description}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="object-cover transition-all duration-500 group-hover:blur-sm"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                           data-ai-hint={image.imageHint}
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/>
-                      <div className="absolute bottom-0 left-0 p-4">
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-4 text-center">
+                        <h3 className="text-lg font-semibold text-white drop-shadow-md">{galleryItem.title}</h3>
+                        {image && <p className="mt-2 text-sm text-white/80">{image.description}</p>}
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-300"/>
+                      <div className="absolute bottom-0 left-0 p-4 group-hover:opacity-0 transition-opacity duration-300">
                         <h3 className="text-lg font-semibold text-white drop-shadow-md">{galleryItem.title}</h3>
                       </div>
                     </div>

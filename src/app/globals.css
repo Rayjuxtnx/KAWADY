@@ -111,6 +111,13 @@
     @apply ring-2 ring-accent;
     box-shadow: 0 0 15px hsl(var(--accent) / 0.5), 0 0 5px hsl(var(--accent) / 0.8);
   }
+
+  .gallery-card-container {
+    transform-style: preserve-3d;
+  }
+  .gallery-card {
+    transform: rotateY(var(--y-angle)) rotateX(var(--x-angle));
+  }
 }
 
 .fade-in {
