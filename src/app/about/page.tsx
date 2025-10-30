@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Award, Users, Handshake, Target } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const aboutBannerImage = PlaceHolderImages.find(p => p.id === 'about-banner');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
@@ -68,24 +69,36 @@ export default function AboutPage() {
       {/* Mission & Vision Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-            <div className="flex items-start gap-4 md:gap-6">
-              <Target className="h-10 w-10 md:h-12 md:w-12 text-accent mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-primary">Our Mission</h3>
-                <p className="mt-2 text-muted-foreground text-sm md:text-base">
-                  To empower manufacturers and fabricators to achieve unparalleled strength, efficiency, and value in their mild steel applications through expert metallurgical guidance, process optimization, and failure analysis.
-                </p>
-              </div>
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="group" style={{ perspective: '1000px' }}>
+                <Card className="flex flex-col h-full bg-card/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
+                    <div className="[transform:translateZ(40px)] p-6 flex flex-col flex-grow">
+                        <div className="flex items-start gap-4 md:gap-6">
+                            <Target className="h-10 w-10 md:h-12 md:w-12 text-accent mt-1 flex-shrink-0" />
+                            <div>
+                                <h3 className="text-xl md:text-2xl font-semibold text-primary">Our Mission</h3>
+                                <p className="mt-2 text-muted-foreground text-sm md:text-base">
+                                To empower manufacturers and fabricators to achieve unparalleled strength, efficiency, and value in their mild steel applications through expert metallurgical guidance, process optimization, and failure analysis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
             </div>
-            <div className="flex items-start gap-4 md:gap-6">
-              <Handshake className="h-10 w-10 md:h-12 md:w-12 text-accent mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-primary">Our Vision</h3>
-                <p className="mt-2 text-muted-foreground text-sm md:text-base">
-                  Our vision is to be the leading provider of expert consultancy services in mild steel solutions, delivering innovative, sustainable, and high-quality outcomes that empower our clients to build stronger, safer, and more efficient infrastructures globally.
-                </p>
-              </div>
+            <div className="group" style={{ perspective: '1000px' }}>
+                <Card className="flex flex-col h-full bg-card/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
+                    <div className="[transform:translateZ(40px)] p-6 flex flex-col flex-grow">
+                        <div className="flex items-start gap-4 md:gap-6">
+                        <Handshake className="h-10 w-10 md:h-12 md:w-12 text-accent mt-1 flex-shrink-0" />
+                        <div>
+                            <h3 className="text-xl md:text-2xl font-semibold text-primary">Our Vision</h3>
+                            <p className="mt-2 text-muted-foreground text-sm md:text-base">
+                            Our vision is to be the leading provider of expert consultancy services in mild steel solutions, delivering innovative, sustainable, and high-quality outcomes that empower our clients to build stronger, safer, and more efficient infrastructures globally.
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                </Card>
             </div>
           </div>
         </div>
@@ -120,5 +133,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-    
