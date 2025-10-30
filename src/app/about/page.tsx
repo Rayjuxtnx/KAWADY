@@ -130,28 +130,29 @@ export default function AboutPage() {
       </section>
 
       {/* Why Partner with Us Section */}
-      <section className="py-16 md:py-24 bg-card">
-        <div className="container max-w-7xl text-center">
+      <section className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+        <BlueprintBackground />
+        <div className="container max-w-7xl text-center relative">
           <h2 className="text-2xl md:text-3xl font-bold text-primary">Why Partner with Us?</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground text-sm md:text-base">
             Choosing KAWADY mildsteel consultants Ltd means choosing a partner committed to the success of your vision.
           </p>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-            <div className="p-4 md:p-6 rounded-lg">
+            <Card className="bg-card/50 backdrop-blur-lg border-accent/20 p-4 md:p-6 rounded-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <Award className="h-10 w-10 text-accent mb-4" />
               <h3 className="text-base md:text-lg font-semibold text-primary">Unmatched Experience</h3>
               <p className="mt-2 text-xs md:text-sm text-muted-foreground">Our team's extensive experience across diverse project types ensures knowledgeable and effective project leadership.</p>
-            </div>
-            <div className="p-4 md:p-6 rounded-lg">
+            </Card>
+            <Card className="bg-card/50 backdrop-blur-lg border-accent/20 p-4 md:p-6 rounded-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <Users className="h-10 w-10 text-accent mb-4" />
               <h3 className="text-base md:text-lg font-semibold text-primary">Client-Centric Focus</h3>
               <p className="mt-2 text-xs md:text-sm text-muted-foreground">We prioritize your goals, maintaining open communication and tailoring our strategies to fit your specific needs.</p>
-            </div>
-            <div className="p-4 md:p-6 rounded-lg">
+            </Card>
+            <Card className="bg-card/50 backdrop-blur-lg border-accent/20 p-4 md:p-6 rounded-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <Handshake className="h-10 w-10 text-accent mb-4" />
               <h3 className="text-base md:text-lg font-semibold text-primary">Commitment to Quality</h3>
               <p className="mt-2 text-xs md:text-sm text-muted-foreground">We uphold the highest standards of quality and safety, from the initial blueprint to the final handover.</p>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
