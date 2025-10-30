@@ -86,7 +86,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body 
-        className={cn("font-body antialiased bg-background text-foreground", poppins.variable)}
+        className={cn("font-body antialiased bg-background text-foreground overflow-x-hidden", poppins.variable)}
         onMouseMove={handleMouseMove}
       >
         <ThemeProvider
@@ -99,7 +99,7 @@ export default function RootLayout({
           <WelcomeModal />
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow w-full">{children}</main>
             <Footer />
           </div>
           <QuickQueryWidget />
@@ -109,5 +109,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-    

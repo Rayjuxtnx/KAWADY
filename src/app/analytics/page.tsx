@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, PieChart, Pie, Cell, Legend, Sector, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { useTheme } from 'next-themes';
 
 // Initial sample data
@@ -116,7 +116,11 @@ export default function AnalyticsPage() {
             <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
               Visualizing the global distribution and usage of key metals in construction and fabrication.
               <br />
-              <span className="inline-block text-xs text-accent uppercase font-bold tracking-wider rounded-full px-2 py-1 pulse">live</span>
+              <span className="relative flex h-3 w-3 mx-auto mt-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  <span className="ml-4 text-xs text-green-400 uppercase font-bold tracking-wider">live</span>
+              </span>
             </p>
           </div>
 
@@ -129,7 +133,7 @@ export default function AnalyticsPage() {
               </CardHeader>
               <CardContent>
                 <ChartContainer config={chartConfig} className="h-[400px] w-full">
-                  <BarChart data={barData} margin={{ top: 20, right: 20, bottom: 5, left: 0 }}>
+                  <BarChart data={barData} margin={{ top: 20, right: 20, bottom: 5, left: -20 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke={tickColor} strokeOpacity={0.2} />
                       <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} />
                       <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} width={40} />

@@ -84,19 +84,13 @@ export function QuickQueryWidget() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-center gap-2">
-        <div className="h-16 w-16 group relative">
-          <Button
-            className="relative w-full h-full rounded-full text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 animate-bg-gradient-shift"
-            onClick={() => setIsOpen(true)}
-            aria-label="Open AI Assistant"
-          >
-            <Bot className="h-8 w-8 drop-shadow-lg" />
-          </Button>
-        </div>
-        <p className="text-xs text-muted-foreground font-medium">Ask Kawady AI</p>
-      </div>
-
+      <Button
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] h-16 w-16 rounded-full shadow-lg flex items-center justify-center animate-bg-gradient-shift"
+        onClick={() => setIsOpen(true)}
+        aria-label="Open AI Assistant"
+      >
+        <Bot className="h-8 w-8 text-white drop-shadow-lg" />
+      </Button>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] md:h-[70vh] flex flex-col p-0">
@@ -176,5 +170,3 @@ export function QuickQueryWidget() {
     </>
   );
 }
-
-    

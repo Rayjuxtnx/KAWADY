@@ -12,7 +12,7 @@ import type { Service } from '@/lib/services';
 import { services } from '@/lib/services';
 import { galleryImages } from '@/lib/gallery-data';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
-import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip as RechartsTooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Cell } from 'recharts';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { useTheme } from 'next-themes';
 
@@ -56,7 +56,7 @@ const PIE_COLORS = [
 ];
 
 const chartConfig = {
-    Steel: { label: "Steel" }, // Simplified as we use Cell for colors
+    Steel: { label: "Steel" },
 };
 
 export default function Home() {
@@ -91,6 +91,7 @@ export default function Home() {
                 className="object-cover opacity-20 dark:opacity-10"
                 priority
                 data-ai-hint={homeHeroImage.imageHint}
+                sizes="100vw"
             />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent" />
@@ -139,10 +140,10 @@ export default function Home() {
                         </div>
                     )}
                   <CardHeader>
-                    <CardTitle>{service.title}</CardTitle>
+                    <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
+                    <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -170,11 +171,11 @@ export default function Home() {
                       <CardHeader className="p-0 mb-4">
                           <div className="flex items-center gap-4">
                               <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                              <CardTitle>{service.title}</CardTitle>
+                              <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                           </div>
                       </CardHeader>
                       <CardContent className="p-0">
-                          <p className="text-muted-foreground">{service.description}</p>
+                          <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
                       </CardContent>
                   </div>
                 </Card>
@@ -237,32 +238,35 @@ export default function Home() {
       
       {/* Live Analytics Preview Section */}
       <section className="py-16 md:py-24 bg-card/50">
-        <div className="container max-w-7xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
-            <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
-                We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
-            </p>
-            <div className="mt-8 w-full max-w-2xl mx-auto">
-              <ChartContainer config={chartConfig} className="w-full" style={{ height: '300px' }}>
-                <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: 0 }}>
-                    <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} />
-                    <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 12 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
-                    <RechartsTooltip cursor={{fill: 'hsl(var(--muted))'}} content={<ChartTooltipContent hideLabel />} />
-                    <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
-                        {barData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                        ))}
-                    </Bar>
-                </BarChart>
-              </ChartContainer>
-            </div>
-            <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link href="/analytics">
-                  <span className="inline-block bg-green-500 rounded-full w-3 h-3 mr-2 pulse"></span>
-                  View Live Analytics
-                </Link>
-            </Button>
-        </div>
+          <div className="container max-w-4xl text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
+              <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
+                  We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
+              </p>
+              <div className="mt-12 w-full">
+                  <ChartContainer config={chartConfig} className="w-full h-[250px] md:h-[300px]">
+                      <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
+                          <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
+                          <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
+                          <ChartTooltipContent cursor={{fill: 'hsl(var(--muted))'}} hideLabel />
+                          <Bar dataKey="Steel" radius={[4, 4, 0, 0]}>
+                              {barData.map((entry, index) => (
+                                  <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                              ))}
+                          </Bar>
+                      </BarChart>
+                  </ChartContainer>
+              </div>
+              <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Link href="/analytics">
+                    <span className="relative flex h-3 w-3 mr-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    View Live Analytics
+                  </Link>
+              </Button>
+          </div>
       </section>
 
       {/* Why Choose Us Section */}
