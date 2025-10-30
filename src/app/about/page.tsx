@@ -6,7 +6,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const aboutBannerImage = PlaceHolderImages.find(p => p.id === 'about-banner');
 const aboutMainImage = PlaceHolderImages.find(p => p.id === 'about-main');
 
 export const metadata: Metadata = {
@@ -18,20 +17,33 @@ export default function AboutPage() {
   return (
     <div className="fade-in">
       {/* Hero Section */}
-      <section className="relative h-[40vh] w-full">
-        {aboutBannerImage && (
-            <Image
-                src={aboutBannerImage.imageUrl}
-                alt={aboutBannerImage.description}
-                fill
-                className="object-cover"
-                data-ai-hint={aboutBannerImage.imageHint}
-            />
-        )}
-        <div className="absolute inset-0 bg-primary/70" />
+      <section className="relative h-[40vh] w-full flex items-center justify-center overflow-hidden">
+        <BlueprintBackground />
+        <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 opacity-10">
+                <svg className="absolute inset-0 w-full h-full animate-simple-rotate" viewBox="0 0 100 100">
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="45"
+                        stroke="url(#glow-gradient-about)"
+                        strokeWidth="5"
+                        fill="none"
+                    />
+                </svg>
+            </div>
+        </div>
+         <svg width="0" height="0">
+            <defs>
+              <linearGradient id="glow-gradient-about" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
+        </svg>
         <div className="relative container max-w-7xl h-full flex flex-col items-center justify-center text-center text-primary-foreground p-4">
-          <h1 className="text-3xl md:text-5xl font-bold">About KAWADY</h1>
-          <p className="mt-2 text-md md:text-lg text-primary-foreground/90">Our Foundation is Trust</p>
+          <h1 className="text-3xl md:text-5xl font-bold text-primary">About KAWADY</h1>
+          <p className="mt-2 text-md md:text-lg text-muted-foreground">Our Foundation is Trust</p>
         </div>
       </section>
 
