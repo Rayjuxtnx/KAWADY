@@ -77,7 +77,10 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-xs text-muted-foreground mt-4">&copy; {new Date().getFullYear()} KAWADY mildsteel consultants Ltd. All rights reserved.</p>
+          <div className="text-xs text-muted-foreground mt-4 text-center">
+            <p>&copy; {new Date().getFullYear()} KAWADY mildsteel consultants Ltd. All rights reserved.</p>
+            <p>Designed by Philip</p>
+          </div>
 
         </div>
       </div>
