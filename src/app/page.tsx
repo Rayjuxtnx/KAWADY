@@ -96,12 +96,12 @@ export default function Home() {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent" />
         <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-left p-4 md:p-6">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight drop-shadow-md text-foreground">
             Building with Insight,
             <br />
             Integrity, and Innovation.
           </h1>
-          <p className="mt-4 max-w-lg text-sm md:text-lg text-muted-foreground drop-shadow-sm">
+          <p className="mt-4 max-w-lg text-sm md:text-base text-muted-foreground drop-shadow-sm">
             Your trusted partner in construction consultancy, delivering excellence from concept to completion.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -140,7 +140,7 @@ export default function Home() {
                         </div>
                     )}
                   <CardHeader>
-                    <CardTitle className="text-base md:text-xl">{service.title}</CardTitle>
+                    <CardTitle className="text-base">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-xs md:text-sm">{service.description}</p>
@@ -170,7 +170,7 @@ export default function Home() {
                       <CardHeader className="p-0 mb-4">
                           <div className="flex items-center gap-4">
                               <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                              <CardTitle className="text-base md:text-xl">{service.title}</CardTitle>
+                              <CardTitle className="text-base">{service.title}</CardTitle>
                           </div>
                       </CardHeader>
                       <CardContent className="p-0">
@@ -243,7 +243,7 @@ export default function Home() {
                 We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
             </p>
             <div className="mt-12">
-              <ChartContainer config={chartConfig} className="h-[250px] md:h-[300px] w-full">
+              <ChartContainer config={chartConfig} className="h-[200px] md:h-[250px] w-full">
                   <BarChart data={barData} margin={{ top: 20, right: 0, bottom: 5, left: -20 }}>
                       <XAxis dataKey="continent" stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} />
                       <YAxis stroke={tickColor} tick={{ fill: tickColor, fontSize: 10 }} tickLine={{ stroke: tickColor }} axisLine={false} width={40} />
@@ -335,5 +335,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
