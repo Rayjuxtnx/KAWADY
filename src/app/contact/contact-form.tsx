@@ -100,7 +100,7 @@ export function ContactForm() {
                                     <MapPin className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary text-sm">Office Address</h3>
-                                        <p className="text-xs">P.O Box 30800-00100, Nairobi</p>
+                                        <p className="text-xs">P.O Box 30800-00100, nrb</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
@@ -134,7 +134,7 @@ export function ContactForm() {
                           <CardContent className="p-0 flex-grow">
                               <div className="aspect-[4/3] rounded-b-lg overflow-hidden h-full">
                                   <iframe
-                                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255282.3585374492!2d36.70735522776831!3d-1.302861244342533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1627885920361!5m2!1sen!2ske"
+                                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.817737801834!2d36.81977931526214!3d-1.283726999063595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d5b91c13e7%3A0xb46369163f40172e!2sGeneral%20Post%20Office%20(GPO)!5e0!3m2!1sen!2ske!4v1627885920361!5m2!1sen!2ske"
                                       width="100%"
                                       height="100%"
                                       style={{ border: 0 }}
@@ -161,5 +161,5 @@ export function ContactForm() {
     </div>
   );
 }
-
+    
     
