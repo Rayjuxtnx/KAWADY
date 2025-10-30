@@ -49,23 +49,23 @@ export function ContactForm() {
 
   return (
     <div className="fade-in">
-        <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+        <section className="py-12 md:py-20 bg-background relative overflow-hidden">
             <BlueprintBackground />
-            <div className="container max-w-7xl relative">
-                <div className="text-center mb-12 px-4">
-                    <h1 className="text-3xl md:text-5xl font-bold text-primary">Get In Touch</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-muted-foreground text-sm md:text-base">
+            <div className="container max-w-7xl relative px-4">
+                <div className="text-center mb-10 md:mb-12">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary">Get In Touch</h1>
+                    <p className="mt-3 md:mt-4 max-w-2xl mx-auto text-muted-foreground text-sm md:text-base">
                     Have a project in mind or need expert advice? We're here to help. Reach out to us through the form below or contact us directly.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 md:gap-12 px-4">
-                    <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+                    <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                         <CardHeader>
                             <CardTitle>Send us a Message</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <form ref={formRef} action={formAction} className="space-y-6">
+                            <form ref={formRef} action={formAction} className="space-y-4">
                                 <div className="space-y-2 group">
                                   <label htmlFor="name" className="text-sm font-medium">Full Name</label>
                                   <Input id="name" name="name" placeholder="John Doe" required className="glow-input" />
@@ -82,7 +82,7 @@ export function ContactForm() {
                                 </div>
                                 <div className="space-y-2 group">
                                   <label htmlFor="message" className="text-sm font-medium">Your Message</label>
-                                  <Textarea id="message" name="message" placeholder="Tell us about your project..." className="min-h-[120px] glow-input" required />
+                                  <Textarea id="message" name="message" placeholder="Tell us about your project..." className="min-h-[100px] glow-input" required />
                                   {state.errors?.message && <p className="text-sm font-medium text-destructive">{state.errors.message[0]}</p>}
                                 </div>
                                 <SubmitButton />
@@ -90,28 +90,28 @@ export function ContactForm() {
                         </CardContent>
                     </Card>
 
-                    <div className="space-y-8">
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div className="space-y-6">
+                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                             <CardHeader>
                                 <CardTitle>Contact Information</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4 text-muted-foreground">
                                 <div className="flex items-start gap-4">
-                                    <MapPin className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                                    <MapPin className="h-5 w-5 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary text-base">Office Address</h3>
                                         <p className="text-sm">123 Construction Ave, Metropolis, USA 12345</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
-                                    <Phone className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                                    <Phone className="h-5 w-5 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary text-base">Phone</h3>
                                         <a href="tel:+254722659260" className="hover:text-accent transition-colors text-sm">+254 722 659 260</a>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
-                                    <Mail className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                                    <Mail className="h-5 w-5 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary text-base">Email</h3>
                                         <a href="mailto:kawadymildsteelconsultants@gmail.com" className="hover:text-accent transition-colors text-sm">kawadymildsteelconsultants@gmail.com</a>
@@ -127,7 +127,7 @@ export function ContactForm() {
                                 </Button>
                             </CardContent>
                         </Card>
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                           <CardHeader>
                               <CardTitle>Our Location</CardTitle>
                           </CardHeader>
@@ -145,7 +145,7 @@ export function ContactForm() {
                               </div>
                           </CardContent>
                         </Card>
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                             <CardHeader>
                                 <CardTitle>Business Hours</CardTitle>
                             </CardHeader>
@@ -161,5 +161,3 @@ export function ContactForm() {
     </div>
   );
 }
-
-    
