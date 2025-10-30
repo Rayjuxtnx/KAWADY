@@ -2,10 +2,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Leaf, Zap, Puzzle, Recycling } from 'lucide-react';
+import { Leaf, Zap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BlueprintBackground } from '@/components/layout/blueprint-background';
 import { useTheme } from 'next-themes';
+import { RecyclingIcon } from '@/components/icons/RecyclingIcon';
 
 const Counter = ({ end, duration = 2, isPercentage = false }: { end: number; duration?: number; isPercentage?: boolean }) => {
   const [count, setCount] = useState(0);
@@ -70,7 +71,7 @@ const sustainabilityMetrics = [
   },
   {
     title: 'Recycled & Smart Materials Used',
-    icon: <Recycling className="w-10 h-10 text-blue-400" />,
+    icon: <RecyclingIcon className="w-10 h-10 text-blue-400" />,
     value: 82.5,
     isPercentage: true,
     description: "Reducing waste and enhancing structural performance."
