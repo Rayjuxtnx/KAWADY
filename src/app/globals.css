@@ -347,3 +347,48 @@
   animation: gradient-shift 15s linear infinite;
   animation-delay: -3s; /* Offset the second color */
 }
+
+@keyframes weld-glow-1 {
+  0% {
+    transform: translate(-20%, -10%);
+  }
+  25% {
+    transform: translate(20%, 30%);
+  }
+  50% {
+    transform: translate(80%, -20%);
+  }
+  75% {
+    transform: translate(40%, 90%);
+  }
+  100% {
+    transform: translate(-20%, -10%);
+  }
+}
+
+@keyframes weld-glow-2 {
+  0% {
+    transform: translate(20%, 10%);
+  }
+  25% {
+    transform: translate(-20%, -30%);
+  }
+  50% {
+    transform: translate(-80%, 20%);
+  }
+  75% {
+    transform: translate(-40%, -90%);
+  }
+  100% {
+    transform: translate(20%, 10%);
+  }
+}
+
+.animate-weld-glow-1 {
+  animation: weld-glow-1 25s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+}
+
+.animate-weld-glow-2 {
+  animation: weld-glow-2 25s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+  animation-delay: -12.5s;
+}

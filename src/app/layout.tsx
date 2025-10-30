@@ -12,6 +12,7 @@ import { PreLoader } from '@/components/layout/pre-loader';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import { WelcomeModal } from '@/components/layout/welcome-modal';
+import { WeldingGlowBackground } from '@/components/layout/welding-glow-background';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -86,7 +87,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body 
-        className={cn("font-body antialiased bg-background text-foreground overflow-x-hidden", poppins.variable)}
+        className={cn("font-body antialiased bg-transparent text-foreground overflow-x-hidden", poppins.variable)}
         onMouseMove={handleMouseMove}
       >
         <ThemeProvider
@@ -95,6 +96,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <WeldingGlowBackground />
           <PreLoader />
           <WelcomeModal />
           <div className="flex min-h-screen flex-col">
