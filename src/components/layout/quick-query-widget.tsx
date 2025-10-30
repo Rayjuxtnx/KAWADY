@@ -84,7 +84,7 @@ export function QuickQueryWidget() {
 
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-center gap-2">
         <div className="h-16 w-16 group relative">
           <Button
             className="relative w-full h-full rounded-full text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 animate-bg-gradient-shift"
@@ -99,15 +99,15 @@ export function QuickQueryWidget() {
 
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] flex flex-col p-0">
-          <SheetHeader className="p-6 pb-4">
+        <SheetContent side="bottom" className="sm:max-w-xl mx-auto rounded-t-lg h-[80vh] md:h-[70vh] flex flex-col p-0">
+          <SheetHeader className="p-4 md:p-6 pb-4">
             <SheetTitle>Kawady AI Assistant</SheetTitle>
             <SheetDescription>
               Ask me anything about our construction and metalwork services.
             </SheetDescription>
           </SheetHeader>
 
-          <ScrollArea className="flex-grow my-0 px-6" ref={scrollAreaRef}>
+          <ScrollArea className="flex-grow my-0 px-4 md:px-6" ref={scrollAreaRef}>
             <div className="space-y-4 py-4">
               {state.messages.map((message, index) => (
                 <div
@@ -126,7 +126,7 @@ export function QuickQueryWidget() {
                   )}
                   <div
                     className={cn(
-                      'p-3 rounded-lg max-w-sm',
+                      'p-3 rounded-lg max-w-[80%] sm:max-w-sm',
                       message.role === 'user'
                         ? 'bg-primary text-primary-foreground'
                         : 'bg-muted text-foreground'
@@ -152,7 +152,7 @@ export function QuickQueryWidget() {
             </div>
           </ScrollArea>
           
-          <div className="p-6 pt-2 bg-background border-t">
+          <div className="p-4 md:p-6 pt-2 bg-background border-t">
             <form ref={formRef} action={formAction} className="flex items-center gap-2">
                 <Input 
                   id="prompt" 

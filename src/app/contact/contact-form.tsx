@@ -59,10 +59,10 @@ export function ContactForm() {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
                     <Card className="shadow-lg bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <CardHeader>
-                            <CardTitle className="text-primary">Send us a Message</CardTitle>
+                            <CardTitle>Send us a Message</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <form ref={formRef} action={formAction} className="space-y-6">
@@ -93,7 +93,7 @@ export function ContactForm() {
                     <div className="space-y-8">
                         <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                             <CardHeader>
-                                <CardTitle className="text-primary">Contact Information</CardTitle>
+                                <CardTitle>Contact Information</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4 text-muted-foreground">
                                 <div className="flex items-start gap-4">
@@ -129,7 +129,7 @@ export function ContactForm() {
                         </Card>
                         <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                           <CardHeader>
-                              <CardTitle className="text-primary">Our Location</CardTitle>
+                              <CardTitle>Our Location</CardTitle>
                           </CardHeader>
                           <CardContent>
                               <div className="aspect-video rounded-lg overflow-hidden">
@@ -147,7 +147,7 @@ export function ContactForm() {
                         </Card>
                         <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                             <CardHeader>
-                                <CardTitle className="text-primary">Business Hours</CardTitle>
+                                <CardTitle>Business Hours</CardTitle>
                             </CardHeader>
                             <CardContent className="text-muted-foreground">
                                 <p><span className="font-semibold text-primary">Monday - Friday:</span> 9:00 AM - 5:00 PM</p>

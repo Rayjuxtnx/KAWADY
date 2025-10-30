@@ -21,7 +21,7 @@ export function Footer() {
   return (
     <footer className="w-full border-t border-accent/20 bg-background/95 relative overflow-hidden">
       <BlueprintBackground />
-      <div className="container max-w-7xl py-12 px-4 sm:px-6 lg:px-8 relative">
+      <div className="container max-w-7xl py-8 md:py-12 px-4 sm:px-6 lg:px-8 relative">
         <div className="flex flex-col items-center gap-6">
             
           {/* Logo and Slogan */}
@@ -54,7 +54,7 @@ export function Footer() {
           </p>
 
           {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <nav className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2">
             {navLinks.map((link) => (
             <Link
                 key={link.href}

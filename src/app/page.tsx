@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <div className="fade-in">
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[80vh] w-full">
+      <section className="relative h-[70vh] md:h-[80vh] w-full">
         <BlueprintBackground />
         {homeHeroImage && (
             <Image
@@ -103,7 +103,7 @@ export default function Home() {
           <p className="mt-4 max-w-2xl text-lg md:text-xl text-muted-foreground drop-shadow-sm">
             Your trusted partner in construction consultancy, delivering excellence from concept to completion.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 pulse">
               <Link href="/contact">Request a Quote</Link>
             </Button>
@@ -117,7 +117,7 @@ export default function Home() {
       {/* Services Overview Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-7xl text-center">
-          <h2 className="text-3xl font-bold text-primary">Our Core Consultancy Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary">Our Core Consultancy Services</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             We provide a comprehensive range of consultancy services to ensure your project's success at every stage.
           </p>
@@ -138,7 +138,7 @@ export default function Home() {
                         </div>
                     )}
                   <CardHeader>
-                    <CardTitle className="text-primary">{service.title}</CardTitle>
+                    <CardTitle>{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{service.description}</p>
@@ -157,7 +157,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-card/50 relative overflow-hidden">
         <BlueprintBackground />
         <div className="container max-w-7xl text-center relative">
-          <h2 className="text-3xl font-bold text-primary">Expert Fabrication & Metalworks</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary">Expert Fabrication & Metalworks</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
           </p>
@@ -168,7 +168,7 @@ export default function Home() {
                     <CardHeader>
                         <div className="flex items-center gap-4">
                             <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                            <CardTitle className="text-primary">{service.title}</CardTitle>
+                            <CardTitle>{service.title}</CardTitle>
                         </div>
                     </CardHeader>
                     <CardContent>
@@ -189,7 +189,7 @@ export default function Home() {
       <section className="py-16 md:py-24 relative">
         <BlueprintBackground />
         <div className="container max-w-7xl text-center relative">
-          <h2 className="text-3xl font-bold text-primary">Gallery Highlights</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary">Gallery Highlights</h2>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             A glimpse into the quality and craftsmanship that define our work.
           </p>
@@ -235,7 +235,7 @@ export default function Home() {
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary">Live Market Data</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary">Live Market Data</h2>
               <p className="mt-4 text-muted-foreground">
                 We monitor global metal markets in real-time to provide our clients with the most current pricing and supply chain insights. This live data empowers you to make informed decisions for your projects.
               </p>
@@ -271,7 +271,7 @@ export default function Home() {
         <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary">Why Choose KAWADY?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary">Why Choose KAWADY?</h2>
               <p className="mt-4 text-muted-foreground">
                 With decades of combined experience, our team brings unparalleled expertise and a commitment to quality that sets us apart.
               </p>
@@ -320,7 +320,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-accent/10 relative overflow-hidden">
         <BlueprintBackground />
         <div className="container max-w-7xl text-center relative">
-          <h2 className="text-3xl font-bold text-primary">Ready to Start Your Next Project?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary">Ready to Start Your Next Project?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
             Let's build something great together. Get in touch to discuss your requirements or request a detailed quotation.
           </p>
