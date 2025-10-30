@@ -36,19 +36,33 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   );
 };
 
-const DropdownNav = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button variant="ghost" className="text-sm font-medium text-foreground/60 transition-colors hover:text-foreground hover:bg-transparent px-0">
-        {title}
-        <ChevronDown className="h-4 w-4 ml-1" />
-      </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent className="w-48">
-      {children}
-    </DropdownMenuContent>
-  </DropdownMenu>
-);
+const DropdownNav = ({ title, children }: { title: string; children: React.ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger asChild>
+        <Button 
+          variant="ghost" 
+          className="text-sm font-medium text-foreground/60 transition-colors hover:text-foreground hover:bg-transparent px-0"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          {title}
+          <ChevronDown className="h-4 w-4 ml-1" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent 
+        className="w-48"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+      >
+        {children}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
 
 const MobileNavLink = ({ href, children, onNavigate }: { href: string; children: React.ReactNode; onNavigate: () => void }) => {
   const pathname = usePathname();
