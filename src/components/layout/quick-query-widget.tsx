@@ -3,7 +3,7 @@
 
 import React, { useState, useRef, useEffect, useActionState } from 'react';
 import { siteExpert } from '@/ai/flows/site-expert-flow';
-import { Bot, Send, X, LoaderCircle } from 'lucide-react';
+import { Bot, Send, LoaderCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -86,21 +86,12 @@ export function QuickQueryWidget() {
     <>
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2">
         <div className="h-16 w-16 group relative">
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <defs>
-                <linearGradient id="color-shift-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" className="gradient-stop-1" />
-                  <stop offset="100%" className="gradient-stop-2" />
-                </linearGradient>
-              </defs>
-            <circle className="color-scanner-ring" cx="50" cy="50" r="45" />
-          </svg>
           <Button
-            className="relative w-full h-full rounded-full bg-accent/20 text-accent-foreground shadow-lg hover:bg-accent/30 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-sm"
+            className="relative w-full h-full rounded-full text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 animate-bg-gradient-shift"
             onClick={() => setIsOpen(true)}
             aria-label="Open AI Assistant"
           >
-            <Bot className="h-8 w-8 text-accent drop-shadow-lg" />
+            <Bot className="h-8 w-8 drop-shadow-lg" />
           </Button>
         </div>
         <p className="text-xs text-muted-foreground font-medium">Do you have a question?</p>

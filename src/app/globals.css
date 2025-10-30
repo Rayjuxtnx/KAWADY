@@ -89,6 +89,23 @@
   }
 }
 
+@layer utilities {
+  .animate-bg-gradient-shift {
+    background-size: 400% 400%;
+    background-image: linear-gradient(
+      -45deg,
+      #ff0000,
+      #000000,
+      #0000ff,
+      #ffff00,
+      #D4AF37,
+      #ffc0cb
+    );
+    animation: bg-gradient-shift 15s ease infinite;
+  }
+}
+
+
 @layer components {
   .group:focus-within .glow-input {
     @apply ring-2 ring-accent;
@@ -170,30 +187,23 @@
   0% {
     color: hsl(var(--foreground));
     text-shadow:
-      0 0 2px hsl(var(--accent) / 0.2),
-      0 0 5px hsl(var(--accent) / 0.1),
-      0 0 10px hsl(210, 70%, 55% / 0.1);
+      0 0 2px hsl(var(--accent) / 0.1),
+      0 0 5px hsl(var(--accent) / 0.05),
+      0 0 10px hsl(210, 70%, 55% / 0.05);
   }
-  33% {
+  50% {
     color: hsl(var(--accent));
     text-shadow:
-      0 0 5px hsl(var(--accent) / 0.4),
-      0 0 10px hsl(var(--accent) / 0.3),
-      0 0 15px hsl(210, 70%, 55% / 0.2);
-  }
-  66% {
-    color: white;
-    text-shadow:
-      0 0 10px hsl(var(--accent) / 0.3),
-      0 0 15px hsl(var(--accent) / 0.4),
-      0 0 20px hsl(210, 70%, 55% / 0.3);
+      0 0 8px hsl(var(--accent) / 0.3),
+      0 0 12px hsl(var(--accent) / 0.2),
+      0 0 18px hsl(210, 70%, 55% / 0.2);
   }
   100% {
     color: hsl(var(--foreground));
     text-shadow:
-      0 0 2px hsl(var(--accent) / 0.2),
-      0 0 5px hsl(var(--accent) / 0.1),
-      0 0 10px hsl(210, 70%, 55% / 0.1);
+      0 0 2px hsl(var(--accent) / 0.1),
+      0 0 5px hsl(var(--accent) / 0.05),
+      0 0 10px hsl(210, 70%, 55% / 0.05);
   }
 }
 .animate-multi-color-text-glow {
@@ -292,14 +302,16 @@
   }
 }
 
-@keyframes gradient-shift {
-  0% { stop-color: #ff0000; } /* red */
-  16% { stop-color: #000000; } /* black */
-  33% { stop-color: #0000ff; } /* blue */
-  50% { stop-color: #ffff00; } /* yellow */
-  66% { stop-color: #D4AF37; } /* gold */
-  83% { stop-color: #ffc0cb; } /* pink */
-  100% { stop-color: #ff0000; } /* red */
+@keyframes bg-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .color-scanner-ring {
