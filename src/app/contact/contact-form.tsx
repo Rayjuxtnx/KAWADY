@@ -90,7 +90,7 @@ export function ContactForm() {
                         </CardContent>
                     </Card>
 
-                    <div className="space-y-4">
+                    <div className="space-y-4 flex flex-col">
                         <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                             <CardHeader className="p-4">
                                 <CardTitle className="text-lg">Contact Information</CardTitle>
@@ -100,7 +100,7 @@ export function ContactForm() {
                                     <MapPin className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-primary text-sm">Office Address</h3>
-                                        <p className="text-xs">123 Construction Ave, Metropolis, USA 12345</p>
+                                        <p className="text-xs">123 Construction Ave, Nairobi, Kenya</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
@@ -127,14 +127,14 @@ export function ContactForm() {
                                  </Button>
                             </CardContent>
                         </Card>
-                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <Card className="bg-card/80 backdrop-blur-sm border-accent/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex-grow flex flex-col">
                           <CardHeader className="p-4">
                               <CardTitle className="text-lg">Our Location</CardTitle>
                           </CardHeader>
-                          <CardContent className="p-0">
-                              <div className="aspect-[4/3] rounded-b-lg overflow-hidden">
+                          <CardContent className="p-0 flex-grow">
+                              <div className="aspect-[4/3] rounded-b-lg overflow-hidden h-full">
                                   <iframe
-                                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.628876435343!2d-74.00834228459424!3d40.74819297932822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf3c3937c3%3A0x59f5b24b75957e2a!2sMetropolis%2C%2C%20USA!5e0!3m2!1sen!2s!4v1627885920361!5m2!1sen!2s"
+                                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255282.3585374492!2d36.70735522776831!3d-1.302861244342533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1627885920361!5m2!1sen!2ske"
                                       width="100%"
                                       height="100%"
                                       style={{ border: 0 }}
