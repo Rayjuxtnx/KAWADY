@@ -76,7 +76,7 @@ export default function HowWeWorkPage() {
 
   return (
     <div className="fade-in">
-      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-transparent relative overflow-hidden">
         <BlueprintBackground />
         <div className="container max-w-7xl relative">
           <div className="text-center mb-16">
