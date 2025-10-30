@@ -12,6 +12,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import { WelcomeModal } from '@/components/layout/welcome-modal';
 import { WeldingGlowBackground } from '@/components/layout/welding-glow-background';
+import { useState, useRef, useEffect } from 'react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -24,48 +25,84 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+    const [isDragging, setIsDragging] = useState(false);
+    const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+    const [startAngle, setStartAngle] = useState({ x: 0, y: 0 });
+    const [currentElement, setCurrentElement] = useState<HTMLElement | null>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLBodyElement>) => {
-    const cards = document.querySelectorAll('.group[style*="perspective:1000px"]') as NodeListOf<HTMLDivElement>;
-    cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const width = rect.width;
-        const height = rect.height;
+    const handleMouseMove = (e: React.MouseEvent<HTMLBodyElement>) => {
+        if (isDragging) return; // Don't interfere with dragging
+        const cards = document.querySelectorAll('.group[style*="perspective:1000px"]') as NodeListOf<HTMLDivElement>;
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const width = rect.width;
+            const height = rect.height;
 
-        const rotateX = (y / height - 0.5) * -20; // -10 to 10 deg
-        const rotateY = (x / width - 0.5) * 20;   // -10 to 10 deg
+            const rotateX = (y / height - 0.5) * -20; // -10 to 10 deg
+            const rotateY = (x / width - 0.5) * 20;   // -10 to 10 deg
 
-        const cardInner = card.querySelector(':scope > [style*="[transform-style:preserve-3d]"]') as HTMLElement || card.firstElementChild as HTMLElement;
-        if (cardInner) {
-          cardInner.style.setProperty('--x-angle', `${rotateX.toFixed(2)}deg`);
-          cardInner.style.setProperty('--y-angle', `${rotateY.toFixed(2)}deg`);
-        }
-    });
-  };
+            const cardInner = card.querySelector(':scope > [style*="[transform-style:preserve-3d]"]') as HTMLElement || card.firstElementChild as HTMLElement;
+            if (cardInner) {
+              cardInner.style.setProperty('--x-angle', `${rotateX.toFixed(2)}deg`);
+              cardInner.style.setProperty('--y-angle', `${rotateY.toFixed(2)}deg`);
+            }
+        });
+    };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLBodyElement>) => {
-    if (!e.touches[0]) return;
-    const cards = document.querySelectorAll('.group[style*="perspective:1000px"]') as NodeListOf<HTMLDivElement>;
-    cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const x = e.touches[0].clientX - rect.left;
-        const y = e.touches[0].clientY - rect.top;
-        const width = rect.width;
-        const height = rect.height;
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        const cardInner = (e.target as HTMLElement).closest('[style*="[transform-style:preserve-3d]"]') as HTMLElement;
+        if (!cardInner) return;
+        
+        setIsDragging(true);
+        setStartPos({ x: e.touches[0].clientX, y: e.touches[0].clientY });
 
-        const rotateX = (y / height - 0.5) * -20;
-        const rotateY = (x / width - 0.5) * 20;
+        const currentX = parseFloat(cardInner.style.getPropertyValue('--x-angle') || '0');
+        const currentY = parseFloat(cardInner.style.getPropertyValue('--y-angle') || '0');
+        setStartAngle({ x: currentX, y: currentY });
+        
+        setCurrentElement(cardInner);
+        
+        // Prevent default scroll behavior
+        e.preventDefault();
+    };
 
-        const cardInner = card.querySelector(':scope > [style*="[transform-style:preserve-3d]"]') as HTMLElement || card.firstElementChild as HTMLElement;
-        if (cardInner) {
-          cardInner.style.setProperty('--x-angle', `${rotateX.toFixed(2)}deg`);
-          cardInner.style.setProperty('--y-angle', `${rotateY.toFixed(2)}deg`);
-        }
-    });
-  };
-  
+    const handleTouchMove = (e: React.TouchEvent<HTMLBodyElement>) => {
+        if (!isDragging || !currentElement) return;
+
+        const deltaX = e.touches[0].clientX - startPos.x;
+        const deltaY = e.touches[0].clientY - startPos.y;
+
+        const newRotateY = startAngle.y + deltaX * 0.5; // Sensitivity factor
+        const newRotateX = startAngle.x - deltaY * 0.5;
+
+        currentElement.style.setProperty('--x-angle', `${newRotateX}deg`);
+        currentElement.style.setProperty('--y-angle', `${newRotateY}deg`);
+    };
+
+    const handleTouchEnd = () => {
+        setIsDragging(false);
+        setCurrentElement(null);
+    };
+    
+    // Add event listeners to cards on mount
+    useEffect(() => {
+        const cards = document.querySelectorAll('.group[style*="perspective:1000px"]');
+        cards.forEach(card => {
+            const el = card as HTMLElement;
+            el.addEventListener('touchstart', handleTouchStart as any);
+        });
+
+        return () => {
+            cards.forEach(card => {
+                const el = card as HTMLElement;
+                el.removeEventListener('touchstart', handleTouchStart as any);
+            });
+        };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [children]); // Re-run when children change to catch new cards
+
   return (
     <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
       <head>
@@ -100,6 +137,7 @@ export default function RootLayout({
         className={cn("font-body antialiased bg-transparent text-foreground overflow-x-hidden", poppins.variable)}
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <ThemeProvider
           attribute="class"

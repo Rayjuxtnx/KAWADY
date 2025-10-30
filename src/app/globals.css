@@ -123,6 +123,9 @@
     transform-style: preserve-3d;
     transform: rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0));
   }
+  .group[style*="perspective:1000px"] {
+    touch-action: none;
+  }
 }
 
 .fade-in {
