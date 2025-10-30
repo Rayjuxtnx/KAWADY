@@ -28,7 +28,6 @@ export default function RootLayout({
   const handleMouseMove = (e: React.MouseEvent<HTMLBodyElement>) => {
     const cards = document.querySelectorAll('.group[style*="perspective:1000px"]') as NodeListOf<HTMLDivElement>;
     cards.forEach(card => {
-        if (window.innerWidth < 768) return; // Disable effect on mobile
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
