@@ -330,11 +330,20 @@
   animation: color-scanner-pulse 8s linear infinite;
 }
 
+@keyframes gradient-shift {
+  0% { stop-color: #ff0000; }
+  20% { stop-color: #0000ff; }
+  40% { stop-color: #ffff00; }
+  60% { stop-color: #D4AF37; }
+  80% { stop-color: #ffc0cb; }
+  100% { stop-color: #ff0000; }
+}
+
 .gradient-stop-1 {
-  animation: gradient-shift 25s linear infinite;
+  animation: gradient-shift 15s linear infinite;
 }
 
 .gradient-stop-2 {
-  animation: gradient-shift 25s linear infinite;
-  animation-delay: -5s; /* Offset the second color */
+  animation: gradient-shift 15s linear infinite;
+  animation-delay: -3s; /* Offset the second color */
 }
