@@ -44,6 +44,27 @@ export default function RootLayout({
         }
     });
   };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLBodyElement>) => {
+    if (!e.touches[0]) return;
+    const cards = document.querySelectorAll('.group[style*="perspective:1000px"]') as NodeListOf<HTMLDivElement>;
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const y = e.touches[0].clientY - rect.top;
+        const width = rect.width;
+        const height = rect.height;
+
+        const rotateX = (y / height - 0.5) * -20;
+        const rotateY = (x / width - 0.5) * 20;
+
+        const cardInner = card.querySelector(':scope > [style*="[transform-style:preserve-3d]"]') as HTMLElement || card.firstElementChild as HTMLElement;
+        if (cardInner) {
+          cardInner.style.setProperty('--x-angle', `${rotateX.toFixed(2)}deg`);
+          cardInner.style.setProperty('--y-angle', `${rotateY.toFixed(2)}deg`);
+        }
+    });
+  };
   
   return (
     <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
@@ -78,6 +99,7 @@ export default function RootLayout({
       <body 
         className={cn("font-body antialiased bg-transparent text-foreground overflow-x-hidden", poppins.variable)}
         onMouseMove={handleMouseMove}
+        onTouchMove={handleTouchMove}
       >
         <ThemeProvider
           attribute="class"
