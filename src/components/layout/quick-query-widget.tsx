@@ -126,7 +126,7 @@ export function QuickQueryWidget() {
                   )}
                   <div
                     className={cn(
-                      'p-3 rounded-lg max-w-[80%] sm:max-w-sm',
+                      'p-3 rounded-lg max-w-[80%]',
                       message.role === 'user'
                         ? 'bg-primary text-primary-foreground'
                         : 'bg-muted text-foreground'
@@ -176,3 +176,5 @@ export function QuickQueryWidget() {
     </>
   );
 }
+
+    

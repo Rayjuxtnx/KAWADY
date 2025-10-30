@@ -94,13 +94,13 @@ export default function Home() {
             />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent" />
-        <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-primary-foreground p-4 md:p-6">
+        <div className="relative container max-w-7xl h-full flex flex-col items-start justify-center text-left p-4 md:p-6">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight drop-shadow-md text-foreground">
             Building with Insight,
             <br />
             Integrity, and Innovation.
           </h1>
-          <p className="mt-4 max-w-2xl text-lg md:text-xl text-muted-foreground drop-shadow-sm">
+          <p className="mt-4 max-w-lg text-lg md:text-xl text-muted-foreground drop-shadow-sm">
             Your trusted partner in construction consultancy, delivering excellence from concept to completion.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -162,21 +162,23 @@ export default function Home() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             From heavy-duty structural steel to intricate ironwork, we provide a full range of metal fabrication services built on a foundation of quality and precision.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 [perspective:1000px]">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {metalServices.map((service) => (
-              <Card key={service.title} className="group flex flex-col text-left bg-card/80 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d] hover:[transform:rotateY(var(--y-angle))_rotateX(var(--x-angle))]">
-                 <div className="[transform:translateZ(40px)] p-4 md:p-6">
-                    <CardHeader className="p-0 mb-4">
-                        <div className="flex items-center gap-4">
-                            <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                            <CardTitle>{service.title}</CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent className="p-0">
-                        <p className="text-muted-foreground">{service.description}</p>
-                    </CardContent>
-                </div>
-              </Card>
+              <div key={service.title} className="group" style={{ perspective: '1000px' }}>
+                <Card className="flex flex-col h-full text-left bg-card/80 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/40 dark:hover:shadow-accent/20 [transform-style:preserve-3d]" style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}>
+                  <div className="[transform:translateZ(40px)] p-4 md:p-6 flex flex-col flex-grow">
+                      <CardHeader className="p-0 mb-4">
+                          <div className="flex items-center gap-4">
+                              <div className="bg-accent/10 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                              <CardTitle>{service.title}</CardTitle>
+                          </div>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                          <p className="text-muted-foreground">{service.description}</p>
+                      </CardContent>
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
           <Button asChild variant="link" className="mt-8 text-accent text-base">
@@ -194,13 +196,13 @@ export default function Home() {
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
             A glimpse into the quality and craftsmanship that define our work.
           </p>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 [transform-style:preserve-3d]">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {galleryImages.slice(0, 4).map((galleryItem) => {
               const image = PlaceHolderImages.find(p => p.id === galleryItem.imageId);
               return (
                 <div key={galleryItem.id} className="group" style={{ perspective: '1000px' }}>
                   <Card 
-                    className="overflow-hidden transition-transform duration-500 bg-card [transform-style:preserve-3d]"
+                    className="overflow-hidden transition-all duration-500 bg-card [transform-style:preserve-3d]"
                     style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}
                   >
                     <div className="relative aspect-[3/4]">
@@ -339,3 +341,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

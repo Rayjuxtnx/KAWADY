@@ -44,6 +44,7 @@ export default function MetalworksPage() {
                 fill
                 className="object-cover"
                 data-ai-hint={metalworksHeroImage.imageHint}
+                sizes="100vw"
             />
         )}
         <div className="absolute inset-0 bg-primary/70" />
@@ -71,7 +72,7 @@ export default function MetalworksPage() {
                   <div className="[transform:translateZ(40px)] p-4 md:p-6 flex flex-col flex-grow">
                       <CardHeader className="p-0 mb-4">
                       <div className="flex items-center gap-4">
-                          <div className="bg-accent/10 p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                          <div className="bg-accent/10 p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
                           {service.icon}
                           </div>
                           <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
@@ -116,6 +117,7 @@ export default function MetalworksPage() {
                             fill
                             className="object-cover"
                             data-ai-hint={qualityImage.imageHint}
+                            sizes="(max-width: 768px) 100vw, 50vw"
                         />
                     </div>
                 )}

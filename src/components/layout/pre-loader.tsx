@@ -53,7 +53,9 @@ export function PreLoader() {
           KAWADY
         </h1>
       </div>
-      <p className="absolute bottom-10 mt-4 text-base md:text-lg text-white/80 text-center px-4">Building with Insight</p>
+      <p className="absolute bottom-10 text-base md:text-lg text-white/80 text-center px-4">Building with Insight</p>
     </div>
   );
 }
+
+    

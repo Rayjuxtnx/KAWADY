@@ -59,6 +59,7 @@ export default function RootLayout({
   const handleMouseMove = (e: React.MouseEvent<HTMLBodyElement>) => {
     const cards = document.querySelectorAll('.group[style*="perspective:1000px"]') as NodeListOf<HTMLDivElement>;
     cards.forEach(card => {
+        if (window.innerWidth < 768) return; // Disable effect on mobile
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -82,6 +83,7 @@ export default function RootLayout({
         <title>{String(metadata.title?.default)}</title>
         <meta name="description" content={metadata.description ?? undefined} />
         <meta name="keywords" content={metadata.keywords?.join(', ')} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body 
         className={cn("font-body antialiased bg-background text-foreground", poppins.variable)}

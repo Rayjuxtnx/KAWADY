@@ -28,11 +28,11 @@ export default function ServicesPage() {
                   <div className="[transform:translateZ(40px)] p-4 md:p-6 flex flex-col flex-grow">
                     <CardHeader className="p-0 flex-shrink-0 mb-4">
                       <div className="flex items-center gap-4">
-                        <div className="bg-accent/10 p-3 md:p-4 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                        <div className="bg-accent/10 p-3 md:p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
                           {service.icon}
                         </div>
                         <div>
-                          <CardTitle>{service.title}</CardTitle>
+                          <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                         </div>
                       </div>
                     </CardHeader>
