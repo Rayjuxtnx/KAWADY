@@ -12,7 +12,7 @@ export function PreLoader() {
     const timer = setTimeout(() => {
       setFadeout(true);
       setTimeout(() => setLoading(false), 500); // Wait for fadeout animation
-    }, 2500); // Show pre-loader for 2.5 seconds
+    }, 2000); // Show pre-loader for 2 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -57,5 +57,3 @@ export function PreLoader() {
     </div>
   );
 }
-
-    

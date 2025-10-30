@@ -25,21 +25,11 @@ export function WelcomeModal() {
       const showTimer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem('welcomeModalShown', 'true');
-      }, 3000); // Show after 3s to match new preloader time
+      }, 2500); // Show after preloader
 
       return () => clearTimeout(showTimer);
     }
   }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      const autoCloseTimer = setTimeout(() => {
-        setIsOpen(false);
-      }, 5000); // Auto-close after 5 seconds
-
-      return () => clearTimeout(autoCloseTimer);
-    }
-  }, [isOpen]);
 
   if (!isOpen) {
     return null;
@@ -67,7 +57,7 @@ export function WelcomeModal() {
               onClick={() => setIsOpen(false)}
               className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90"
             >
-              Explore the Site
+              Proceed Now
             </Button>
           </AlertDialogAction>
         </AlertDialogFooter>
