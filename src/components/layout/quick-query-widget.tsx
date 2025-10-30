@@ -84,16 +84,18 @@ export function QuickQueryWidget() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-center gap-2">
-        <Button
-          className="h-16 w-16 rounded-full shadow-lg flex items-center justify-center animate-bg-gradient-shift"
-          onClick={() => setIsOpen(true)}
-          aria-label="Open AI Assistant"
-        >
-          <Bot className="h-8 w-8 text-white drop-shadow-lg" />
-        </Button>
-        {!isOpen && <p className="text-xs text-center text-accent bg-background/50 px-2 py-1 rounded-full shadow-lg">I am Kawady AI</p>}
-      </div>
+      {!isOpen && (
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-center gap-2">
+          <Button
+            className="h-16 w-16 rounded-full shadow-lg flex items-center justify-center animate-bg-gradient-shift"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open AI Assistant"
+          >
+            <Bot className="h-8 w-8 text-white drop-shadow-lg" />
+          </Button>
+          <p className="text-xs text-center text-accent bg-background/50 px-2 py-1 rounded-full shadow-lg">I am Kawady AI</p>
+        </div>
+      )}
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent 
