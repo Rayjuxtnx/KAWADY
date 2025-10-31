@@ -3,7 +3,8 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 
 async function checkPasswordAction(prevState: any, formData: FormData) {
     const password = formData.get('password');
@@ -33,7 +34,7 @@ function SubmitButton() {
 }
 
 export function Login() {
-    const [state, formAction] = useFormState(checkPasswordAction, { message: '', success: false });
+    const [state, formAction] = useActionState(checkPasswordAction, { message: '', success: false });
 
     return (
         <div className="flex items-center justify-center min-h-[60vh]">
