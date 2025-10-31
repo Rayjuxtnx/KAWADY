@@ -74,9 +74,18 @@ export default async function AdminPage() {
                     <TabsTrigger value="content">Content Manager</TabsTrigger>
                 </TabsList>
                 <TabsContent value="uploader" className="mt-6">
+                     <div className="prose prose-sm dark:prose-invert max-w-none mb-6 p-4 bg-muted/50 rounded-lg border">
+                        <h3 className="text-lg font-semibold">Step 1: Upload Images</h3>
+                        <p>Use this form to upload new images from your computer to the website. Once an image is uploaded, it will appear in the "Uploaded Images" gallery below. You can then assign it to a specific part of the website in the "Content Manager" tab.</p>
+                     </div>
                      <ImageUploader initialImages={uploadedImages} />
                 </TabsContent>
                 <TabsContent value="content" className="mt-6">
+                    <div className="prose prose-sm dark:prose-invert max-w-none mb-6 p-4 bg-muted/50 rounded-lg border">
+                        <h3 className="text-lg font-semibold">Step 2: Assign Images and Edit Content</h3>
+                        <p>Here you can control where your uploaded images appear on the site (e.g., as the homepage banner or in the gallery). You can also edit text like image descriptions and gallery titles.</p>
+                        <p>Click "Change Image" for any item to open a dialog and select from the images you have already uploaded.</p>
+                    </div>
                     <ContentManager 
                         initialPlaceholders={placeholderData}
                         initialGalleryItems={galleryData}

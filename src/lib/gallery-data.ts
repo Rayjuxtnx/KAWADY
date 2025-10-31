@@ -1,6 +1,4 @@
 
-import type { GalleryItem } from '@/lib/gallery-data';
-
 export type GalleryItem = {
   id: string;
   title: string;

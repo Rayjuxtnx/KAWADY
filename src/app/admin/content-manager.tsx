@@ -1,6 +1,7 @@
 'use client';
 
 import { useActionState, useState, useEffect } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 import { updateContent } from './actions';
 import { Button } from '@/components/ui/button';
@@ -10,7 +11,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Image from 'next/image';
-import { SubmitButton } from './submit-button';
+import { LoaderCircle } from 'lucide-react';
+
 
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import type { GalleryItem } from '@/lib/gallery-data';
@@ -20,6 +22,17 @@ type ContentManagerProps = {
     initialGalleryItems: GalleryItem[];
     availableImages: string[];
 };
+
+// A specific submit button for this form to show loading state
+function ContentSubmitButton({ children }: { children: React.ReactNode }) {
+    const { pending } = useFormStatus();
+    return (
+        <Button type="submit" disabled={pending}>
+            {pending && <LoaderCircle className="mr-2 animate-spin" />}
+            {pending ? 'Updating...' : children}
+        </Button>
+    )
+}
 
 export function ContentManager({ initialPlaceholders, initialGalleryItems, availableImages }: ContentManagerProps) {
     const [state, formAction] = useActionState(updateContent, { success: false, message: "" });
@@ -182,22 +195,8 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
             </Card>
 
             <div className="mt-6 flex justify-end">
-                <SubmitButton>Update Content</SubmitButton>
+                <ContentSubmitButton>Update Content</ContentSubmitButton>
             </div>
         </form>
     );
 }
-
-// A specific submit button for this form to show loading state
-const ContentSubmitButton = ({ children }: { children: React.ReactNode }) => {
-    // This hook is intentionally left simple as we only need the pending state
-    // from the most recent form submission.
-    const { pending } = useActionState(async () => {}, null);
-    return (
-        <Button type="submit" disabled={pending}>
-            {pending ? 'Updating...' : children}
-        </Button>
-    )
-}
-
-    
