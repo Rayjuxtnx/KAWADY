@@ -143,6 +143,12 @@
       "description": "An aerial view of a smart city's infrastructure, showcasing interconnected transport networks and green public spaces.",
       "imageUrl": "https://images.unsplash.com/photo-1477519242566-6ae87c31d212?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbWFydCUyMGNpdHl8ZW58MHx8fHwxNzYxOTE4MDY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "smart city"
+    },
+    {
+      "id": "gallery-img-7",
+      "description": "Custom decorative metalwork panel",
+      "imageUrl": "https://i.imgur.com/GgPjYfB.jpeg",
+      "imageHint": "metalwork panel"
     }
   ]
 }
