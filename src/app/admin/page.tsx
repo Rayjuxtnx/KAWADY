@@ -68,20 +68,20 @@ export default async function AdminPage() {
                 <h1 className="text-3xl font-bold">Admin Dashboard</h1>
             </div>
 
-            <Tabs defaultValue="content">
+            <Tabs defaultValue="uploader">
                 <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="content">Content Manager</TabsTrigger>
                     <TabsTrigger value="uploader">Image Uploader</TabsTrigger>
+                    <TabsTrigger value="content">Content Manager</TabsTrigger>
                 </TabsList>
+                <TabsContent value="uploader" className="mt-6">
+                     <ImageUploader initialImages={uploadedImages} />
+                </TabsContent>
                 <TabsContent value="content" className="mt-6">
                     <ContentManager 
                         initialPlaceholders={placeholderData}
                         initialGalleryItems={galleryData}
                         availableImages={uploadedImages}
                     />
-                </TabsContent>
-                <TabsContent value="uploader" className="mt-6">
-                     <ImageUploader initialImages={uploadedImages} />
                 </TabsContent>
             </Tabs>
         </div>
