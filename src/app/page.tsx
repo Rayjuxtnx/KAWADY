@@ -36,46 +36,11 @@ const metalServices = [
   },
 ];
 
-const Counter = ({ end, duration = 2, isPercentage = false }: { end: number; duration?: number; isPercentage?: boolean }) => {
-  const [count, setCount] = React.useState(0);
-
-  React.useEffect(() => {
-    let start = 0;
-    const finalEnd = isNaN(end) ? 0 : end;
-    const range = finalEnd - start;
-    let current = start;
-    const increment = finalEnd > start ? 1 : -1;
-    const stepTime = Math.abs(Math.floor(duration * 1000 / range));
-
-    const timer = setInterval(() => {
-      current += increment;
-      // Approximate the count up to the end
-      if ((increment > 0 && current >= finalEnd) || (increment < 0 && current <= finalEnd)) {
-        current = finalEnd;
-        clearInterval(timer);
-      }
-      setCount(current);
-    }, stepTime > 0 ? stepTime : 1);
-
-    return () => clearInterval(timer);
-  }, [end, duration, isPercentage]);
-  
-  // Update with small random amounts after initial animation
-  React.useEffect(() => {
-    if (count === end) {
-      const interval = setInterval(() => {
-        setCount(prevCount => {
-            const newCount = prevCount + (Math.random() * (isPercentage ? 0.01 : 0.1));
-            return parseFloat(newCount.toFixed(isPercentage ? 2 : 1));
-        });
-      }, 3000 + Math.random() * 2000); // every 3-5 seconds
-      return () => clearInterval(interval);
-    }
-  }, [count, end, isPercentage]);
-
+const Counter = ({ end, isPercentage = false }: { end: number; isPercentage?: boolean }) => {
+  // Simplified component to just display the number with a subtle animation
   return (
-    <span className="font-bold text-4xl md:text-5xl text-primary tabular-nums">
-      {count.toLocaleString(undefined, { maximumFractionDigits: isPercentage ? 2 : 1, minimumFractionDigits: isPercentage ? 2 : 0})}
+    <span className="font-bold text-4xl md:text-5xl text-primary tabular-nums animate-pulse-slow">
+      {end.toLocaleString(undefined, { maximumFractionDigits: isPercentage ? 2 : 1, minimumFractionDigits: isPercentage ? 2 : 0})}
       {isPercentage && <span className="text-2xl md:text-3xl ml-1">%</span>}
     </span>
   );
