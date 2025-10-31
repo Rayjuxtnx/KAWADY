@@ -24,23 +24,12 @@ type ContentManagerProps = {
 function ContentSubmitButton({ children }: { children: React.ReactNode }) {
     const { pending } = useFormStatus();
     return (
-        <Button type="submit" disabled={pending} name="intent" value="updateContent">
+        <Button type="submit" disabled={pending}>
             {pending && <LoaderCircle className="mr-2 animate-spin" />}
             {pending ? 'Updating...' : children}
         </Button>
     )
 }
-
-function UploadButton() {
-    const { pending } = useFormStatus();
-    return (
-         <Button type="submit" size="sm" variant="secondary" disabled={pending} name="intent" value="uploadImage">
-            {pending ? <LoaderCircle className="animate-spin" /> : <Upload />}
-            <span className="ml-2 hidden sm:inline">Upload & Replace</span>
-        </Button>
-    )
-}
-
 
 export function ContentManager({ initialPlaceholders, initialGalleryItems }: ContentManagerProps) {
     const [updateState, updateContentAction] = useActionState(updateContent, { success: false, message: "" });
@@ -96,17 +85,8 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
         );
     };
 
-    const formAction = (formData: FormData) => {
-        const intent = formData.get('intent') as string;
-        if (intent === 'uploadImage') {
-            uploadImageAction(formData);
-        } else {
-            updateContentAction(formData);
-        }
-    };
-
     return (
-        <form action={formAction}>
+        <form action={updateContentAction}>
             <input type="hidden" name="placeholderData" value={JSON.stringify(placeholders)} />
             <input type="hidden" name="galleryData" value={JSON.stringify(galleryItems)} />
 
@@ -129,11 +109,6 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                                                     <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    <Input
-                                                        type="hidden"
-                                                        name="placeholderId"
-                                                        value={p.id}
-                                                     />
                                                     <Input
                                                         id={`upload-${p.id}`}
                                                         name="image"
