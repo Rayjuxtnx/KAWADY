@@ -121,6 +121,12 @@
       "imageHint": "steel building"
     },
     {
+      "id":"gallery-img-7",
+      "description": "some of our completed clients works in the market.",
+      "imageUrl": "https://www.google.com/imgres?q=steel&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F5d%2F%25D0%2590%25D1%2580%25D0%25BC%25D0%25B0%25D1%2582%25D1%2583%25D1%2580%25D0%25BD%25D1%258B%25D0%25B9_%25D0%25BF%25D1%2580%25D0%25BE%25D0%25BA%25D0%25B0%25D1%2582.jpg%2F1200px-%25D0%2590%25D1%2580%25D0%25BC%25D0%25B0%25D1%2582%25D1%2583%25D1%2580%25D0%25BD%25D1%258B%25D0%25B9_%25D0%25BF%25D1%2580%25D0%25BE%25D0%25BA%25D0%25B0%25D1%2582.jpg&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FSteel&docid=EJ3as-GHrkSE7M&tbnid=8CMGvoKTTA85AM&vet=12ahUKEwj6yJm-ks2QAxU39wIHHdkyO1MQM3oECBIQAA..i&w=1200&h=800&hcb=2&ved=2ahUKEwj6yJm-ks2QAxU39wIHHdkyO1MQM3oECBIQAA",
+      "imageHint": "Steel rodes"
+      },
+    {
       "id": "vision-hero",
       "description": "A stunning, wide-angle shot of a futuristic city skyline at night with glowing lights and flying vehicles.",
       "imageUrl": "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHw1fHxmdXR1cmlzdGljJTIwY2l0eXxlbnwwfHx8fDE3MjIyMjQwNjR8MA&ixlib=rb-4.0.3&q=80&w=1080",
