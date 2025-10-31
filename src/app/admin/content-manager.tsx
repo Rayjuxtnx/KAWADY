@@ -117,7 +117,8 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                                                         ref={(el) => fileInputRefs.current[p.id] = el}
                                                         accept="image/*"
                                                     />
-                                                    <Button formAction={uploadImageAction} type="submit" size="sm" variant="secondary" name="placeholderId" value={p.id}>
+                                                    <Button formAction={uploadImageAction} type="submit" size="sm" variant="secondary">
+                                                        <input type="hidden" name="placeholderId" value={p.id} />
                                                         <Upload className="h-4 w-4" />
                                                         <span className="ml-2 hidden sm:inline">Upload</span>
                                                     </Button>
