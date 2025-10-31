@@ -4,7 +4,22 @@ import withPWA from 'next-pwa';
 
 const config = {
   reactStrictMode: true,
-  // Your existing Next.js config
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.imgur.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 const withPWAConfig = withPWA({
