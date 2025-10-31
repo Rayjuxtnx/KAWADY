@@ -24,7 +24,7 @@ async function ensureDir(path: string) {
     }
 }
 
-export async function uploadImage(prevState: any, formData: FormData): Promise<{ message: string; success: boolean; error?: string }> {
+export async function uploadImage(prevState: any, formData: FormData): Promise<{ message: string; success: boolean; error?: string, path?: string }> {
     const file = formData.get('image') as File;
     if (!file || file.size === 0) {
         return { success: false, message: "No file selected." };
@@ -41,13 +41,14 @@ export async function uploadImage(prevState: any, formData: FormData): Promise<{
         const buffer = Buffer.from(bytes);
 
         const filename = file.name.toLowerCase().replace(/[^a-z0-9.-]/g, '_');
-        const path = join(imageDir, filename);
+        const imagePath = join(imageDir, filename);
         
-        await writeFile(path, buffer);
+        await writeFile(imagePath, buffer);
 
         revalidatePath('/admin');
         
-        return { success: true, message: `Image "${filename}" uploaded successfully.` };
+        const publicPath = `/images/${filename}`;
+        return { success: true, message: `Image "${filename}" uploaded successfully.`, path: publicPath };
 
     } catch (e: any) {
         console.error('Upload failed:', e);

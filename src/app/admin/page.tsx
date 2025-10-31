@@ -68,28 +68,26 @@ export default async function AdminPage() {
                 <h1 className="text-3xl font-bold">Admin Dashboard</h1>
             </div>
 
-            <Tabs defaultValue="uploader">
+            <Tabs defaultValue="uploader" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="uploader">Image Uploader</TabsTrigger>
                     <TabsTrigger value="content">Content Manager</TabsTrigger>
                 </TabsList>
                 <TabsContent value="uploader" className="mt-6">
                      <div className="prose prose-sm dark:prose-invert max-w-none mb-6 p-4 bg-muted/50 rounded-lg border">
-                        <h3 className="text-lg font-semibold">Step 1: Upload Images</h3>
-                        <p>Use this form to upload new images from your computer to the website. Once an image is uploaded, it will appear in the "Uploaded Images" gallery below. You can then assign it to a specific part of the website in the "Content Manager" tab.</p>
+                        <h3 className="text-lg font-semibold">Workflow Step 1: Upload Images</h3>
+                        <p>Use this form to upload new images from your computer to the website's `public/images` directory. Once an image is uploaded, it will appear in the "Uploaded Images" gallery below. You can then go to the "Content Manager" tab to assign it to a specific part of the website.</p>
                      </div>
                      <ImageUploader initialImages={uploadedImages} />
                 </TabsContent>
                 <TabsContent value="content" className="mt-6">
                     <div className="prose prose-sm dark:prose-invert max-w-none mb-6 p-4 bg-muted/50 rounded-lg border">
-                        <h3 className="text-lg font-semibold">Step 2: Assign Images and Edit Content</h3>
-                        <p>Here you can control where your uploaded images appear on the site (e.g., as the homepage banner or in the gallery). You can also edit text like image descriptions and gallery titles.</p>
-                        <p>Click "Change Image" for any item to open a dialog and select from the images you have already uploaded.</p>
+                        <h3 className="text-lg font-semibold">Workflow Step 2: Assign Images and Edit Content</h3>
+                        <p>Here you can control where your uploaded images appear and edit related text. For each role (e.g., `home-hero`), you can directly upload a new image from your computer, or for gallery items, you can select an Image ID from the dropdown. Remember to click the main "Update Content" button at the very bottom to save all your changes.</p>
                     </div>
                     <ContentManager 
                         initialPlaceholders={placeholderData}
                         initialGalleryItems={galleryData}
-                        availableImages={uploadedImages}
                     />
                 </TabsContent>
             </Tabs>

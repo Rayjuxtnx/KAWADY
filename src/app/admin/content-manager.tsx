@@ -1,17 +1,16 @@
 'use client';
 
-import { useActionState, useState, useEffect } from 'react';
+import { useActionState, useState, useEffect, useRef } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
-import { updateContent } from './actions';
+import { updateContent, uploadImage } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Image from 'next/image';
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Upload } from 'lucide-react';
 
 
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
@@ -20,10 +19,8 @@ import type { GalleryItem } from '@/lib/gallery-data';
 type ContentManagerProps = {
     initialPlaceholders: ImagePlaceholder[];
     initialGalleryItems: GalleryItem[];
-    availableImages: string[];
 };
 
-// A specific submit button for this form to show loading state
 function ContentSubmitButton({ children }: { children: React.ReactNode }) {
     const { pending } = useFormStatus();
     return (
@@ -34,17 +31,48 @@ function ContentSubmitButton({ children }: { children: React.ReactNode }) {
     )
 }
 
-export function ContentManager({ initialPlaceholders, initialGalleryItems, availableImages }: ContentManagerProps) {
+function UploadAndReplaceAction({ placeholderId, onUploadComplete }: { placeholderId: string, onUploadComplete: (id: string, path: string) => void }) {
+    const [state, formAction] = useActionState(uploadImage, { success: false, message: "" });
+    const { pending } = useFormStatus();
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (state.success && state.path) {
+            onUploadComplete(placeholderId, state.path);
+             if (fileInputRef.current) {
+                fileInputRef.current.value = "";
+            }
+        }
+    }, [state, placeholderId, onUploadComplete]);
+    
+    return (
+        <form action={formAction}>
+            <div className="flex items-center gap-2">
+                <Input
+                    id={`upload-${placeholderId}`}
+                    name="image"
+                    type="file"
+                    className="flex-grow text-xs h-9"
+                    ref={fileInputRef}
+                    required
+                    accept="image/*"
+                />
+                <Button type="submit" size="sm" variant="secondary" disabled={pending}>
+                    {pending ? <LoaderCircle className="animate-spin" /> : <Upload />}
+                    <span className="ml-2 hidden sm:inline">Upload & Replace</span>
+                </Button>
+            </div>
+             {state.message && !state.success && <p className="text-xs text-destructive mt-1">{state.message}</p>}
+        </form>
+    );
+}
+
+export function ContentManager({ initialPlaceholders, initialGalleryItems }: ContentManagerProps) {
     const [state, formAction] = useActionState(updateContent, { success: false, message: "" });
     const { toast } = useToast();
 
     const [placeholders, setPlaceholders] = useState<ImagePlaceholder[]>(initialPlaceholders);
     const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(initialGalleryItems);
-    
-    // State to manage which dialog is open
-    const [editingPlaceholderId, setEditingPlaceholderId] = useState<string | null>(null);
-    const [editingGalleryItemId, setEditingGalleryItemId] = useState<string | null>(null);
-
 
     useEffect(() => {
         if (state.message) {
@@ -61,6 +89,14 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
             current.map(p => (p.id === id ? { ...p, [field]: value } : p))
         );
     };
+    
+    const handleUploadComplete = (id: string, path: string) => {
+        handlePlaceholderChange(id, 'imageUrl', path);
+        toast({
+            title: "Image Replaced!",
+            description: `"${id}" is now using the new image. Remember to click "Update Content" to save.`,
+        });
+    };
 
     const handleGalleryItemChange = (id: string, field: keyof GalleryItem, value: string) => {
         setGalleryItems(current =>
@@ -68,27 +104,15 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
         );
     };
 
-    const handlePlaceholderImageSelect = (id: string, imageUrl: string) => {
-        handlePlaceholderChange(id, 'imageUrl', imageUrl);
-        setEditingPlaceholderId(null);
-    };
-    
-    const handleGalleryImageSelect = (id: string, imageId: string) => {
-        handleGalleryItemChange(id, 'imageId', imageId);
-        setEditingGalleryItemId(null);
-    };
-
-
     return (
         <form action={formAction}>
-            {/* Hidden inputs to pass the JSON data to the server action */}
             <input type="hidden" name="placeholderData" value={JSON.stringify(placeholders)} />
             <input type="hidden" name="galleryData" value={JSON.stringify(galleryItems)} />
 
             <Card>
                 <CardHeader>
                     <CardTitle>Content Manager</CardTitle>
-                    <CardDescription>Edit site images and text content. Press "Update Content" at the bottom to save.</CardDescription>
+                    <CardDescription>Edit site images and text content. Press "Update Content" at the bottom to save all changes.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                     <Accordion type="single" collapsible defaultValue="placeholders">
@@ -103,23 +127,7 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
                                                 <div className="relative aspect-video rounded-md overflow-hidden border">
                                                     <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
                                                 </div>
-                                                 <Dialog open={editingPlaceholderId === p.id} onOpenChange={(isOpen) => setEditingPlaceholderId(isOpen ? p.id : null)}>
-                                                    <DialogTrigger asChild>
-                                                        <Button variant="outline" size="sm" className="w-full">Change Image</Button>
-                                                    </DialogTrigger>
-                                                    <DialogContent className="max-w-4xl">
-                                                        <DialogHeader>
-                                                            <DialogTitle>Select an Image for "{p.id}"</DialogTitle>
-                                                        </DialogHeader>
-                                                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 py-4 max-h-[60vh] overflow-y-auto">
-                                                            {availableImages.map(imgSrc => (
-                                                                <button key={imgSrc} type="button" onClick={() => handlePlaceholderImageSelect(p.id, imgSrc)} className="relative aspect-square rounded-md overflow-hidden border-2 border-transparent hover:border-accent focus:border-accent focus:outline-none">
-                                                                    <Image src={imgSrc} alt={imgSrc} fill className="object-cover" />
-                                                                </button>
-                                                            ))}
-                                                        </div>
-                                                    </DialogContent>
-                                                </Dialog>
+                                                <UploadAndReplaceAction placeholderId={p.id} onUploadComplete={handleUploadComplete} />
                                             </div>
                                             <div className="md:col-span-2 space-y-2">
                                                 <div>
@@ -155,24 +163,19 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
                                                         <Image src={image.imageUrl} alt={image.description} fill className="object-cover" />
                                                     </div>
                                                 )}
-                                                 <Dialog open={editingGalleryItemId === g.id} onOpenChange={(isOpen) => setEditingGalleryItemId(isOpen ? g.id : null)}>
-                                                    <DialogTrigger asChild>
-                                                        <Button variant="outline" size="sm" className="w-full">Change Image</Button>
-                                                    </DialogTrigger>
-                                                    <DialogContent className="max-w-4xl">
-                                                        <DialogHeader>
-                                                            <DialogTitle>Select an Image ID for "{g.title}"</DialogTitle>
-                                                        </DialogHeader>
-                                                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 py-4 max-h-[60vh] overflow-y-auto">
-                                                            {placeholders.map(p => (
-                                                                <button key={p.id} type="button" onClick={() => handleGalleryImageSelect(g.id, p.id)} className="relative aspect-square rounded-md overflow-hidden border-2 border-transparent hover:border-accent focus:border-accent focus:outline-none">
-                                                                    <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
-                                                                     <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-1 text-white text-xs truncate">{p.id}</div>
-                                                                </button>
-                                                            ))}
-                                                        </div>
-                                                    </DialogContent>
-                                                </Dialog>
+                                                <div>
+                                                    <Label htmlFor={`imageId-select-${g.id}`} className="text-xs font-medium">Change Image ID</Label>
+                                                    <select
+                                                        id={`imageId-select-${g.id}`}
+                                                        value={g.imageId}
+                                                        onChange={(e) => handleGalleryItemChange(g.id, 'imageId', e.target.value)}
+                                                        className="w-full h-10 rounded-md border border-input bg-background/50 px-3 py-2 text-sm"
+                                                    >
+                                                        {placeholders.map(p => (
+                                                            <option key={p.id} value={p.id}>{p.id}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
                                             </div>
                                              <div className="md:col-span-2 space-y-2">
                                                 <div>
