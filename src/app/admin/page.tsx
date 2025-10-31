@@ -1,3 +1,4 @@
+
 import { cookies } from 'next/headers';
 import { getImages, verifyPassword } from './actions';
 import { ImageUploader } from './image-uploader';
@@ -26,18 +27,23 @@ async function getPlaceholderData(): Promise<ImagePlaceholder[]> {
 
 async function getGalleryData(): Promise<GalleryItem[]> {
     const filePath = path.join(process.cwd(), 'src/lib/gallery-data.ts');
-    // This is a simplified way to extract the array from the TS file.
-    // A more robust solution might use a code parser if the file structure becomes complex.
     const fileContent = await fs.readFile(filePath, 'utf-8');
-    const match = fileContent.match(/export const galleryImages: GalleryItem\[\] = (\[[\s\S]*?\]);/);
+    
+    // Use a regex to safely extract the JSON array string
+    const match = fileContent.match(/const galleryImages: GalleryItem\[\] = (\[[\s\S]*?\]);/);
+    
     if (!match || !match[1]) {
-        console.error("Could not parse gallery-data.ts");
+        console.error("Could not parse gallery-data.ts. Array not found or malformed.");
         return [];
     }
-    // This is a bit of a hack to parse the JS array.
-    // It's not safe if the content is not controlled.
-    // For this internal tool, it's acceptable.
-    return eval(match[1]);
+
+    try {
+        // Parse the extracted string as JSON
+        return JSON.parse(match[1]);
+    } catch (e) {
+        console.error("Failed to parse gallery data JSON:", e);
+        return [];
+    }
 }
 
 
@@ -62,20 +68,20 @@ export default async function AdminPage() {
                 <h1 className="text-3xl font-bold">Admin Dashboard</h1>
             </div>
 
-            <Tabs defaultValue="uploader">
+            <Tabs defaultValue="content">
                 <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="uploader">Image Uploader</TabsTrigger>
                     <TabsTrigger value="content">Content Manager</TabsTrigger>
+                    <TabsTrigger value="uploader">Image Uploader</TabsTrigger>
                 </TabsList>
-                <TabsContent value="uploader" className="mt-6">
-                     <ImageUploader initialImages={uploadedImages} />
-                </TabsContent>
                 <TabsContent value="content" className="mt-6">
                     <ContentManager 
                         initialPlaceholders={placeholderData}
                         initialGalleryItems={galleryData}
                         availableImages={uploadedImages}
                     />
+                </TabsContent>
+                <TabsContent value="uploader" className="mt-6">
+                     <ImageUploader initialImages={uploadedImages} />
                 </TabsContent>
             </Tabs>
         </div>
