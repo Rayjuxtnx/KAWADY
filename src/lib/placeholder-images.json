@@ -3,121 +3,121 @@
     {
       "id": "home-hero",
       "description": "A modern steel skyscraper under construction with a crane, symbolizing large-scale building projects.",
-      "imageUrl": "https://images.unsplash.com/photo-1595392312303-ddfc8d8ca472?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjBza3lzY3JhcGVyfGVufDB8fHx8MTc2MTc0ODc3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/home-hero.jpg",
       "imageHint": "construction skyscraper"
     },
     {
       "id": "about-main",
       "description": "A close-up of a welder working on a piece of iron, showcasing the core skill of the company.",
-      "imageUrl": "https://images.unsplash.com/photo-1626845447936-eb4f45fbbf69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbiUyMGltYWdlJTIwb2YlMjBhJTIwd2VsZGluZyUyMGlyb258ZW58MHx8fHwxNzYxNzk1NjU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/about-main.jpg",
       "imageHint": "welding iron"
     },
     {
       "id": "about-banner",
       "description": "An expansive and modern architectural interior with clean lines and natural light, representing design excellence.",
-      "imageUrl": "https://images.unsplash.com/photo-1600210492493-0946911123ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjE2MjM1ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/about-banner.jpg",
       "imageHint": "modern interior"
     },
     {
       "id": "project-1",
       "description": "A sleek, modern residential tower with glass balconies, showcasing excellence in urban construction.",
-      "imageUrl": "https://images.unsplash.com/photo-1515263487990-61b07816b324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcGFydG1lbnR8ZW58MHx8fHwxNzYxNzI1MDc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/project-1.jpg",
       "imageHint": "modern apartment"
     },
     {
       "id": "project-2",
       "description": "An expansive commercial office building with a unique, curved glass facade, representing corporate architecture.",
-      "imageUrl": "https://images.unsplash.com/photo-1582061575118-93cc82eca33b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBidWlsZGluZ3xlbnwwfHx8fDE3NjE3MzA1ODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/project-2.jpg",
       "imageHint": "office building"
     },
     {
       "id": "project-3",
       "description": "A modern public library with a striking geometric design, highlighting community and institutional projects.",
-      "imageUrl": "https://images.unsplash.com/photo-1520387294843-fd994fd872e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwbGlicmFyeXxlbnwwfHx8fDE3NjE2OTI3MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/project-3.jpg",
       "imageHint": "modern library"
     },
     {
       "id": "project-4",
       "description": "A sustainable, eco-friendly house integrated with nature, showcasing green building practices.",
-      "imageUrl": "https://images.unsplash.com/photo-1690079402913-97e85c33fbd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlY28lMjBob3VzZXxlbnwwfHx8fDE3NjE2Njk5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/project-4.jpg",
       "imageHint": "eco house"
     },
     {
       "id": "project-5",
       "description": "A landmark cable-stayed bridge improving regional connectivity and serving as an iconic piece of public infrastructure.",
-      "imageUrl": "https://images.unsplash.com/photo-1709872952794-ccb1a99a78f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBicmlkZ2V8ZW58MHx8fHwxNzYxNjY3MjMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/project-5.jpg",
       "imageHint": "modern bridge"
     },
     {
       "id": "project-6",
       "description": "A massive logistics and distribution warehouse optimized for high-volume automated operations.",
-      "imageUrl": "https://images.unsplash.com/photo-1553413077-190dd305871c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbmR1c3RyaWFsJTIwd2FyZWhvdXNlfGVufDB8fHx8MTc2MTY2ODUzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/project-6.jpg",
       "imageHint": "industrial warehouse"
     },
     {
       "id": "metalworks-hero",
       "description": "A skilled welder in protective gear creating sparks while working on a steel frame, symbolizing expert fabrication.",
-      "imageUrl": "https://images.unsplash.com/photo-1564424224827-cd2d42e3fe1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHwxfHx3ZWxkaW5nJTIwc3BhcmtzfGVufDB8fHx8MTcyMjEwOTAyNnww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "/images/metalworks-hero.jpg",
       "imageHint": "welder sparks"
     },
     {
       "id": "metalworks-quality",
       "description": "A macro close-up of a perfectly executed weld on a thick steel beam, highlighting quality craftsmanship.",
-      "imageUrl": "https://images.unsplash.com/photo-1617042375876-a13e36732a04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHw1fHxzdGVlbCUyMHdlbGR8ZW58MHx8fHwxNzIyMTA5MDYyfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "/images/metalworks-quality.jpg",
       "imageHint": "steel weld"
     },
     {
       "id": "service-wps",
       "description": "A certified welder reviewing a detailed welding procedure specification (WPS) document in a workshop.",
-      "imageUrl": "https://images.unsplash.com/photo-1676018367784-23a5d6216874?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNnx8d2VsZGluZyUyMHByb2NlZHVyZXxlbnwwfHx8fDE3NjE4MjkzNDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/service-wps.jpg",
       "imageHint": "welding procedure"
     },
     {
       "id": "service-failure-analysis",
       "description": "A magnifying glass inspecting a critical fracture on a metal component for root cause failure analysis.",
-      "imageUrl": "https://images.unsplash.com/photo-1648848613367-47d18d10bf88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnJhY3R1cmVkJTIwbWV0YWx8ZW58MHx8fHwxNzYxNzYzMjUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/service-failure-analysis.jpg",
       "imageHint": "fractured metal"
     },
     {
       "id": "service-material-selection",
       "description": "A close-up of a textured steel rod, highlighting material quality.",
-      "imageUrl": "https://images.unsplash.com/photo-1761479867761-7a8b11f54449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNXx8YSUyMHN0ZWVsJTIwcm9kfGVufDB8fHx8MTc2MTc5NTc3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/service-material-selection.jpg",
       "imageHint": "steel rod"
     },
     {
       "id": "gallery-img-1",
       "description": "A massive structural steel frame for a new industrial building being erected against a clear sky.",
-      "imageUrl": "https://images.unsplash.com/photo-1720841471491-cd84d0137ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGVlbCUyMGZyYW1lfGVufDB8fHx8MTc2MTc2MzU2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/gallery-img-1.jpg",
       "imageHint": "steel frame"
     },
     {
       "id": "gallery-img-2",
       "description": "An ornate, custom-fabricated wrought iron gate with intricate scrollwork, showing artistic metalwork.",
-      "imageUrl": "https://images.unsplash.com/photo-1692349677773-711059093cd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcm9uJTIwZ2F0ZXxlbnwwfHx8fDE3NjE3NjM1NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/gallery-img-2.jpg",
       "imageHint": "iron gate"
     },
     {
       "id": "gallery-img-3",
       "description": "A macro photograph of a clean, strong T-joint weld on mild steel, demonstrating precision welding.",
-      "imageUrl": "https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjbGVhbiUyMHdlbGR8ZW58MHx8fHwxNzYxNzYzNTY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/gallery-img-3.jpg",
       "imageHint": "clean weld"
     },
     {
       "id": "gallery-img-4",
       "description": "A modern interior staircase with sleek steel stringers and glass railings, an example of architectural metalwork.",
-      "imageUrl": "https://images.unsplash.com/photo-1597151304255-d206a31f029c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdGVlbCUyMHN0YWlyY2FzZXxlbnwwfHx8fDE3NjE3NjM1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/gallery-img-4.jpg",
       "imageHint": "steel staircase"
     },
     {
       "id": "gallery-img-5",
       "description": "Construction workers in safety gear conducting an on-site installation of a large steel beam.",
-      "imageUrl": "https://images.unsplash.com/photo-1706851133383-3d8bfeccdd97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdGVlbCUyMGluc3RhbGxhdGlvbnxlbnwwfHx8fDE3NjE3NjM1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/gallery-img-5.jpg",
       "imageHint": "steel installation"
     },
     {
       "id": "gallery-img-6",
       "description": "The completed exterior facade of a modern building featuring prominent steel and glass architectural elements.",
-      "imageUrl": "https://images.unsplash.com/photo-1651855833979-80d8d469cc33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGVlbCUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2MTc2MzU2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/gallery-img-6.jpg",
       "imageHint": "steel building"
     },
     {
@@ -129,19 +129,19 @@
     {
       "id": "vision-hero",
       "description": "A stunning, wide-angle shot of a futuristic city skyline at night with glowing lights and flying vehicles.",
-      "imageUrl": "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHw1fHxmdXR1cmlzdGljJTIwY2l0eXxlbnwwfHx8fDE3MjIyMjQwNjR8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "/images/vision-hero.jpg",
       "imageHint": "futuristic city"
     },
     {
       "id": "vision-project-1",
       "description": "An eco-futuristic skyscraper seamlessly integrated with vertical gardens and nature, under a clear blue sky.",
-      "imageUrl": "https://images.unsplash.com/photo-1678812632298-967a57a82928?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHwxfHxlY28lMjBmdXR1cmlzdGljJTIwYnVpbGRpbmd8ZW58MHx8fHwxNzIyMjI0MTAzfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "/images/vision-project-1.jpg",
       "imageHint": "eco building"
     },
     {
       "id": "vision-project-2",
       "description": "An aerial view of a smart city's infrastructure, showcasing interconnected transport networks and green public spaces.",
-      "imageUrl": "https://images.unsplash.com/photo-1571505059873-3543b5674066?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfHNlYXJjaHw0fHxzbWFydCUyMGNpdHklMjBpbmZyYXN0cnVjdHVyZXxlbnwwfHx8fDE3MjIyMjQxMzV8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "/images/vision-project-2.jpg",
       "imageHint": "smart city"
     }
   ]
