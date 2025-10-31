@@ -21,7 +21,7 @@ export function Login() {
 
     useEffect(() => {
         if (state.success) {
-            // No need to reload, revalidatePath will trigger a re-render
+            // Re-renders are handled by revalidatePath in the action
         }
     }, [state.success]);
 

@@ -2,7 +2,6 @@ import { cookies } from 'next/headers';
 import { getImages, verifyPassword } from './actions';
 import { ImageUploader } from './image-uploader';
 import { Login } from './login';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 export const metadata = {
     title: 'Admin Dashboard',
@@ -18,6 +17,7 @@ export default async function AdminPage() {
         return <Login />;
     }
     
+    // Fetch images on the server and pass them to the client component
     const images = await getImages();
 
     return (
