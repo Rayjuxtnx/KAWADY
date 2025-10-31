@@ -10,38 +10,33 @@ export type GalleryItem = {
 // an `id` in the `src/lib/placeholder-images.json` file.
 export const galleryImages: GalleryItem[] = [
   {
-    id: "gallery-1",
-    title: "Structural Steel Frame",
-    imageId: "gallery-img-1"
+    "id": "gallery-1",
+    "title": "Structural Steel Frame",
+    "imageId": "gallery-img-1"
   },
   {
-    id: "gallery-2",
-    title: "Custom Gate Fabrication",
-    imageId: "gallery-img-2"
+    "id": "gallery-2",
+    "title": "Custom Gate Fabrication",
+    "imageId": "gallery-img-2"
   },
   {
-    id: "gallery-3",
-    title: "Precision Weld Detail",
-    imageId: "gallery-img-3"
+    "id": "gallery-3",
+    "title": "Precision Weld Detail",
+    "imageId": "gallery-img-3"
   },
   {
-    id: "gallery-4",
-    title: "Architectural Metalwork",
-    imageId: "gallery-img-4"
+    "id": "gallery-4",
+    "title": "Architectural Metalwork",
+    "imageId": "gallery-img-4"
   },
   {
-    id: "gallery-5",
-    title: "On-Site Installation",
-    imageId: "gallery-img-5"
+    "id": "gallery-5",
+    "title": "On-Site Installation",
+    "imageId": "gallery-img-5"
   },
   {
     id: "gallery-6",
     title: "Finished Steel Structure",
     imageId: "gallery-img-6"
-   },
-  {  
-    id: "gallery-7",
-    title:"our finished client project",
-    imageId: "gallery-img-7"
   }
 ];

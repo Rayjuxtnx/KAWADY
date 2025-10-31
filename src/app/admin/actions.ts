@@ -1,12 +1,14 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { writeFile } from 'fs/promises';
+import { writeFile, stat, mkdir, readdir } from 'fs/promises';
 import { join } from 'path';
-import { stat, mkdir, readdir } from 'fs/promises';
 import { cookies } from 'next/headers';
 
 const imageDir = join(process.cwd(), 'public/images');
+const placeholderDataPath = join(process.cwd(), 'src/lib/placeholder-images.json');
+const galleryDataPath = join(process.cwd(), 'src/lib/gallery-data.ts');
+
 
 // Ensure the directory exists.
 async function ensureDir(path: string) {
@@ -28,7 +30,6 @@ export async function uploadImage(prevState: any, formData: FormData): Promise<{
         return { success: false, message: "No file selected." };
     }
 
-    // Basic validation for image type
     if (!file.type.startsWith('image/')) {
         return { success: false, message: "Invalid file type. Please upload an image." };
     }
@@ -39,14 +40,12 @@ export async function uploadImage(prevState: any, formData: FormData): Promise<{
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        // Sanitize filename
-        const filename = file.name.toLowerCase().replace(/[^a-z0-9.]/g, '-');
+        const filename = file.name.toLowerCase().replace(/[^a-z0-9.-]/g, '_');
         const path = join(imageDir, filename);
         
         await writeFile(path, buffer);
-        console.log(`File uploaded to ${path}`);
 
-        revalidatePath('/admin'); // Revalidate the admin page to show the new image
+        revalidatePath('/admin');
         
         return { success: true, message: `Image "${filename}" uploaded successfully.` };
 
@@ -60,7 +59,6 @@ export async function getImages(): Promise<string[]> {
     try {
         await ensureDir(imageDir);
         const files = await readdir(imageDir);
-        // Filter for common image extensions
         return files.filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
                     .map(file => `/images/${file}`);
     } catch (error) {
@@ -70,7 +68,11 @@ export async function getImages(): Promise<string[]> {
 }
 
 export async function verifyPassword(password: string): Promise<boolean> {
-    return password === (process.env.ADMIN_PASSWORD || 'kawadyadmin');
+    const p = process.env.ADMIN_PASSWORD;
+    if (!p) {
+        console.warn("ADMIN_PASSWORD environment variable not set. Using default 'kawadyadmin'.");
+    }
+    return password === (p || 'kawadyadmin');
 }
 
 export async function loginAction(prevState: any, formData: FormData): Promise<{ message: string; success: boolean }> {
@@ -91,4 +93,49 @@ export async function loginAction(prevState: any, formData: FormData): Promise<{
     revalidatePath('/admin');
     
     return { message: 'Login successful!', success: true };
+}
+
+
+// New action to update the content files
+export async function updateContent(prevState: any, formData: FormData): Promise<{ message: string; success: boolean; error?: string }> {
+    
+    try {
+        // --- Update placeholder-images.json ---
+        const placeholderData = JSON.parse(formData.get('placeholderData') as string);
+        const newPlaceholderContent = JSON.stringify({ placeholderImages: placeholderData }, null, 2);
+        await writeFile(placeholderDataPath, newPlaceholderContent, 'utf-8');
+
+        // --- Update gallery-data.ts ---
+        const galleryData = JSON.parse(formData.get('galleryData') as string);
+        const newGalleryContent = `
+import type { GalleryItem } from '@/lib/gallery-data';
+
+export const galleryImages: GalleryItem[] = ${JSON.stringify(galleryData, null, 2)};
+`.trim();
+        // We need to reformat the exported variable to be a typescript file
+        const galleryTsContent = `
+export type GalleryItem = {
+  id: string;
+  title: string;
+  imageId: string;
+};
+
+// This is the "special place" where you can manage your gallery images.
+// Just add new items to this array, making sure the \`imageId\` matches
+// an \`id\` in the \`src/lib/placeholder-images.json\` file.
+export const galleryImages: GalleryItem[] = ${JSON.stringify(galleryData, null, 2)};
+`;
+        await writeFile(galleryDataPath, galleryTsContent, 'utf-8');
+
+        revalidatePath('/');
+        revalidatePath('/admin');
+        revalidatePath('/gallery');
+        revalidatePath('/about');
+        // Revalidate all pages that might use these images
+        
+        return { success: true, message: 'Content updated successfully!' };
+    } catch(e: any) {
+        console.error('Content update failed:', e);
+        return { success: false, message: 'Failed to update content files.', error: e.message };
+    }
 }

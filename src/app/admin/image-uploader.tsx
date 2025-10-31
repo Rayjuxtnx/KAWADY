@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useState, useEffect } from 'react';
+import { useActionState, useState, useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { uploadImage, getImages } from './actions';
 import { Button } from '@/components/ui/button';
@@ -16,6 +16,8 @@ export function ImageUploader({ initialImages }: { initialImages: string[] }) {
     const { toast } = useToast();
     const [images, setImages] = useState(initialImages);
     const [copiedPath, setCopiedPath] = useState('');
+    const formRef = useRef<HTMLFormElement>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (state.message) {
@@ -27,6 +29,11 @@ export function ImageUploader({ initialImages }: { initialImages: string[] }) {
             if (state.success) {
                 // Refresh the image list on successful upload
                 getImages().then(setImages);
+                // Reset the form
+                formRef.current?.reset();
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = "";
+                }
             }
         }
     }, [state, toast]);
@@ -47,11 +54,11 @@ export function ImageUploader({ initialImages }: { initialImages: string[] }) {
                     <CardDescription>Upload new images to the `public/images` directory.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form action={formAction} className="space-y-4">
+                    <form ref={formRef} action={formAction} className="space-y-4">
                         <div>
-                            <Input id="image" name="image" type="file" required accept="image/*" />
+                            <Input id="image" name="image" type="file" required accept="image/*" ref={fileInputRef} />
                         </div>
-                        <SubmitButton />
+                        <SubmitButton>Upload Image</SubmitButton>
                     </form>
                 </CardContent>
             </Card>
