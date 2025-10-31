@@ -20,6 +20,7 @@ import type { GalleryItem } from '@/lib/gallery-data';
 // ====================================================================
 // Sub-component for a single upload form
 // This isolates the action state for each upload
+// MOVED TO TOP-LEVEL as per React best practices.
 // ====================================================================
 function UploadForm({ placeholderId, onUploadSuccess }: { placeholderId: string; onUploadSuccess: (id: string, path: string) => void }) {
     const [uploadState, uploadAction, isUploading] = useActionState(uploadImage, { success: false, message: "" });
@@ -27,21 +28,18 @@ function UploadForm({ placeholderId, onUploadSuccess }: { placeholderId: string;
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
+        if (uploadState.message) {
+             toast({
+                title: uploadState.success ? "Upload Successful!" : "Upload Failed",
+                description: uploadState.message,
+                variant: uploadState.success ? "default" : "destructive",
+            });
+        }
         if (uploadState.success && uploadState.path && uploadState.placeholderId) {
             onUploadSuccess(uploadState.placeholderId, uploadState.path);
-            toast({
-                title: "Image Replaced!",
-                description: `"${uploadState.placeholderId}" image updated. Remember to click "Update Content" to save.`,
-            });
              if (fileInputRef.current) {
-                fileInputRef.current.value = "";
+                fileInputRef.current.value = ""; // Clear file input on success
             }
-        } else if (uploadState.message && !uploadState.success) {
-             toast({
-                title: "Upload Failed",
-                description: uploadState.message,
-                variant: "destructive",
-            });
         }
     }, [uploadState, onUploadSuccess, toast]);
 
@@ -65,17 +63,8 @@ function UploadForm({ placeholderId, onUploadSuccess }: { placeholderId: string;
                 </Button>
             </div>
         </form>
-    )
+    );
 }
-
-
-// ====================================================================
-// Main Content Manager Component
-// ====================================================================
-type ContentManagerProps = {
-    initialPlaceholders: ImagePlaceholder[];
-    initialGalleryItems: GalleryItem[];
-};
 
 function ContentSubmitButton() {
     const { pending } = useFormStatus();
@@ -86,6 +75,14 @@ function ContentSubmitButton() {
         </Button>
     )
 }
+
+// ====================================================================
+// Main Content Manager Component
+// ====================================================================
+type ContentManagerProps = {
+    initialPlaceholders: ImagePlaceholder[];
+    initialGalleryItems: GalleryItem[];
+};
 
 export function ContentManager({ initialPlaceholders, initialGalleryItems }: ContentManagerProps) {
     const [updateState, updateContentAction] = useActionState(updateContent, { success: false, message: "" });
@@ -105,7 +102,9 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
     }, [updateState, toast]);
 
     const handleUploadSuccess = (id: string, path: string) => {
-        handlePlaceholderChange(id, 'imageUrl', path);
+        setPlaceholders(current =>
+            current.map(p => (p.id === id ? { ...p, imageUrl: path } : p))
+        );
     };
 
     const handlePlaceholderChange = (id: string, field: keyof ImagePlaceholder, value: string) => {
