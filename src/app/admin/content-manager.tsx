@@ -96,15 +96,17 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
         );
     };
 
+    const formAction = (formData: FormData) => {
+        const intent = formData.get('intent') as string;
+        if (intent === 'uploadImage') {
+            uploadImageAction(formData);
+        } else {
+            updateContentAction(formData);
+        }
+    };
+
     return (
-        <form action={ (formData: FormData) => {
-            const intent = (formData.get('intent') as string) || "updateContent";
-            if (intent === 'uploadImage') {
-                uploadImageAction(formData);
-            } else {
-                updateContentAction(formData);
-            }
-        }}>
+        <form action={formAction}>
             <input type="hidden" name="placeholderData" value={JSON.stringify(placeholders)} />
             <input type="hidden" name="galleryData" value={JSON.stringify(galleryItems)} />
 
@@ -127,7 +129,11 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                                                     <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    <input type="hidden" name="placeholderId" value={p.id} />
+                                                    <Input
+                                                        type="hidden"
+                                                        name="placeholderId"
+                                                        value={p.id}
+                                                     />
                                                     <Input
                                                         id={`upload-${p.id}`}
                                                         name="image"
@@ -136,7 +142,10 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                                                         ref={(el) => fileInputRefs.current[p.id] = el}
                                                         accept="image/*"
                                                     />
-                                                    <UploadButton />
+                                                    <Button formAction={uploadImageAction} type="submit" size="sm" variant="secondary" name="placeholderId" value={p.id}>
+                                                        <Upload className="h-4 w-4" />
+                                                        <span className="ml-2 hidden sm:inline">Upload</span>
+                                                    </Button>
                                                 </div>
                                             </div>
                                             <div className="md:col-span-2 space-y-2">
