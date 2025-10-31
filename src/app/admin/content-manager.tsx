@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useActionState, useState, useEffect, useRef } from 'react';
@@ -31,6 +32,16 @@ function ContentSubmitButton({ children }: { children: React.ReactNode }) {
     )
 }
 
+function UploadButton() {
+    const { pending } = useFormStatus();
+    return (
+        <Button type="submit" size="sm" variant="secondary" disabled={pending}>
+            {pending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
+            <span className="ml-2 hidden sm:inline">{pending ? 'Uploading...' : 'Upload'}</span>
+        </Button>
+    );
+}
+
 export function ContentManager({ initialPlaceholders, initialGalleryItems }: ContentManagerProps) {
     const [updateState, updateContentAction] = useActionState(updateContent, { success: false, message: "" });
     const [uploadState, uploadImageAction] = useActionState(uploadImage, { success: false, message: "" });
@@ -39,7 +50,6 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
     const [placeholders, setPlaceholders] = useState<ImagePlaceholder[]>(initialPlaceholders);
     const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(initialGalleryItems);
     
-    // Store refs to file inputs
     const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
     useEffect(() => {
@@ -59,7 +69,6 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                 title: "Image Replaced!",
                 description: `"${uploadState.placeholderId}" image updated. Remember to click "Update Content" to save.`,
             });
-            // Clear the specific file input
             const inputRef = fileInputRefs.current[uploadState.placeholderId];
             if (inputRef) {
                 inputRef.value = "";
@@ -86,10 +95,7 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
     };
 
     return (
-        <form action={updateContentAction}>
-            <input type="hidden" name="placeholderData" value={JSON.stringify(placeholders)} />
-            <input type="hidden" name="galleryData" value={JSON.stringify(galleryItems)} />
-
+        <div>
             <Card>
                 <CardHeader>
                     <CardTitle>Content Manager</CardTitle>
@@ -108,21 +114,21 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                                                 <div className="relative aspect-video rounded-md overflow-hidden border">
                                                     <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
                                                 </div>
-                                                <div className="flex items-center gap-2">
-                                                    <Input
-                                                        id={`upload-${p.id}`}
-                                                        name="image"
-                                                        type="file"
-                                                        className="flex-grow text-xs h-9"
-                                                        ref={(el) => fileInputRefs.current[p.id] = el}
-                                                        accept="image/*"
-                                                    />
-                                                    <Button formAction={uploadImageAction} type="submit" size="sm" variant="secondary">
+                                                <form action={uploadImageAction}>
+                                                    <div className="flex items-center gap-2">
+                                                        <Input
+                                                            id={`upload-${p.id}`}
+                                                            name="image"
+                                                            type="file"
+                                                            className="flex-grow text-xs h-9"
+                                                            ref={(el) => fileInputRefs.current[p.id] = el}
+                                                            accept="image/*"
+                                                            required
+                                                        />
                                                         <input type="hidden" name="placeholderId" value={p.id} />
-                                                        <Upload className="h-4 w-4" />
-                                                        <span className="ml-2 hidden sm:inline">Upload</span>
-                                                    </Button>
-                                                </div>
+                                                        <UploadButton />
+                                                    </div>
+                                                </form>
                                             </div>
                                             <div className="md:col-span-2 space-y-2">
                                                 <div>
@@ -192,9 +198,11 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                 </CardContent>
             </Card>
 
-            <div className="mt-6 flex justify-end">
+             <form action={updateContentAction} className="mt-6 flex justify-end">
+                <input type="hidden" name="placeholderData" value={JSON.stringify(placeholders)} />
+                <input type="hidden" name="galleryData" value={JSON.stringify(galleryItems)} />
                 <ContentSubmitButton>Update Content</ContentSubmitButton>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 }
