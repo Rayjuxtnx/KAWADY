@@ -69,7 +69,6 @@ export function Footer() {
                 {link.label}
             </Link>
             ))}
-            <Link href="/admin" className="text-sm text-muted-foreground transition-colors hover:text-accent">Admin</Link>
           </nav>
 
           {/* Social Links */}
