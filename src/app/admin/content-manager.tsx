@@ -27,7 +27,11 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
 
     const [placeholders, setPlaceholders] = useState<ImagePlaceholder[]>(initialPlaceholders);
     const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(initialGalleryItems);
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    
+    // State to manage which dialog is open
+    const [editingPlaceholderId, setEditingPlaceholderId] = useState<string | null>(null);
+    const [editingGalleryItemId, setEditingGalleryItemId] = useState<string | null>(null);
+
 
     useEffect(() => {
         if (state.message) {
@@ -51,14 +55,16 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
         );
     };
 
-    const handleImageSelect = (id: string, imageUrl: string, type: 'placeholder' | 'gallery') => {
-        if (type === 'placeholder') {
-            handlePlaceholderChange(id, 'imageUrl', imageUrl);
-        } else {
-            handleGalleryItemChange(id, 'imageId', imageUrl);
-        }
-        setIsDialogOpen(false);
+    const handlePlaceholderImageSelect = (id: string, imageUrl: string) => {
+        handlePlaceholderChange(id, 'imageUrl', imageUrl);
+        setEditingPlaceholderId(null);
     };
+    
+    const handleGalleryImageSelect = (id: string, imageId: string) => {
+        handleGalleryItemChange(id, 'imageId', imageId);
+        setEditingGalleryItemId(null);
+    };
+
 
     return (
         <form action={formAction}>
@@ -84,7 +90,7 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
                                                 <div className="relative aspect-video rounded-md overflow-hidden border">
                                                     <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
                                                 </div>
-                                                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                                                 <Dialog open={editingPlaceholderId === p.id} onOpenChange={(isOpen) => setEditingPlaceholderId(isOpen ? p.id : null)}>
                                                     <DialogTrigger asChild>
                                                         <Button variant="outline" size="sm" className="w-full">Change Image</Button>
                                                     </DialogTrigger>
@@ -94,7 +100,7 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
                                                         </DialogHeader>
                                                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 py-4 max-h-[60vh] overflow-y-auto">
                                                             {availableImages.map(imgSrc => (
-                                                                <button key={imgSrc} type="button" onClick={() => handleImageSelect(p.id, imgSrc, 'placeholder')} className="relative aspect-square rounded-md overflow-hidden border-2 border-transparent hover:border-accent focus:border-accent focus:outline-none">
+                                                                <button key={imgSrc} type="button" onClick={() => handlePlaceholderImageSelect(p.id, imgSrc)} className="relative aspect-square rounded-md overflow-hidden border-2 border-transparent hover:border-accent focus:border-accent focus:outline-none">
                                                                     <Image src={imgSrc} alt={imgSrc} fill className="object-cover" />
                                                                 </button>
                                                             ))}
@@ -136,17 +142,17 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
                                                         <Image src={image.imageUrl} alt={image.description} fill className="object-cover" />
                                                     </div>
                                                 )}
-                                                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                                                 <Dialog open={editingGalleryItemId === g.id} onOpenChange={(isOpen) => setEditingGalleryItemId(isOpen ? g.id : null)}>
                                                     <DialogTrigger asChild>
                                                         <Button variant="outline" size="sm" className="w-full">Change Image</Button>
                                                     </DialogTrigger>
                                                     <DialogContent className="max-w-4xl">
                                                         <DialogHeader>
-                                                            <DialogTitle>Select an Image for "{g.title}"</DialogTitle>
+                                                            <DialogTitle>Select an Image ID for "{g.title}"</DialogTitle>
                                                         </DialogHeader>
                                                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 py-4 max-h-[60vh] overflow-y-auto">
                                                             {placeholders.map(p => (
-                                                                <button key={p.id} type="button" onClick={() => handleImageSelect(g.id, p.id, 'gallery')} className="relative aspect-square rounded-md overflow-hidden border-2 border-transparent hover:border-accent focus:border-accent focus:outline-none">
+                                                                <button key={p.id} type="button" onClick={() => handleGalleryImageSelect(g.id, p.id)} className="relative aspect-square rounded-md overflow-hidden border-2 border-transparent hover:border-accent focus:border-accent focus:outline-none">
                                                                     <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
                                                                      <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-1 text-white text-xs truncate">{p.id}</div>
                                                                 </button>
@@ -184,10 +190,14 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems, avail
 
 // A specific submit button for this form to show loading state
 const ContentSubmitButton = ({ children }: { children: React.ReactNode }) => {
-    const { pending } = useActionState(updateContent, { success: false });
+    // This hook is intentionally left simple as we only need the pending state
+    // from the most recent form submission.
+    const { pending } = useActionState(async () => {}, null);
     return (
         <Button type="submit" disabled={pending}>
             {pending ? 'Updating...' : children}
         </Button>
     )
 }
+
+    
