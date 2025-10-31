@@ -24,10 +24,16 @@ async function ensureDir(path: string) {
     }
 }
 
-export async function uploadImage(prevState: any, formData: FormData): Promise<{ message: string; success: boolean; error?: string, path?: string }> {
+export async function uploadImage(prevState: any, formData: FormData): Promise<{ message: string; success: boolean; error?: string, path?: string, placeholderId?: string }> {
     const file = formData.get('image') as File;
+    const placeholderId = formData.get('placeholderId') as string;
+    
     if (!file || file.size === 0) {
         return { success: false, message: "No file selected." };
+    }
+    
+    if (!placeholderId) {
+        return { success: false, message: "No placeholder ID provided for upload." };
     }
 
     if (!file.type.startsWith('image/')) {
@@ -48,7 +54,7 @@ export async function uploadImage(prevState: any, formData: FormData): Promise<{
         revalidatePath('/admin');
         
         const publicPath = `/images/${filename}`;
-        return { success: true, message: `Image "${filename}" uploaded successfully.`, path: publicPath };
+        return { success: true, message: `Image "${filename}" uploaded successfully.`, path: publicPath, placeholderId: placeholderId };
 
     } catch (e: any) {
         console.error('Upload failed:', e);
