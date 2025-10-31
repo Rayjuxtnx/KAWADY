@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import { stat, mkdir, readdir } from 'fs/promises';
+import { cookies } from 'next/headers';
 
 const imageDir = join(process.cwd(), 'public/images');
 
@@ -68,7 +69,26 @@ export async function getImages(): Promise<string[]> {
     }
 }
 
-// Simple password check. In a real app, use a proper auth system.
 export async function verifyPassword(password: string): Promise<boolean> {
     return password === (process.env.ADMIN_PASSWORD || 'kawadyadmin');
+}
+
+export async function loginAction(prevState: any, formData: FormData): Promise<{ message: string; success: boolean }> {
+    const password = formData.get('password') as string;
+    
+    const isValid = await verifyPassword(password);
+
+    if (!isValid) {
+        return { message: 'Incorrect password.', success: false };
+    }
+
+    cookies().set('admin-password', password, {
+        httpOnly: true,
+        path: '/',
+        maxAge: 60 * 60 * 24, // 1 day
+    });
+
+    revalidatePath('/admin');
+    
+    return { message: 'Login successful!', success: true };
 }

@@ -3,26 +3,9 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { useFormStatus } from 'react-dom';
-
-async function checkPasswordAction(prevState: any, formData: FormData) {
-    const password = formData.get('password');
-    // In a real app, you'd call a server action to verify the password
-    // and set a secure, httpOnly cookie. For this simple case, we use a client-side cookie.
-    const response = await fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify({ password }),
-        headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-        window.location.reload(); // Reload to let the server re-render the admin page
-        return { message: 'Login successful!', success: true };
-    } else {
-        return { message: 'Incorrect password.', success: false };
-    }
-}
+import { loginAction } from './actions';
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -34,7 +17,13 @@ function SubmitButton() {
 }
 
 export function Login() {
-    const [state, formAction] = useActionState(checkPasswordAction, { message: '', success: false });
+    const [state, formAction] = useActionState(loginAction, { message: '', success: false });
+
+    useEffect(() => {
+        if (state.success) {
+            // No need to reload, revalidatePath will trigger a re-render
+        }
+    }, [state.success]);
 
     return (
         <div className="flex items-center justify-center min-h-[60vh]">
