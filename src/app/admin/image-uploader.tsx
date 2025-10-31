@@ -6,20 +6,9 @@ import { uploadImage, getImages } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { LoaderCircle, Copy, Check } from 'lucide-react';
+import { Copy, Check } from 'lucide-react';
 import Image from 'next/image';
-
-function SubmitButton() {
-    const { pending } = useFormStatus();
-    return (
-        <Button type="submit" disabled={pending}>
-            {pending && <LoaderCircle className="mr-2 animate-spin" />}
-            Upload Image
-        </Button>
-    );
-}
-// This needs to be a separate hook because useFormStatus is not available in React 19 useActionState
-import { useFormStatus } from 'react-dom';
+import { SubmitButton } from './submit-button';
 
 
 export function ImageUploader({ initialImages }: { initialImages: string[] }) {
