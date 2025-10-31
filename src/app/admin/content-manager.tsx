@@ -17,40 +17,82 @@ import { LoaderCircle, Upload } from 'lucide-react';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import type { GalleryItem } from '@/lib/gallery-data';
 
+// ====================================================================
+// Sub-component for a single upload form
+// This isolates the action state for each upload
+// ====================================================================
+function UploadForm({ placeholderId, onUploadSuccess }: { placeholderId: string; onUploadSuccess: (id: string, path: string) => void }) {
+    const [uploadState, uploadAction, isUploading] = useActionState(uploadImage, { success: false, message: "" });
+    const { toast } = useToast();
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (uploadState.success && uploadState.path && uploadState.placeholderId) {
+            onUploadSuccess(uploadState.placeholderId, uploadState.path);
+            toast({
+                title: "Image Replaced!",
+                description: `"${uploadState.placeholderId}" image updated. Remember to click "Update Content" to save.`,
+            });
+             if (fileInputRef.current) {
+                fileInputRef.current.value = "";
+            }
+        } else if (uploadState.message && !uploadState.success) {
+             toast({
+                title: "Upload Failed",
+                description: uploadState.message,
+                variant: "destructive",
+            });
+        }
+    }, [uploadState, onUploadSuccess, toast]);
+
+    return (
+        <form action={uploadAction}>
+            <div className="flex items-center gap-2">
+                <Input
+                    id={`upload-${placeholderId}`}
+                    name="image"
+                    type="file"
+                    className="flex-grow text-xs h-9"
+                    ref={fileInputRef}
+                    accept="image/*"
+                    required
+                    disabled={isUploading}
+                />
+                <input type="hidden" name="placeholderId" value={placeholderId} />
+                <Button type="submit" size="sm" variant="secondary" disabled={isUploading}>
+                    {isUploading ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
+                     <span className="ml-2 hidden sm:inline">{isUploading ? 'Uploading...' : 'Upload'}</span>
+                </Button>
+            </div>
+        </form>
+    )
+}
+
+
+// ====================================================================
+// Main Content Manager Component
+// ====================================================================
 type ContentManagerProps = {
     initialPlaceholders: ImagePlaceholder[];
     initialGalleryItems: GalleryItem[];
 };
 
-function ContentSubmitButton({ children }: { children: React.ReactNode }) {
+function ContentSubmitButton() {
     const { pending } = useFormStatus();
     return (
         <Button type="submit" disabled={pending}>
             {pending && <LoaderCircle className="mr-2 animate-spin" />}
-            {pending ? 'Updating...' : children}
+            {pending ? 'Updating...' : 'Update Content'}
         </Button>
     )
 }
 
-function UploadButton() {
-    const { pending } = useFormStatus();
-    return (
-        <Button type="submit" size="sm" variant="secondary" disabled={pending}>
-            {pending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
-            <span className="ml-2 hidden sm:inline">{pending ? 'Uploading...' : 'Upload'}</span>
-        </Button>
-    );
-}
-
 export function ContentManager({ initialPlaceholders, initialGalleryItems }: ContentManagerProps) {
     const [updateState, updateContentAction] = useActionState(updateContent, { success: false, message: "" });
-    const [uploadState, uploadImageAction] = useActionState(uploadImage, { success: false, message: "" });
     const { toast } = useToast();
 
     const [placeholders, setPlaceholders] = useState<ImagePlaceholder[]>(initialPlaceholders);
     const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(initialGalleryItems);
-    
-    const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
     useEffect(() => {
         if (updateState.message) {
@@ -61,26 +103,10 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
             });
         }
     }, [updateState, toast]);
-    
-    useEffect(() => {
-        if (uploadState.success && uploadState.path && uploadState.placeholderId) {
-            handlePlaceholderChange(uploadState.placeholderId, 'imageUrl', uploadState.path);
-            toast({
-                title: "Image Replaced!",
-                description: `"${uploadState.placeholderId}" image updated. Remember to click "Update Content" to save.`,
-            });
-            const inputRef = fileInputRefs.current[uploadState.placeholderId];
-            if (inputRef) {
-                inputRef.value = "";
-            }
-        } else if (uploadState.message && !uploadState.success) {
-             toast({
-                title: "Upload Failed",
-                description: uploadState.message,
-                variant: "destructive",
-            });
-        }
-    }, [uploadState, toast]);
+
+    const handleUploadSuccess = (id: string, path: string) => {
+        handlePlaceholderChange(id, 'imageUrl', path);
+    };
 
     const handlePlaceholderChange = (id: string, field: keyof ImagePlaceholder, value: string) => {
         setPlaceholders(current =>
@@ -114,21 +140,7 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
                                                 <div className="relative aspect-video rounded-md overflow-hidden border">
                                                     <Image src={p.imageUrl} alt={p.description} fill className="object-cover" />
                                                 </div>
-                                                <form action={uploadImageAction}>
-                                                    <div className="flex items-center gap-2">
-                                                        <Input
-                                                            id={`upload-${p.id}`}
-                                                            name="image"
-                                                            type="file"
-                                                            className="flex-grow text-xs h-9"
-                                                            ref={(el) => fileInputRefs.current[p.id] = el}
-                                                            accept="image/*"
-                                                            required
-                                                        />
-                                                        <input type="hidden" name="placeholderId" value={p.id} />
-                                                        <UploadButton />
-                                                    </div>
-                                                </form>
+                                                <UploadForm placeholderId={p.id} onUploadSuccess={handleUploadSuccess} />
                                             </div>
                                             <div className="md:col-span-2 space-y-2">
                                                 <div>
@@ -201,7 +213,7 @@ export function ContentManager({ initialPlaceholders, initialGalleryItems }: Con
              <form action={updateContentAction} className="mt-6 flex justify-end">
                 <input type="hidden" name="placeholderData" value={JSON.stringify(placeholders)} />
                 <input type="hidden" name="galleryData" value={JSON.stringify(galleryItems)} />
-                <ContentSubmitButton>Update Content</ContentSubmitButton>
+                <ContentSubmitButton />
             </form>
         </div>
     );
