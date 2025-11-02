@@ -212,31 +212,43 @@
 }
 
 @keyframes multi-color-text-glow {
-  0%, 100% {
+  0% {
+    color: hsl(var(--foreground));
+    text-shadow: 0 0 5px hsl(var(--foreground) / 0.2);
+  }
+  25% {
     color: hsl(var(--accent));
     text-shadow:
-      0 0 8px hsl(var(--accent) / 0.3),
-      0 0 12px hsl(var(--accent) / 0.2),
-      0 0 18px hsl(210, 70%, 55% / 0.2);
+      0 0 8px hsl(var(--accent) / 0.5),
+      0 0 12px hsl(var(--accent) / 0.3);
   }
   50% {
-    color: hsl(210, 70%, 55%);
+    color: hsl(210, 70%, 75%);
     text-shadow:
-      0 0 8px hsl(210, 70%, 55% / 0.3),
-      0 0 12px hsl(210, 70%, 55% / 0.2),
-      0 0 18px hsl(var(--accent) / 0.2);
+      0 0 8px hsl(210, 70%, 55% / 0.5),
+      0 0 12px hsl(210, 70%, 55% / 0.3);
+  }
+  75% {
+    color: hsl(var(--accent));
+    text-shadow:
+      0 0 8px hsl(var(--accent) / 0.5),
+      0 0 12px hsl(var(--accent) / 0.3);
+  }
+  100% {
+    color: hsl(var(--foreground));
+    text-shadow: 0 0 5px hsl(var(--foreground) / 0.2);
   }
 }
 .animate-multi-color-text-glow span {
-  animation: multi-color-text-glow 6s ease-in-out infinite alternate;
+  animation: multi-color-text-glow 12s ease-in-out infinite;
 }
 
-.animate-multi-color-text-glow span:nth-child(1) { animation-delay: 0.1s; }
-.animate-multi-color-text-glow span:nth-child(2) { animation-delay: 0.2s; }
-.animate-multi-color-text-glow span:nth-child(3) { animation-delay: 0.3s; }
-.animate-multi-color-text-glow span:nth-child(4) { animation-delay: 0.4s; }
-.animate-multi-color-text-glow span:nth-child(5) { animation-delay: 0.5s; }
-.animate-multi-color-text-glow span:nth-child(6) { animation-delay: 0.6s; }
+.animate-multi-color-text-glow span:nth-child(1) { animation-delay: 0.2s; }
+.animate-multi-color-text-glow span:nth-child(2) { animation-delay: 0.4s; }
+.animate-multi-color-text-glow span:nth-child(3) { animation-delay: 0.6s; }
+.animate-multi-color-text-glow span:nth-child(4) { animation-delay: 0.8s; }
+.animate-multi-color-text-glow span:nth-child(5) { animation-delay: 1.0s; }
+.animate-multi-color-text-glow span:nth-child(6) { animation-delay: 1.2s; }
 
 
 @keyframes text-flicker {
@@ -450,19 +462,19 @@
 @keyframes icon-glow {
   0%, 100% {
     color: hsl(var(--muted-foreground));
-    filter: drop-shadow(0 0 1px hsl(var(--muted-foreground)));
+    filter: drop-shadow(0 0 2px hsl(var(--muted-foreground) / 0.5));
   }
   50% {
     color: hsl(var(--accent));
-    filter: drop-shadow(0 0 4px hsl(var(--accent)));
+    filter: drop-shadow(0 0 5px hsl(var(--accent)));
   }
 }
 
 .animate-icon-glow {
-  animation: icon-glow 3s ease-in-out infinite;
+  animation: icon-glow 6s ease-in-out infinite;
 }
 
-.animate-icon-glow.delay-1 { animation-delay: 0.2s; }
-.animate-icon-glow.delay-2 { animation-delay: 0.4s; }
-.animate-icon-glow.delay-3 { animation-delay: 0.6s; }
+.animate-icon-glow.delay-1 { animation-delay: 0.5s; }
+.animate-icon-glow.delay-2 { animation-delay: 1.0s; }
+.animate-icon-glow.delay-3 { animation-delay: 1.5s; }
 
