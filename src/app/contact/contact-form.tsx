@@ -41,8 +41,12 @@ export function ContactForm() {
         description: state.message,
       });
       formRef.current?.reset();
-    } else if (!state.success && state.message && state.errors) {
-      // This toast can show a generic error if specific field errors are already displayed
+    } else if (!state.success && state.message && !state.errors) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: state.message,
+      });
     }
   }, [state, toast]);
 
