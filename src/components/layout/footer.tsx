@@ -19,8 +19,8 @@ export function Footer() {
   return (
     <footer className="relative w-full border-t border-accent/20 bg-transparent mt-auto overflow-hidden">
       <BlueprintBackground />
-      <div className="container max-w-7xl py-8 px-4 sm:px-6 lg:px-8 relative">
-        <div className="flex flex-col items-center justify-center space-y-6">
+      <div className="container max-w-7xl py-6 px-4 sm:px-6 lg:px-8 relative">
+        <div className="flex flex-col items-center justify-center space-y-4">
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
@@ -49,7 +49,7 @@ export function Footer() {
           </Link>
           
           {/* Main App-like Navigation */}
-          <div className="flex justify-center items-center gap-8 md:gap-12">
+          <div className="flex justify-center items-center gap-6 md:gap-8">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="flex flex-col items-center text-muted-foreground hover:text-accent transition-colors">
                 {link.icon}
@@ -59,7 +59,7 @@ export function Footer() {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
               <Link key={social.label} href={social.href} className="text-muted-foreground hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
                 {social.icon}
@@ -69,7 +69,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="pt-6 border-t border-border/20 text-xs text-muted-foreground text-center w-full">
+          <div className="pt-4 border-t border-border/20 text-xs text-muted-foreground text-center w-full">
               <p>&copy; {new Date().getFullYear()} KAWADY mildsteel consultants Ltd. All rights reserved.</p>
               <p className="mt-1">Designed by Philip | <Link href="/terms" className="hover:text-accent">Terms</Link></p>
           </div>
