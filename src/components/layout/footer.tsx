@@ -17,8 +17,8 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-accent/20 bg-background/50">
-      <div className="container max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
+    <footer className="w-full border-t border-accent/20 bg-card/30 backdrop-blur-xl">
+      <div className="container max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Slogan */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -84,7 +84,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 border-t border-border/50 pt-8 text-xs text-muted-foreground text-center">
+        <div className="mt-8 border-t border-border/50 pt-6 text-xs text-muted-foreground text-center">
             <p>&copy; {new Date().getFullYear()} KAWADY mildsteel consultants Ltd. All rights reserved.</p>
             <p className="mt-1">Designed by Philip</p>
         </div>
