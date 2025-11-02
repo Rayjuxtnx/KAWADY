@@ -1,7 +1,7 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -37,18 +37,45 @@ const metalServices = [
 ];
 
 const Counter = ({ end, isPercentage = false }: { end: number; isPercentage?: boolean }) => {
-  // Simplified component to just display the number with a subtle animation
-  return (
-    <span className="font-bold text-4xl md:text-5xl text-primary tabular-nums animate-pulse-slow">
-      {end.toLocaleString(undefined, { maximumFractionDigits: isPercentage ? 2 : 1, minimumFractionDigits: isPercentage ? 2 : 0})}
-      {isPercentage && <span className="text-2xl md:text-3xl ml-1">%</span>}
-    </span>
-  );
+    const [currentValue, setCurrentValue] = useState(end);
+    const prevValueRef = useRef(end);
+
+    useEffect(() => {
+        const previousValue = prevValueRef.current;
+        const difference = end - previousValue;
+        let startTimestamp: number | null = null;
+        const duration = 1000;
+
+        const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const nextValue = previousValue + (difference * progress);
+            
+            setCurrentValue(nextValue);
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                prevValueRef.current = end;
+            }
+        };
+
+        requestAnimationFrame(step);
+
+    }, [end]);
+
+    return (
+        <span className="font-bold text-4xl md:text-5xl text-primary tabular-nums">
+            {currentValue.toLocaleString(undefined, { maximumFractionDigits: isPercentage ? 2 : 1, minimumFractionDigits: isPercentage ? 2 : 0})}
+            {isPercentage && <span className="text-2xl md:text-3xl ml-1">%</span>}
+        </span>
+    );
 };
 
 
-const sustainabilityMetrics = [
+const initialSustainabilityMetrics = [
   {
+    id: 'co2',
     title: 'Tons of CO₂ Saved',
     icon: <Leaf className="w-10 h-10 text-green-400" />,
     value: 1250,
@@ -56,6 +83,7 @@ const sustainabilityMetrics = [
     description: "Equivalent to planting over 20,000 trees annually."
   },
   {
+    id: 'energy',
     title: 'Energy Efficiency Improvement',
     icon: <Zap className="w-10 h-10 text-yellow-400" />,
     value: 35.75,
@@ -63,6 +91,7 @@ const sustainabilityMetrics = [
     description: "Achieved through optimized processes and material selection."
   },
   {
+    id: 'recycled',
     title: 'Recycled & Smart Materials Used',
     icon: <RecyclingIcon className="w-10 h-10 text-blue-400" />,
     value: 82.5,
@@ -72,6 +101,28 @@ const sustainabilityMetrics = [
 ];
 
 export default function Home() {
+
+  const [sustainabilityMetrics, setSustainabilityMetrics] = useState(initialSustainabilityMetrics);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+        setSustainabilityMetrics(prevMetrics => 
+            prevMetrics.map(metric => {
+                let increment;
+                if (metric.isPercentage) {
+                    increment = Math.random() * 0.1; // Smaller increment for percentages
+                } else {
+                    increment = Math.random() * 10; // Larger increment for absolute numbers
+                }
+                return { ...metric, value: metric.value + increment };
+            })
+        );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div className="fade-in">
       {/* Hero Section */}
@@ -254,7 +305,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {sustainabilityMetrics.map((metric) => (
-                <div key={metric.title} className="group" style={{ perspective: '1000px' }}>
+                <div key={metric.id} className="group" style={{ perspective: '1000px' }}>
                     <Card 
                         className="flex flex-col h-full bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20 [transform-style:preserve-3d] border-t-2 border-green-500/50"
                         style={{ transform: 'rotateY(var(--y-angle, 0)) rotateX(var(--x-angle, 0))' }}
