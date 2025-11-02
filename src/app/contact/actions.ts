@@ -52,7 +52,7 @@ export async function submitContactForm(prevState: FormState, formData: FormData
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'KAWADY Website <onboarding@resend.dev>',
+      from: 'Acme <onboarding@resend.dev>',
       to: ['kawadymildsteelconsultants@gmail.com'],
       subject: `New Message from ${name} via KAWADY Website`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`,
