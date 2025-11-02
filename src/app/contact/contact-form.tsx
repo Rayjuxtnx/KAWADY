@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from 'react';
@@ -80,8 +81,9 @@ export function ContactForm() {
                                   {state.errors?.email && <p className="text-xs font-medium text-destructive">{state.errors.email[0]}</p>}
                                 </div>
                                 <div className="space-y-1 group">
-                                  <label htmlFor="phone" className="text-xs font-medium">Phone Number (Optional)</label>
-                                  <Input id="phone" name="phone" placeholder="+254 722 659 260" className="glow-input text-sm" autoComplete="tel" />
+                                  <label htmlFor="phone" className="text-xs font-medium">Phone Number</label>
+                                  <Input id="phone" name="phone" placeholder="+254 722 659 260" className="glow-input text-sm" autoComplete="tel" required />
+                                  {state.errors?.phone && <p className="text-xs font-medium text-destructive">{state.errors.phone[0]}</p>}
                                 </div>
                                 <div className="space-y-1 group">
                                   <label htmlFor="message" className="text-xs font-medium">Your Message</label>
@@ -166,3 +168,4 @@ export function ContactForm() {
     
 
     
+

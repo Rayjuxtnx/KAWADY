@@ -7,7 +7,7 @@ import { Resend } from 'resend';
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().optional(),
+  phone: z.string().min(1, { message: "Phone number is required." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
@@ -55,7 +55,7 @@ export async function submitContactForm(prevState: FormState, formData: FormData
       from: 'Acme <onboarding@resend.dev>',
       to: ['kawadymildsteelconsultants@gmail.com'],
       subject: `New Message from ${name} via KAWADY Website`,
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`,
     });
 
     if (error) {
