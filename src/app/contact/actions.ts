@@ -2,6 +2,9 @@
 'use server';
 
 import * as z from 'zod';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -37,11 +40,26 @@ export async function submitContactForm(prevState: FormState, formData: FormData
     };
   }
 
+  const { name, email, phone, message } = validatedFields.data;
+
   try {
-    console.log('Received contact form data:', validatedFields.data);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    // In a real application, you would send an email or save to a database here.
+    const { data, error } = await resend.emails.send({
+      from: 'KAWADY Website <onboarding@resend.dev>',
+      to: ['kawadymildsteelconsultants@gmail.com'],
+      subject: `New Message from ${name} via KAWADY Website`,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`,
+    });
+
+    if (error) {
+      console.error('Resend error:', error);
+      return {
+        message: 'An unexpected error occurred while sending the email. Please try again.',
+        success: false,
+      }
+    }
+
   } catch (e) {
+    console.error('Email sending error:', e);
     return {
       message: 'An unexpected error occurred. Please try again.',
       success: false,
