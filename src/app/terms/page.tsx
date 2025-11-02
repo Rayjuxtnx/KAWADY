@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms and Conditions',
   description: 'Read the terms and conditions for using the services of KAWADY mildsteel consultants Ltd.',
-  robots: 'noindex, nofollow', // Good practice for legal pages
+  robots: 'noindex, nofollow', // this is practice for legal practice
 };
 
 export default function TermsPage() {

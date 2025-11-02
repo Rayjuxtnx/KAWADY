@@ -33,5 +33,10 @@ export const galleryImages: GalleryItem[] = [
     "id": "gallery-6",
     "title": "Finished Steel Structure",
     "imageId": "gallery-img-6"
+  },
+  {
+    "id": "gallery-8",
+    "title": "completed projects",
+    "imageId": "gallery-img-8"
   }
 ];
