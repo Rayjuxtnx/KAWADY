@@ -11,9 +11,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { href: '#', label: 'Facebook', icon: <Facebook className="h-5 w-5" /> },
-  { href: '#', label: 'Twitter', icon: <Twitter className="h-5 w-5" /> },
-  { href: '#', label: 'LinkedIn', icon: <Linkedin className="h-5 w-5" /> },
+  { href: 'https://facebook.com', label: 'Facebook', icon: <Facebook className="h-5 w-5" /> },
+  { href: 'https://twitter.com', label: 'Twitter', icon: <Twitter className="h-5 w-5" /> },
+  { href: 'https://linkedin.com', label: 'LinkedIn', icon: <Linkedin className="h-5 w-5" /> },
 ]
 
 export function Footer() {
@@ -74,7 +74,7 @@ export function Footer() {
           {/* Social Links */}
           <div className="flex justify-center space-x-4 mt-2">
             {socialLinks.map((social) => (
-                <Link key={social.label} href={social.href} className="text-muted-foreground hover:text-accent transition-colors">
+                <Link key={social.label} href={social.href} className="text-muted-foreground hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
                     {social.icon}
                     <span className="sr-only">{social.label}</span>
                 </Link>
