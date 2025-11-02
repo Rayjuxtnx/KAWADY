@@ -51,9 +51,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
       <head>
         <meta name="description" content="Top-tier mild steel consultancy in Kenya. We specialize in WPS development, structural integrity analysis, root cause failure analysis, on-site fabrication audits, and expert metalworks. Your trusted partner for quality, safety, and efficiency in steel construction." />
-        <meta name="theme-color" content="#000000" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icon-192x192.png"></link>
         <link rel="shortcut icon" href="/favicon.ico" />
         
         <title>KAWADY Mildsteel Consultants Ltd | Expert Welding & Fabrication</title>
