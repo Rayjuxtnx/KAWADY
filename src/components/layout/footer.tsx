@@ -16,7 +16,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-accent/20 bg-card/30 backdrop-blur-xl mt-auto">
+    <footer className="w-full border-t border-accent/20 bg-transparent mt-auto">
       <div className="container max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center">
           {/* Main App-like Navigation */}
