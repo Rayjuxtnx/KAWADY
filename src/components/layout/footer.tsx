@@ -45,7 +45,11 @@ export function Footer() {
                 </defs>
                 </svg>
             </div>
-            <span className="text-xl font-bold">KAWADY</span>
+            <span className="text-xl font-bold animate-multi-color-text-glow">
+              {'KAWADY'.split('').map((letter, i) => (
+                <span key={i}>{letter}</span>
+              ))}
+            </span>
           </Link>
           
           {/* Main App-like Navigation */}
