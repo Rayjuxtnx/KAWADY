@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { Home, Briefcase, Mail, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { BlueprintBackground } from './blueprint-background';
+import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
@@ -64,8 +65,17 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
-            {socialLinks.map((social) => (
-              <Link key={social.label} href={social.href} className="text-muted-foreground hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+            {socialLinks.map((social, index) => (
+              <Link 
+                key={social.label} 
+                href={social.href} 
+                className={cn(
+                  "text-muted-foreground hover:text-accent transition-colors animate-icon-glow",
+                  `delay-${index + 1}`
+                )}
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 {social.icon}
                 <span className="sr-only">{social.label}</span>
               </Link>
@@ -82,3 +92,4 @@ export function Footer() {
     </footer>
   );
 }
+
