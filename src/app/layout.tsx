@@ -56,7 +56,6 @@ export default function RootLayout({
         
         <title>KAWADY Mildsteel Consultants Ltd | Expert Welding & Fabrication</title>
         <meta name="keywords" content="mild steel consultancy Kenya,welding procedure specification,WPS development,fabrication process optimization,structural steel design,metalworks Nairobi,on-site welding audit,root cause failure analysis,material selection advisory,cost estimation steel projects,site supervision construction,feasibility studies engineering,custom metal fabrication,artistic ironwork,corrosion prevention steel,technical staff training welding,supplier quality verification,mild steel expert,structural integrity analysis,construction consultancy,project management" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body 
         className={cn("font-body antialiased bg-transparent text-foreground overflow-x-hidden", poppins.variable)}
