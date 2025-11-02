@@ -88,7 +88,7 @@ export function Footer() {
               <p>&copy; {new Date().getFullYear()} KAWADY mildsteel consultants Ltd. All rights reserved.</p>
               <div className="mt-1 flex items-center justify-center gap-x-2">
                 <Button variant="link" size="sm" className="px-1 h-auto text-xs" asChild>
-                  <a href="https://philip-portfolio.com" target="_blank" rel="noopener noreferrer">Designed by Philip</a>
+                  <a href="https://portifolio-nu-nine-95.vercel.app/" target="_blank" rel="noopener noreferrer">Designed by Philip</a>
                 </Button>
                 <span>|</span>
                 <Link href="/terms" className="hover:text-accent">Terms</Link>
