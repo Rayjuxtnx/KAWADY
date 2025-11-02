@@ -1,11 +1,12 @@
 
 import Link from 'next/link';
 import { Home, Briefcase, Mail, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { BlueprintBackground } from './blueprint-background';
 
 const navLinks = [
-  { href: '/', label: 'Home', icon: <Home className="h-6 w-6" /> },
-  { href: '/services', label: 'Services', icon: <Briefcase className="h-6 w-6" /> },
-  { href: '/contact', label: 'Contact', icon: <Mail className="h-6 w-6" /> },
+  { href: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
+  { href: '/services', label: 'Services', icon: <Briefcase className="h-5 w-5" /> },
+  { href: '/contact', label: 'Contact', icon: <Mail className="h-5 w-5" /> },
 ];
 
 const socialLinks = [
@@ -16,9 +17,37 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-accent/20 bg-transparent mt-auto">
-      <div className="container max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center">
+    <footer className="relative w-full border-t border-accent/20 bg-transparent mt-auto overflow-hidden">
+      <BlueprintBackground />
+      <div className="container max-w-7xl py-8 px-4 sm:px-6 lg:px-8 relative">
+        <div className="flex flex-col items-center justify-center space-y-6">
+          
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="relative w-8 h-8">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                <circle
+                    className="animate-circle-loop"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="url(#glow-gradient-footer)"
+                    strokeWidth="8"
+                    fill="none"
+                />
+                </svg>
+                <svg width="0" height="0">
+                <defs>
+                    <linearGradient id="glow-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: 'hsl(210, 70%, 55%)', stopOpacity: 1 }} />
+                    </linearGradient>
+                </defs>
+                </svg>
+            </div>
+            <span className="text-xl font-bold">KAWADY</span>
+          </Link>
+          
           {/* Main App-like Navigation */}
           <div className="flex justify-center items-center gap-8 md:gap-12">
             {navLinks.map((link) => (
@@ -28,9 +57,6 @@ export function Footer() {
               </Link>
             ))}
           </div>
-
-          {/* Divider */}
-          <div className="w-24 h-px bg-border/50 my-6" />
 
           {/* Social Links */}
           <div className="flex items-center gap-6">
@@ -43,7 +69,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="mt-6 text-xs text-muted-foreground text-center">
+          <div className="pt-6 border-t border-border/20 text-xs text-muted-foreground text-center w-full">
               <p>&copy; {new Date().getFullYear()} KAWADY mildsteel consultants Ltd. All rights reserved.</p>
               <p className="mt-1">Designed by Philip | <Link href="/terms" className="hover:text-accent">Terms</Link></p>
           </div>
