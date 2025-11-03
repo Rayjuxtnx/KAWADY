@@ -120,25 +120,5 @@ export const galleryImages: GalleryItem[] = [
   { "id": "gallery-28",
     "title": "Project S",
     "imageId": "gallery-img-28"
-  },
-  { "id": "gallery-1",
-    "title": "Project D",
-    "imageId": "gallery-img"
-  },
-  { "id": "gallery-11",
-    "title": "Project D",
-    "imageId": "gallery-img"
-  },
-  { "id": "gallery-11",
-    "title": "Project D",
-    "imageId": "gallery-img"
-  },
-  { "id": "gallery-11",
-    "title": "Project D",
-    "imageId": "gallery-img"
-  },
-  { "id": "gallery-11",
-    "title": "Project D",
-    "imageId": "gallery-img"
   }                                              
 ]
