@@ -2,7 +2,7 @@
 
 A modern and professional construction consultancy website designed to showcase company services,
 , analytics, and client contact information.  
-Built with **HTML, CSS, and JavaScript**, the website focuses on reliability, clean design, and user engagement.
+Built with **REACT, TAILWIND, and NODEJS**, the website focuses on reliability, clean design, and user engagement.
 
 ## Features
 
