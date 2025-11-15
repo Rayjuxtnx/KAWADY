@@ -79,7 +79,7 @@ export async function submitContactForm(
   }
 
   return {
-    message: "Thank you! Your message has been sent successfully.",
+    message: "Thank you! Your message has been sent successfully and kawady will contact you shortly, see you soon.",
     success: true,
   };
 }
