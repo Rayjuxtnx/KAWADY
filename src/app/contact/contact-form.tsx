@@ -153,7 +153,7 @@ export function ContactForm() {
                                 <CardTitle className="text-lg">Business Hours</CardTitle>
                             </CardHeader>
                             <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0 text-muted-foreground text-xs">
-                                <p><span className="font-semibold text-primary">Monday - Friday:</span> 9:00 AM - 5:00 PM</p>
+                                <p><span className="font-semibold text-primary">Monday - Friday:</span> 8:00 AM - 5:00 PM</p>
                                 <p><span className="font-semibold text-primary">Saturday - Sunday:</span> Closed</p>
                             </CardContent>
                         </Card>

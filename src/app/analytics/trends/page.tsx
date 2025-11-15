@@ -9,11 +9,11 @@ import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { useTheme } from 'next-themes';
 
 const initialCostIndexData = [
-    { year: '2020', index: 100 },
-    { year: '2021', index: 105 },
-    { year: '2022', index: 115 },
-    { year: '2023', index: 122 },
-    { year: '2024', index: 128 },
+    { year: '2021', index: 100 },
+    { year: '2022', index: 105 },
+    { year: '2023', index: 115 },
+    { year: '2024', index: 122 },
+    { year: '2025', index: 128 },
 ];
 
 const initialDemandData = [
