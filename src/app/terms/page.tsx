@@ -14,7 +14,7 @@ export default function TermsPage() {
         <div className="container max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-bold text-primary text-center mb-8">Terms and Conditions</h1>
           <div className="prose prose-lg dark:prose-invert mx-auto text-muted-foreground space-y-6">
-            <p className="text-sm text-center">Last updated: {new Date().toLocaleDateString()}</p>
+            <p className="text-sm text-center">Today update: {new Date().toLocaleDateString()}</p>
             
             <p>
               Please read these terms and conditions carefully before using Our Service. These Terms and Conditions govern your use of the KAWADY mildsteel consultants Ltd website and the services offered.

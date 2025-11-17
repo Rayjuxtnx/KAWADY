@@ -42,8 +42,8 @@ export async function submitContactForm(
 
   const { name, email, phone, message } = validated.data;
 
-  // Your Formspree endpoint
-  const FORMSPREE_URL = "https://formspree.io/f/movydwwq";
+  // this is the kawady formspree endpoint URL message to be sent
+  const FORMSPREE_URL = "https://formspree.io/f/mblqoajv";
 
   try {
     const res = await fetch(FORMSPREE_URL, {
