@@ -21,6 +21,16 @@
     <priority>0.80</priority>
   </url>
   <url>
+  <loc>https://kawady.com/gallery</loc>
+    <lastmod>2025-11-14</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+  <loc>https://kawady.com/aboutus</loc>
+    <lastmod>2025-11-14</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://kawady.com/analytics</loc>
     <lastmod>2025-11-14</lastmod>
     <priority>0.80</priority>
